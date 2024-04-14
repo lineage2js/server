@@ -1,7 +1,7 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class QuestList {
-	constructor() {
+  constructor() {
     this._packet = new ServerPacket(10);
     this._packet.writeC(0x98)
       .writeH(0x00)

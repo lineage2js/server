@@ -1,7 +1,7 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class CryptInit {
-	constructor(key) {
+  constructor(key) {
     this._packet = new ServerPacket(10);
     this._packet.writeC(0x00)
       .writeC(0x01) // 0x00 - protocol version is different, 0x01 - ok

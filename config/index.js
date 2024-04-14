@@ -3,7 +3,7 @@ const loginserver = require('./loginserver');
 const gameserver = require('./gameserver');
 
 module.exports = {
-	main,
-	loginserver,
-	gameserver,
+  main,
+  loginserver,
+  gameserver,
 }

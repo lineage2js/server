@@ -1,7 +1,7 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class LoginOk {
-	constructor(SessionKey1) {
+  constructor(SessionKey1) {
     this._packet = new ServerPacket(48);
     this._packet.writeC(0x03)
       .writeD(SessionKey1[0])

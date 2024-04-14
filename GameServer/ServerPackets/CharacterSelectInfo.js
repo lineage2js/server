@@ -1,7 +1,7 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class CharacterSelectInfo {
-	constructor(login, characters) {
+  constructor(login, characters) {
     this._packet = new ServerPacket(characters ? characters.length * 400 : 10); // fix
     this._packet.writeC(0x1f)
 
@@ -12,20 +12,20 @@ class CharacterSelectInfo {
         this._packet.writeS(characters[i].name)
           .writeD(characters[i].objectId)
           .writeS(login)
-				  .writeD(0x55555555)	// getSessionId
-				  .writeD(characters[i].clanId)
+          .writeD(0x55555555)	// getSessionId
+          .writeD(characters[i].clanId)
 
           .writeD(0x00)
 
           .writeD(characters[i].gender)
-				  .writeD(characters[i].raceId)
-				  .writeD(characters[i].classId)
+          .writeD(characters[i].raceId)
+          .writeD(characters[i].classId)
 
           .writeD(0x01)
 
           .writeD(characters[i].x)	// no effect ?
-				  .writeD(characters[i].y)	// no effect ?
-				  .writeD(characters[i].z)	// no effect ?
+          .writeD(characters[i].y)	// no effect ?
+          .writeD(characters[i].z)	// no effect ?
 
           .writeF(characters[i].hp)
           .writeF(characters[i].mp)
@@ -84,7 +84,7 @@ class CharacterSelectInfo {
           .writeD(characters[i].face)
 
           .writeF(characters[i].maximumHp)
-				  .writeF(characters[i].maximumMp)
+          .writeF(characters[i].maximumMp)
 
           .writeD(0x00); //writeD(charInfoPackage.getDeleteTimer());  // days left before delete .. if != 0 then char is inactive
       }

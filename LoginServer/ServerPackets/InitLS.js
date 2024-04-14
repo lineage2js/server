@@ -1,7 +1,7 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class InitLS {
-	constructor() {
+  constructor() {
     this._sessionID = 0x03ed779c;
     this._packet = new ServerPacket(9);
     this._packet.writeC(0x00)

@@ -6,64 +6,64 @@ const characterTemplates = require('./../data/characterTemplates.json');
 const players = require('./../Models/Players');
 
 class CharacterCreate {
-	constructor(packet, client) {
+  constructor(packet, client) {
     this._client = client;
-		this._data = new ClientPacket(packet);
-		this._data.readC()
-			.readS()
-			.readD()
-			.readD()
-			.readD()
-			.readD()
-			.readD()
-			.readD()
-			.readD()
-			.readD()
-			.readD()
-			.readD()
-			.readD()
-			.readD();
+    this._data = new ClientPacket(packet);
+    this._data.readC()
+      .readS()
+      .readD()
+      .readD()
+      .readD()
+      .readD()
+      .readD()
+      .readD()
+      .readD()
+      .readD()
+      .readD()
+      .readD()
+      .readD()
+      .readD();
 
-		this._init();
-	}
+    this._init();
+  }
 
   get name() {
-		return this._data.getData()[1];
-	}
+    return this._data.getData()[1];
+  }
 
-	get race() {
-		return this._data.getData()[2];
-	}
+  get race() {
+    return this._data.getData()[2];
+  }
 
-	get gender() {
-		return this._data.getData()[3];
-	}
+  get gender() {
+    return this._data.getData()[3];
+  }
 
-	get classId() {
-		return this._data.getData()[4];
-	}
+  get classId() {
+    return this._data.getData()[4];
+  }
 
-	get hairStyle() {
-		return this._data.getData()[11];
-	}
+  get hairStyle() {
+    return this._data.getData()[11];
+  }
 
-	get hairColor() {
-		return this._data.getData()[12];
-	}
+  get hairColor() {
+    return this._data.getData()[12];
+  }
 
-	get face() {
-		return this._data.getData()[13];
-	}
+  get face() {
+    return this._data.getData()[13];
+  }
 
   _checkNameLetters(name) {
     const regexp = /^[0-9A-Za-z]*$/gi;
 
-		if (regexp.test(name)) {
+    if (regexp.test(name)) {
       return true;
     } else {
       return false;
     }
-	}
+  }
 
   async checkMaxNumberCharacters(login) {
     const characters = await database.getCharactersByLogin(login);
@@ -76,7 +76,7 @@ class CharacterCreate {
     }
   }
 
-	async _init() {
+  async _init() {
     const player = players.getPlayerByClient(this._client);
     
     if (await this.checkMaxNumberCharacters(player.login)) {
@@ -112,7 +112,7 @@ class CharacterCreate {
     character.objectId = await database.getNextObjectId();
     character.login = player.login;
     character.maximumHp = character.hp;
-		character.maximumMp = character.mp;
+    character.maximumMp = character.mp;
     character.gender = this.gender;
     character.hairStyle = this.hairStyle;
     character.hairColor = this.hairColor;
@@ -152,7 +152,7 @@ class CharacterCreate {
     
     this._client.sendPacket(new serverPackets.CharacterCreateSuccess());
     this._client.sendPacket(new serverPackets.CharacterSelectInfo(player.login, characters));
-	}
+  }
 }
 
 module.exports = CharacterCreate;

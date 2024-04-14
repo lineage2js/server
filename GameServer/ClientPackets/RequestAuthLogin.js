@@ -4,42 +4,42 @@ const database = require('./../../Database');
 const players = require('./../Models/Players');
 
 class RequestAuthLogin {
-	constructor(packet, client) {
+  constructor(packet, client) {
     this._client = client;
-		this._data = new ClientPacket(packet);
-		this._data.readC()
+    this._data = new ClientPacket(packet);
+    this._data.readC()
       .readS()
       .readD()
       .readD()
       .readD()
       .readD();
 
-		this._init();
-	}
+    this._init();
+  }
 
   get login() {
-		return this._data.getData()[1];
-	}
+    return this._data.getData()[1];
+  }
 
   get sessionKey1() {
-		const sessionKey1 = [];
+    const sessionKey1 = [];
 
-		sessionKey1[0] = this._data.getData()[4].toString(16);
-		sessionKey1[1] = this._data.getData()[5].toString(16);
+    sessionKey1[0] = this._data.getData()[4].toString(16);
+    sessionKey1[1] = this._data.getData()[5].toString(16);
 
-		return sessionKey1;
-	}
+    return sessionKey1;
+  }
 
   get sessionKey2() {
-		const sessionKey2 = [];
+    const sessionKey2 = [];
 
-		sessionKey2[0] = this._data.getData()[3].toString(16);
-		sessionKey2[1] = this._data.getData()[2].toString(16);
+    sessionKey2[0] = this._data.getData()[3].toString(16);
+    sessionKey2[1] = this._data.getData()[2].toString(16);
 
-		return sessionKey2;
-	}
+    return sessionKey2;
+  }
 
-	async _init() {
+  async _init() {
     const player = players.getPlayerByClient(this._client);
     const characters = await database.getCharactersByLogin(this.login);
 
@@ -48,7 +48,7 @@ class RequestAuthLogin {
     });
 
     this._client.sendPacket(new serverPackets.CharacterSelectInfo(this.login, characters));
-	}
+  }
 }
 
 module.exports = RequestAuthLogin;

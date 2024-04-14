@@ -1,7 +1,7 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class UserInfo {
-	constructor(player) {
+  constructor(player) {
     this._packet = new ServerPacket(600 + ServerPacket.strlen(player.name));
     this._packet.writeC(0x04)
       .writeD(player.x)

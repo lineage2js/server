@@ -1,7 +1,7 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class CharacterCreateSuccess {
-	constructor() {
+  constructor() {
     this._packet = new ServerPacket(5);
     this._packet.writeC(0x25)
       .writeD(0x01);

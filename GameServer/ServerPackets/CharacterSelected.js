@@ -1,7 +1,7 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class CharacterSelected {
-	constructor(character) {
+  constructor(character) {
     this._packet = new ServerPacket(230 + ServerPacket.strlen(character.name) + ServerPacket.strlen(character.title)); // fix
     this._packet.writeC(0x21)
       .writeS(character.name)
