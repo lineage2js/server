@@ -91,18 +91,18 @@ class UserInfo {
 
       // male
     if(player.gender === 0) {
-      this._packet.writeF(1.1)
-        .writeF(1.188)
-        .writeF(9)
-        .writeF(23);
+      this._packet.writeF(player.maleMovementMultiplier)
+        .writeF(player.maleAttackSpeedMultiplier)
+        .writeF(player.maleCollisionRadius)
+        .writeF(player.maleCollisionHeight);
     }
 
     // female
     if(player.gender === 1) {
-      this._packet.writeF(0)
-        .writeF(0)
-        .writeF(0)
-        .writeF(0);
+      this._packet.writeF(player.femaleMovementMultiplier)
+        .writeF(player.femaleAttackSpeedMultiplier)
+        .writeF(player.femaleCollisionRadius)
+        .writeF(player.femaleCollisionHeight);
     }
 
     this._packet.writeD(player.hairStyle)
@@ -121,11 +121,11 @@ class UserInfo {
       .writeD(player.pk)
       .writeD(player.pvp)
       .writeH(0x00) // cubic count
-      //		.writeH(0x01) // 1-yellow 2-orange 3-yellow star 4-violett 5-blue cube  
-      //		.writeH(0x02) // 1-yellow 2-orange 3-yellollow star 4-violett 5-blue cube  w star  4-violett 5-blue cube  
-      //		.writeH(0x03) // 1-yellow 2-orange 3-ye
-      //		.writeH(0x04) // 1-yellow 2-orange 3-yellow star 4-violett 5-blue cube  
-      //		.writeH(0x05) // 1-yellow 2-orange 3-yellow star 4-violett 5-blue cube  
+      //.writeH(0x01) // 1-yellow 2-orange 3-yellow star 4-violett 5-blue cube  
+      //.writeH(0x02) // 1-yellow 2-orange 3-yellollow star 4-violett 5-blue cube  w star  4-violett 5-blue cube  
+      //.writeH(0x03) // 1-yellow 2-orange 3-ye
+      //.writeH(0x04) // 1-yellow 2-orange 3-yellow star 4-violett 5-blue cube  
+      //.writeH(0x05) // 1-yellow 2-orange 3-yellow star 4-violett 5-blue cube  
       .writeC(0x00); // 1-find party members
   }
 

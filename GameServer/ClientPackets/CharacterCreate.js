@@ -118,34 +118,6 @@ class CharacterCreate {
     character.hairColor = this.hairColor;
     character.face = this.face;
 
-    //fix
-    character.swimSpeed = 1;
-    character.canCraft = 0;
-    character.maleMovementMultiplier = null;
-    character.maleAttackSpeedMultiplier = null;
-    character.maleCollisionRadius = null;
-    character.maleCollisionHeight = null;
-    
-    character.femaleMovementMultiplier = null;
-    character.femaleAttackSpeedMultiplier = null;
-    character.femaleCollisionRadius = null;
-    character.femaleCollisionHeight = null;
-
-    character.pAtk = 1;
-    character.pSpd = 1;
-    character.pDef = 1;
-    character.evasion = 1;
-    character.accuracy = 1;
-    character.critical = 1;
-
-    character.mAtk = 1;
-    character.mSpd = 1;
-    character.pSpd = 1;
-    character.mDef = 1;
-
-    character.items = null;
-    //
-
     await database.addCharacter(character);
 
     const characters = await database.getCharactersByLogin(player.login);
