@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "clockwok": "github:space2pacman/clockwok",
     "mongodb": "^6.5.0"
   }
 }

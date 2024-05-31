@@ -1,10 +1,12 @@
 const Character = require('./Character');
+const serverPackets = require('./../ServerPackets/serverPackets');
 
 class Player extends Character {
   constructor(client) {
     super();
 
     this._client = client;
+    this.target = null;
   }
 
   getClient() {
@@ -17,6 +19,10 @@ class Player extends Character {
         this[key] = data[key];
       }
     }
+  }
+
+  attack(objectId) {    
+    this._client.sendPacket(new serverPackets.Attack(this, objectId));
   }
 }
 

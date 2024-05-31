@@ -7,6 +7,8 @@ const NewCharacter = require('./NewCharacter');
 const CharacterCreate = require('./CharacterCreate');
 const CharacterDelete = require('./CharacterDelete');
 const MoveBackwardToLocation = require('./MoveBackwardToLocation');
+const Action = require('./Action');
+const RequestAttack = require('./RequestAttack');
 
 module.exports = {
   ProtocolVersion,
@@ -18,4 +20,6 @@ module.exports = {
   CharacterCreate,
   CharacterDelete,
   MoveBackwardToLocation,
+  Action,
+  RequestAttack,
 }

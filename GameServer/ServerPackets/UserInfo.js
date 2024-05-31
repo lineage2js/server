@@ -80,27 +80,26 @@ class UserInfo {
       .writeD(0)
       .writeD(player.karma)
 
-      .writeD(player.runSpeed)
-      .writeD(player.walkSpeed)
+      .writeD(115) // 126 / 1.1 = base?
+      .writeD(80)
       .writeD(player.swimSpeed)
       .writeD(player.swimSpeed)
       .writeD(player.runSpeed) // getFloatingRunSpeed
       .writeD(player.walkSpeed) // getFloatingWalkSpeed
       .writeD(player.runSpeed) // getFlyingRunSpeed
-      .writeD(player.walkSpeed); // getFlyingWalkSpeed
+      .writeD(player.walkSpeed) // getFlyingWalkSpeed
+      .writeF(player.movementMultiplier);
 
       // male
     if(player.gender === 0) {
-      this._packet.writeF(player.maleMovementMultiplier)
-        .writeF(player.maleAttackSpeedMultiplier)
+      this._packet.writeF(player.maleAttackSpeedMultiplier)
         .writeF(player.maleCollisionRadius)
         .writeF(player.maleCollisionHeight);
     }
 
     // female
     if(player.gender === 1) {
-      this._packet.writeF(player.femaleMovementMultiplier)
-        .writeF(player.femaleAttackSpeedMultiplier)
+      this._packet.writeF(player.femaleAttackSpeedMultiplier)
         .writeF(player.femaleCollisionRadius)
         .writeF(player.femaleCollisionHeight);
     }

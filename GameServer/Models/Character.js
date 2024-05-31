@@ -1,3 +1,5 @@
+const baseStats = require('./../data/baseStats.json');
+
 class Character {
   constructor() {
     this.objectId = null;
@@ -51,8 +53,8 @@ class Character {
     this.accuracy = null;
     this.critical = null;
     this.evasion = null;
-    this.runSpeed = null;
-    this.walkSpeed = null;
+    this.baseRunSpeed = null;
+    this.baseWalkSpeed = null;
     this.swimSpeed = null;
     this.maximumLoad = null;
     
@@ -62,12 +64,10 @@ class Character {
     
     this.canCraft = null;
     
-    this.maleMovementMultiplier = null;
     this.maleAttackSpeedMultiplier = null;
     this.maleCollisionRadius = null;
     this.maleCollisionHeight = null;
     
-    this.femaleMovementMultiplier = null;
     this.femaleAttackSpeedMultiplier = null;
     this.femaleCollisionRadius = null;
     this.femaleCollisionHeight = null;
@@ -96,6 +96,21 @@ class Character {
     this.feet = { objectId: 0, itemId: 0 }
     this.back = { objectId: 0, itemId: 0 }
   }
+
+  get runSpeed() {
+    return Math.round(this.baseRunSpeed * baseStats.DEX[this.dex]);
+  }
+
+  get walkSpeed() {
+    return Math.round(this.baseWalkSpeed * baseStats.DEX[this.dex]);
+  }
+
+  get movementMultiplier() {
+   const multiplier = this.runSpeed / this.baseRunSpeed;
+   const roundedMultiplier = multiplier.toFixed(1);
+
+   return parseFloat(roundedMultiplier);
+  };
 
   static create(template) {
     const character = new Character();

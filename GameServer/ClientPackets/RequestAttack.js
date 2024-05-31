@@ -1,16 +1,11 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const players = require('./../Models/Players');
+const npcs = require('./../Models/Npcs');
 const tasks = require('./../libs/tasks');
 const database = require('./../../Database');
 
-class Formuls {
-  nextTickRunSpeed(speed) {
-    return Math.round((0.1 /speed) * 1_000_000);
-  }
-}
-
-class MoveBackwardToLocation {
+class RequestAttack {
   constructor(packet, client) {
     this._client = client;
     this._data = new ClientPacket(packet);
@@ -19,68 +14,55 @@ class MoveBackwardToLocation {
       .readD()
       .readD()
       .readD()
-      .readD()
-      .readD();
+      .readC();
 
     this._init();
   }
 
-  get targetX() {
+  get objectId() {
     return this._data.getData()[1];
   }
-  get targetY() {
+
+  get x() {
     return this._data.getData()[2];
   }
-  get targetZ() {
+
+  get y() {
     return this._data.getData()[3];
   }
-  get originX() {
+
+  get z() {
     return this._data.getData()[4];
   }
-  get originY() {
-    return this._data.getData()[5];
-  }
-  get originZ() {
-    return this._data.getData()[6];
+
+  get attackId() {
+    return this._data.getData()[5]; // 0 - click, 1 - shift click
   }
 
   async _init() {
     const player = players.getPlayerByClient(this._client);
 
-    tasks.findById(`move:${player.objectId}`).forEach(task => {
-      task.remove();
-    });
+    // tasks.findById(`move:${player.objectId}`).forEach(task => {
+    //   task.remove();
+    // });
 
-    player.update({
-      x: this.originX,
-      y: this.originY,
-      z: this.originZ
-    });
-
-    let objectId = await database.getNextObjectId();
-
-    this._client.sendPacket(new serverPackets.DropItem(player, {
-      objectId: objectId++,
-      itemId: 57,
-      x: player.x,
-      y: player.y,
-      z: player.z
-    }));
-
+    const npc = npcs.getNpcByObjectId(this.objectId);
     const path = {
       target: {
-        x: this.targetX,
-        y: this.targetY,
-        z: this.targetZ
+        x: npc.x,
+        y: npc.y,
+        z: npc.z
       },
       origin: {
-        x: this.originX,
-        y: this.originY,
-        z: this.originZ
+        x: player.x,
+        y: player.y,
+        z: player.z
       }
     }
 
     let angle = Math.atan2(path.target.y - path.origin.y, path.target.x - path.origin.x);
+
+    let objectId = await database.getNextObjectId();
     
     const dx = path.target.x - path.origin.x;
     const dy = path.target.y - path.origin.y;
@@ -108,7 +90,7 @@ class MoveBackwardToLocation {
           });
 
           this._client.sendPacket(new serverPackets.DropItem(player, {
-            objectId: objectId++,
+            objectId: objectId,
             itemId: 57,
             x: player.x,
             y: player.y,
@@ -137,7 +119,7 @@ class MoveBackwardToLocation {
           });
 
           this._client.sendPacket(new serverPackets.DropItem(player, {
-            objectId: objectId++,
+            objectId: objectId,
             itemId: 57,
             x: player.x,
             y: player.y,
@@ -169,7 +151,7 @@ class MoveBackwardToLocation {
           });
 
           this._client.sendPacket(new serverPackets.DropItem(player, {
-            objectId: objectId++,
+            objectId: objectId,
             itemId: 57,
             x: player.x,
             y: player.y,
@@ -191,9 +173,28 @@ class MoveBackwardToLocation {
             y: player.y + (Math.sin(angle) * 126),
             z: player.z
           });
+          //
+          const npc = npcs.getNpcByObjectId(this.objectId);
+          const path = {
+            target: {
+              x: npc.x,
+              y: npc.y,
+              z: npc.z
+            },
+            origin: {
+              x: player.x,
+              y: player.y,
+              z: player.z
+            }
+          }
+
+          angle = Math.atan2(path.target.y - path.origin.y, path.target.x - path.origin.x);
+
+          this._client.sendPacket(new serverPackets.MoveToLocation(path, player.objectId));
+          //
 
           this._client.sendPacket(new serverPackets.DropItem(player, {
-            objectId: objectId++,
+            objectId: objectId,
             itemId: 57,
             x: player.x,
             y: player.y,
@@ -249,7 +250,7 @@ class MoveBackwardToLocation {
           });
 
           this._client.sendPacket(new serverPackets.DropItem(player, {
-            objectId: objectId++,
+            objectId: objectId,
             itemId: 57,
             x: player.x,
             y: player.y,
@@ -262,15 +263,11 @@ class MoveBackwardToLocation {
     }
 
     tasks.start(`move:${player.objectId}`);
-
+    
     this._client.sendPacket(new serverPackets.MoveToLocation(path, player.objectId));
 
-    // player.update({
-    //   x: this.targetX,
-    //   y: this.targetY,
-    //   z: this.targetZ
-    // });
+    //this._client.sendPacket(new serverPackets.MoveToPawn(player, npc, 19));
   }
 }
 
-module.exports = MoveBackwardToLocation;
+module.exports = RequestAttack;

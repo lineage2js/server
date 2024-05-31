@@ -1,5 +1,6 @@
 const Server = require('./GameServer/Server');
 const database = require('./Database');
+const npcs = require('./GameServer/Models/Npcs');
 const server = new Server();
 
 async function run() {
@@ -23,6 +24,8 @@ async function run() {
       // console.log('# Protocol ........ %d                #', 419);
       // console.log('########################################');
       // console.log('\n');
+
+      npcs.spawn();
     });
   } catch {
 

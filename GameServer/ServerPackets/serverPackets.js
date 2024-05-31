@@ -7,9 +7,16 @@ const CharacterTemplates = require('./CharacterTemplates');
 const CharacterCreateSuccess = require('./CharacterCreateSuccess');
 const CharacterCreateFail = require('./CharacterCreateFail');
 const CharacterDeleteOk = require('./CharacterDeleteOk');
+const CharacterInfo = require('./CharacterInfo');
 const MoveToLocation = require('./MoveToLocation');
+const MoveToPawn = require('./MoveToPawn');
 const SunRise = require('./SunRise');
 const SunSet = require('./SunSet');
+const NpcInfo = require('./NpcInfo');
+const TargetSelected = require('./TargetSelected');
+const Attack = require('./Attack');
+const DropItem = require('./DropItem');
+const StopRotating = require('./StopRotating');
 
 module.exports = {
   CryptInit,
@@ -21,7 +28,14 @@ module.exports = {
   CharacterCreateSuccess,
   CharacterCreateFail,
   CharacterDeleteOk,
+  CharacterInfo,
   MoveToLocation,
+  MoveToPawn,
   SunRise,
   SunSet,
+  NpcInfo,
+  TargetSelected,
+  Attack,
+  DropItem,
+  StopRotating,
 }

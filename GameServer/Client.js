@@ -43,6 +43,10 @@ class Client {
         new clientPackets.ProtocolVersion(packet, this);
 
         break;
+      case 4:
+        new clientPackets.Action(packet, this);
+
+        break;
       case 8:
         new clientPackets.RequestAuthLogin(packet, this);
 
@@ -74,6 +78,10 @@ class Client {
       case 1:
         new clientPackets.MoveBackwardToLocation(packet, this);
   
+        break;
+      case 10:
+        new clientPackets.RequestAttack(packet, this);
+
         break;
       }
   }
