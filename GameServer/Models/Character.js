@@ -1,7 +1,10 @@
 const baseStats = require('./../data/baseStats.json');
+const EventEmitter = require('events');
 
-class Character {
+class Character extends EventEmitter {
   constructor() {
+    super();
+    
     this.objectId = null;
     this.login = null;
     this.name = null;

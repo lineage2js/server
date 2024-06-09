@@ -15,7 +15,7 @@ class NpcInfo {
       .writeD(npc.mSpd) // getMagicalSpeed
       .writeD(npc.pSpd) // getPhysicalSpeed
       .writeD(50) // getRunSpeed
-      .writeD(50) // getWalkSpeed
+      .writeD(20) // getWalkSpeed
       .writeD(50)	// swimspeed
       .writeD(20)	// swimspeed
       .writeD(50) // getFloatingRunSpeed

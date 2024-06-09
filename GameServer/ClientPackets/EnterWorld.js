@@ -29,7 +29,7 @@ class EnterWorld {
     spawnedNpcs.forEach(npc => {
       this._client.sendPacket(new serverPackets.NpcInfo(npc));
 
-      const path = {
+      let path = {
         target: {
           x: -72727,
           y: 258599,
@@ -42,33 +42,67 @@ class EnterWorld {
         }
       }
 
-      const angle = Math.atan2(path.target.y - path.origin.y, path.target.x - path.origin.x);
+      let angle = Math.atan2(path.target.y - path.origin.y, path.target.x - path.origin.x);
 
       tasks.add({
         id: `npc:${npc.objectId}:move`,
         time: 1000,
         callback: (event) => {
-          npc.x = npc.x + ((Math.cos(angle) * 55));
-          npc.y = npc.y + ((Math.sin(angle) * 55));
+          npc.x = npc.x + ((Math.cos(angle) * 22));
+          npc.y = npc.y + ((Math.sin(angle) * 22));
           
           const dx = path.target.x - npc.x;
           const dy = path.target.y - npc.y;
           const distance = (Math.sqrt(dx * dx + dy * dy)) - (10);
   
-          if (distance < 55) {
-            npc.x = npc.x + ((Math.cos(angle) * distance));
-            npc.y = npc.y + ((Math.sin(angle) * distance));
+          if (distance < 22) {
+            //npc.x = npc.x + ((Math.cos(angle) * distance));
+            //npc.y = npc.y + ((Math.sin(angle) * distance));
 
-            event.stop();
+            if (path.target.x === -72727) {
+              path.target.x = -71061;
+              path.target.y = 257191;
+
+              path.origin.x = npc.x;
+              path.origin.y = npc.y;
+
+              angle = Math.atan2(path.target.y - path.origin.y, path.target.x - path.origin.x);
+
+              this._client.sendPacket(new serverPackets.MoveToLocation(path, npc.objectId));
+
+              return;
+            }
+
+            if (path.target.x === -71061) {
+              path.target.x = -72727;
+              path.target.y = 258599;
+
+              path.origin.x = npc.x;
+              path.origin.y = npc.y;
+
+              angle = Math.atan2(path.target.y - path.origin.y, path.target.x - path.origin.x);
+
+              this._client.sendPacket(new serverPackets.MoveToLocation(path, npc.objectId));
+            }
+
+            //event.stop();
           }
 
-          this._client.sendPacket(new serverPackets.DropItem(npc, {
-            objectId: objectId,
-            itemId: 57,
-            x: npc.x,
-            y: npc.y,
-            z: npc.z
-          }));
+          // this._client.sendPacket(new serverPackets.DropItem(npc, {
+          //   objectId: objectId,
+          //   itemId: 57,
+          //   x: npc.x,
+          //   y: npc.y,
+          //   z: npc.z
+          // }));
+
+          // setTimeout((function(client, objId) {
+          //   return function() {
+          //     client.sendPacket(new serverPackets.DeleteObject(objId));
+          //   }
+          // })(this._client, objectId), 5000);
+
+          // objectId++;
         }
       });
 

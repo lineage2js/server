@@ -17,6 +17,7 @@ const TargetSelected = require('./TargetSelected');
 const Attack = require('./Attack');
 const DropItem = require('./DropItem');
 const StopRotating = require('./StopRotating');
+const DeleteObject = require('./DeleteObject');
 
 module.exports = {
   CryptInit,
@@ -38,4 +39,5 @@ module.exports = {
   Attack,
   DropItem,
   StopRotating,
+  DeleteObject,
 }

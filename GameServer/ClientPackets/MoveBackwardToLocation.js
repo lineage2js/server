@@ -85,7 +85,7 @@ class MoveBackwardToLocation {
     const dx = path.target.x - path.origin.x;
     const dy = path.target.y - path.origin.y;
     
-    let distance = Math.sqrt(dx * dx + dy * dy) - (10 + 9);
+    let distance = Math.sqrt(dx * dx + dy * dy) - (10 + 18);
 
     // walk
     if (distance < 36) {
@@ -98,7 +98,7 @@ class MoveBackwardToLocation {
           if (event.runs === 1) {
             event.stop();
 
-            player.attack(this.objectId);
+            //player.attack(this.objectId);
           }
           
           player.update({
@@ -159,7 +159,7 @@ class MoveBackwardToLocation {
           if (event.runs === 1) {
             event.stop();
 
-            player.attack(this.objectId);
+            //player.attack(this.objectId);
           }
 
           player.update({
@@ -202,7 +202,7 @@ class MoveBackwardToLocation {
           
           const dx = path.target.x - player.x;
           const dy = path.target.y - player.y;
-          const distance = Math.sqrt(dx * dx + dy * dy) - (10 + 9);
+          const distance = Math.sqrt(dx * dx + dy * dy) - (10 + 18);
   
           if (distance < 126) {
             event.stop();
@@ -217,7 +217,7 @@ class MoveBackwardToLocation {
 
       let dx = path.target.x - x;
       let dy = path.target.y - y;
-      let distance = Math.sqrt(dx * dx + dy * dy) - 36 - (10 + 9);
+      let distance = Math.sqrt(dx * dx + dy * dy) - 36 - (10 + 18);
       
       while(distance > 126) {
         x = x + (Math.cos(angle) * 126);
@@ -225,7 +225,7 @@ class MoveBackwardToLocation {
 
         dx = path.target.x - x;
         dy = path.target.y - y;
-        distance = Math.sqrt(dx * dx + dy * dy) - 36 - (10 + 9);
+        distance = Math.sqrt(dx * dx + dy * dy) - 36 - (10 + 18);
       }
 
       return distance;
@@ -256,20 +256,20 @@ class MoveBackwardToLocation {
             z: player.z
           }));
   
-          player.attack(this.objectId);
+          //player.attack(this.objectId);
         }
       });
     }
 
-    tasks.start(`move:${player.objectId}`);
+    //tasks.start(`move:${player.objectId}`);
 
     this._client.sendPacket(new serverPackets.MoveToLocation(path, player.objectId));
 
-    // player.update({
-    //   x: this.targetX,
-    //   y: this.targetY,
-    //   z: this.targetZ
-    // });
+    player.update({
+      x: this.targetX,
+      y: this.targetY,
+      z: this.targetZ
+    });
   }
 }
 
