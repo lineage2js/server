@@ -1,6 +1,6 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
-class MoveToLocation {
+class MoveToPawn {
   constructor(player, target, distance) {
     this._packet = new ServerPacket(37);
     this._packet.writeC(0x75)
@@ -20,4 +20,4 @@ class MoveToLocation {
   }
 }
 
-module.exports = MoveToLocation;
+module.exports = MoveToPawn;

@@ -69,8 +69,6 @@ class RequestAttack {
     
     let distance = Math.sqrt(dx * dx + dy * dy) - (10);
 
-    //console.log('distance', distance)
-
     // if (distance < 10) {
     //   player.attack(this.objectId);
 
@@ -105,21 +103,21 @@ class RequestAttack {
 
           player.attack(this.objectId);
 
-          // this._client.sendPacket(new serverPackets.DropItem(player, {
-          //   objectId: objectId,
-          //   itemId: 1, // Short Sword
-          //   x: player.x,
-          //   y: player.y,
-          //   z: player.z
-          // }));
+          this._client.sendPacket(new serverPackets.DropItem(player, {
+            objectId: objectId,
+            itemId: 1, // Short Sword
+            x: player.x,
+            y: player.y,
+            z: player.z
+          }));
 
-          // setTimeout((function(client, objId) {
-          //   return function() {
-          //     client.sendPacket(new serverPackets.DeleteObject(objId));
-          //   }
-          // })(this._client, objectId), 5000);
+          setTimeout((function(client, objId) {
+            return function() {
+              client.sendPacket(new serverPackets.DeleteObject(objId));
+            }
+          })(this._client, objectId), 5000);
 
-          // objectId++;
+          objectId++;
 
           setTimeout(() => {
             const npc = npcs.getNpcByObjectId(this.objectId);
@@ -127,6 +125,10 @@ class RequestAttack {
             const dy = npc.y - player.y;
       
             let distance = Math.sqrt(dx * dx + dy * dy) - (10);
+
+            //
+            npc.emit('attacked', player.objectId);
+            //
 
             if (distance > 0) {
               this._start();
@@ -154,21 +156,21 @@ class RequestAttack {
             z: player.z
           });
 
-          // this._client.sendPacket(new serverPackets.DropItem(player, {
-          //   objectId: objectId,
-          //   itemId: 118, // Necklace
-          //   x: player.x,
-          //   y: player.y,
-          //   z: player.z
-          // }));
+          this._client.sendPacket(new serverPackets.DropItem(player, {
+            objectId: objectId,
+            itemId: 118, // Necklace
+            x: player.x,
+            y: player.y,
+            z: player.z
+          }));
 
-          // setTimeout((function(client, objId) {
-          //   return function() {
-          //     client.sendPacket(new serverPackets.DeleteObject(objId));
-          //   }
-          // })(this._client, objectId), 5000);
+          setTimeout((function(client, objId) {
+            return function() {
+              client.sendPacket(new serverPackets.DeleteObject(objId));
+            }
+          })(this._client, objectId), 5000);
 
-          // objectId++;
+          objectId++;
         }
       });
 
@@ -194,21 +196,21 @@ class RequestAttack {
 
           player.attack(this.objectId);
 
-          // this._client.sendPacket(new serverPackets.DropItem(player, {
-          //   objectId: objectId,
-          //   itemId: 2516, // Saber*Saber
-          //   x: player.x,
-          //   y: player.y,
-          //   z: player.z
-          // }));
+          this._client.sendPacket(new serverPackets.DropItem(player, {
+            objectId: objectId,
+            itemId: 2516, // Saber*Saber
+            x: player.x,
+            y: player.y,
+            z: player.z
+          }));
 
-          // setTimeout((function(client, objId) {
-          //   return function() {
-          //     client.sendPacket(new serverPackets.DeleteObject(objId));
-          //   }
-          // })(this._client, objectId), 5000);
+          setTimeout((function(client, objId) {
+            return function() {
+              client.sendPacket(new serverPackets.DeleteObject(objId));
+            }
+          })(this._client, objectId), 5000);
 
-          // objectId++;
+          objectId++;
 
           setTimeout(() => {
             const npc = npcs.getNpcByObjectId(this.objectId);
@@ -216,6 +218,10 @@ class RequestAttack {
             const dy = npc.y - player.y;
       
             let distance = Math.sqrt(dx * dx + dy * dy) - (10);
+
+            //
+            npc.emit('attacked', player.objectId);
+            //
 
             if (distance > 0) {
               this._start();
@@ -258,21 +264,21 @@ class RequestAttack {
           this._client.sendPacket(new serverPackets.MoveToLocation(path, player.objectId));
           //
 
-          // this._client.sendPacket(new serverPackets.DropItem(player, {
-          //   objectId: objectId,
-          //   itemId: 57, // Adena
-          //   x: player.x,
-          //   y: player.y,
-          //   z: player.z
-          // }));
+          this._client.sendPacket(new serverPackets.DropItem(player, {
+            objectId: objectId,
+            itemId: 57, // Adena
+            x: player.x,
+            y: player.y,
+            z: player.z
+          }));
 
-          // setTimeout((function(client, objId) {
-          //   return function() {
-          //     client.sendPacket(new serverPackets.DeleteObject(objId));
-          //   }
-          // })(this._client, objectId), 5000);
+          setTimeout((function(client, objId) {
+            return function() {
+              client.sendPacket(new serverPackets.DeleteObject(objId));
+            }
+          })(this._client, objectId), 5000);
 
-          // objectId++;
+          objectId++;
           
           const dx = path.target.x - player.x;
           const dy = path.target.y - player.y;
@@ -294,22 +300,22 @@ class RequestAttack {
                 });
 
                 player.attack(this.objectId);
-      
-                // this._client.sendPacket(new serverPackets.DropItem(player, {
-                //   objectId: objectId,
-                //   itemId: 1060, // Healing Potion
-                //   x: player.x,
-                //   y: player.y,
-                //   z: player.z
-                // }));
 
-                // setTimeout((function(client, objId) {
-                //   return function() {
-                //     client.sendPacket(new serverPackets.DeleteObject(objId));
-                //   }
-                // })(this._client, objectId), 5000);
+                this._client.sendPacket(new serverPackets.DropItem(player, {
+                  objectId: objectId,
+                  itemId: 1060, // Healing Potion
+                  x: player.x,
+                  y: player.y,
+                  z: player.z
+                }));
+
+                setTimeout((function(client, objId) {
+                  return function() {
+                    client.sendPacket(new serverPackets.DeleteObject(objId));
+                  }
+                })(this._client, objectId), 5000);
       
-                // objectId++;
+                objectId++;
         
                 setTimeout(() => {
                   const npc = npcs.getNpcByObjectId(this.objectId);
@@ -317,6 +323,10 @@ class RequestAttack {
                   const dy = npc.y - player.y;
             
                   let distance = Math.sqrt(dx * dx + dy * dy) - (10);
+
+                  //
+                  npc.emit('attacked', player.objectId);
+                  //
       
                   if (distance > 0) {
                     this._start();
@@ -336,7 +346,7 @@ class RequestAttack {
     this._client.sendPacket(new serverPackets.MoveToLocation(path, player.objectId));
   }
 
-  async _init() {
+  _init() {
     this._start();
   }
 }

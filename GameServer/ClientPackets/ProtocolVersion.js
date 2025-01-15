@@ -17,7 +17,7 @@ class ProtocolVersion {
   }
 
   _init() {
-    if (this.version === config.main.PROTOCOL_VERSION_CLIENT) {
+    if (this.version === config.main.CLIENT_PROTOCOL_VERSION) {
       this._client.sendPacket(new serverPackets.CryptInit(config.main.encryptionKeys.XOR), false);
     }
   }

@@ -44,6 +44,17 @@ class EnterWorld {
 
       let angle = Math.atan2(path.target.y - path.origin.y, path.target.x - path.origin.x);
 
+      //
+      // npc.on('attacked', (playerObjectId) => {
+      //   tasks.findById(`npc:${npc.objectId}:move`).forEach(task => {
+      //     task.remove();
+      //   });
+
+      //   this._client.sendPacket(new serverPackets.StopMove(npc.objectId, npc.x, npc.y, npc.z));
+      //   this._client.sendPacket(new serverPackets.Attack(npc, playerObjectId));
+      // })
+      //
+
       tasks.add({
         id: `npc:${npc.objectId}:move`,
         time: 1000,

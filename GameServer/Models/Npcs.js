@@ -29,6 +29,18 @@ class Npcs {
       npc.y = 257191;
       npc.z = -3115;
 
+      // fix
+      const players = require('./Players');
+      const serverPackets = require('./../ServerPackets/serverPackets');
+      
+      npc.on('attacked', (objectId) => {
+        //const player = players.getNpcByObjectId(objectId);
+
+        //player.getClient().sendPacket(new serverPackets.Attack(npc, player.objectId));
+        //player.getClient().sendPacket(new serverPackets.MoveToPawn(npc, player, 100));
+        //console.log(123)
+      })
+
       this._npcs.push(npc);
     });
   }
