@@ -27,7 +27,7 @@ class RequestServerLogin {
   }
 
   _init() {
-    this._client.sendPacket(new serverPackets.PlayOk([0x00000000, 0x00000000]));
+    this._client.sendPacket(new serverPackets.PlayOk([0x00000000, 0x00000000])); // fix
   }
 }
 

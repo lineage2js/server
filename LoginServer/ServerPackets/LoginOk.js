@@ -1,17 +1,17 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class LoginOk {
-  constructor(SessionKey1) {
+  constructor(sessionKey1) {
     this._packet = new ServerPacket(48);
     this._packet.writeC(0x03)
-      .writeD(SessionKey1[0])
-      .writeD(SessionKey1[1])
+      .writeD(sessionKey1[0])
+      .writeD(sessionKey1[1])
       .writeD(0x00)
       .writeD(0x00)
-      .writeD(0x000003ea) // unknown
       .writeD(0x00)
       .writeD(0x00)
-      .writeD(0x02);
+      .writeD(0x00)
+      .writeD(0x00);
   }
 
   getBuffer() {

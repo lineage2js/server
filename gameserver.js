@@ -1,6 +1,9 @@
 const Server = require('./GameServer/Server');
 const database = require('./Database');
 const npcs = require('./GameServer/Models/Npcs');
+const config = require('./config');
+const serverStatus = require('./enums/serverStatus');
+const serverTypes = require('./enums/serverTypes');
 const server = new Server();
 
 async function run() {
@@ -15,7 +18,7 @@ async function run() {
   }
 
   try {
-    server.start(() => {
+    server.start(config.gameserver.host, config.gameserver.port, async () => {
       // console.log('\n');
       // console.log('########################################');
       // console.log('# lineage2js                           #');
@@ -25,11 +28,39 @@ async function run() {
       // console.log('########################################');
       // console.log('\n');
 
+      const isGameServerExists = await database.checkGameServerExistsById(config.gameserver.id);
+      
+      if (!isGameServerExists) {
+        database.addGameServer({
+          id: config.gameserver.id, 
+          host: config.gameserver.host,
+          port: config.gameserver.port,
+          ageLimit: config.gameserver.ageLimit,
+          isPvP: config.gameserver.isPvP,
+          maxPlayers: config.gameserver.maxPlayers,
+          status: serverStatus.STATUS_DOWN,
+          type: serverTypes.SERVER_NORMAL
+        });
+      }
+
+      const gameserver = await database.getGameServerById(config.gameserver.id);
+
+      await database.updateGameServerById(gameserver.id, "status", serverStatus.STATUS_UP);
+
       npcs.spawn();
     });
   } catch {
 
   }
 }
+
+process.stdin.resume();
+process.on('SIGINT', async () => {
+  const gameserver = await database.getGameServerById(config.gameserver.id);
+
+  await database.updateGameServerById(gameserver.id, "status", serverStatus.STATUS_DOWN);
+
+  process.exit(0);
+});
 
 run();

@@ -1,6 +1,6 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
-const config = require('./../../config');
+const database = require('./../../Database');
 
 class RequestServerList {
   constructor(packet, client) {
@@ -22,8 +22,11 @@ class RequestServerList {
     return sessionKey1;
   }
 
-  _init() {
-    this._client.sendPacket(new serverPackets.ServerList(config.gameserver.host, config.gameserver.port));
+  async _init() {
+    const gameservers = await database.getGameServers();
+    const playersOnline = 0; // fix
+
+    this._client.sendPacket(new serverPackets.ServerList(gameservers, playersOnline));
   }
 }
 

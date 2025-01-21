@@ -1,12 +1,13 @@
 const ServerPacket = require('./ServerPacket.js'); 
+const config = require('../../config')
 
 class InitLS {
   constructor() {
-    this._sessionID = 0x03ed779c;
+    this._sessionID = 0x00000000;
     this._packet = new ServerPacket(9);
     this._packet.writeC(0x00)
       .writeD(this._sessionID)
-      .writeD(30810); // Protocol version
+      .writeD(config.main.SERVER_PROTOCOL_VERSION);
   }
 
   getBuffer() {

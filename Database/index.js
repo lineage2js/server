@@ -1,5 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
-const mongoClient = new MongoClient("mongodb://127.0.0.1:27017/");
+const config = require('../config');
+const mongoClient = new MongoClient(`mongodb://${config.database.host}/`);
 
 class Database {
   constructor() {
@@ -10,7 +11,7 @@ class Database {
     try {
       await mongoClient.connect();
       
-      this._db = mongoClient.db("l2db");
+      this._db = mongoClient.db(config.database.dbname);
 
       callback();
     } catch {
@@ -18,8 +19,8 @@ class Database {
     }
   }
   
-  async getAccountByLogin(login) {
-    const user = await this._db.collection('accounts').findOne({ login });
+  async getUserByLogin(login) {
+    const user = await this._db.collection('users').findOne({ login });
 
     if (user) {
       return user;
@@ -36,7 +37,7 @@ class Database {
     return await this._db.collection('characters').find({ login }).toArray();
   }
 
-  async checkNameExist(name) {
+  async checkCharacterNameExists(name) {
     const character = await this._db.collection('characters').findOne({ name });
 
     if (character) {
@@ -80,6 +81,54 @@ class Database {
 
   async deleteCharacterByObjectId(objectId) {
     await this._db.collection('characters').deleteOne({ objectId });
+  }
+
+  async addGameServer(params) {
+    await this._db.collection('gameservers').insertOne({
+      id: params.id, 
+      host: params.host,
+      port: params.port,
+      ageLimit: params.ageLimit,
+      isPvP: params.isPvP,
+      maxPlayers: params.maxPlayers,
+      status: params.status,
+      type: params.type
+    });
+  }
+
+  async getGameServers() {
+    return await this._db.collection('gameservers').find().toArray();
+  }
+
+  async getGameServerById(id) {
+    const gameserver = await this._db.collection('gameservers').findOne({ id });
+
+    if (gameserver) {
+      return gameserver;
+    } else {
+      return null;
+    }
+  }
+
+  async checkGameServerExistsById(id) {
+    const gameserver = await this._db.collection('gameservers').findOne({ id });
+
+    if (gameserver) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async updateGameServerById(id, field, value) {
+    await this._db.collection('gameservers').updateOne(
+      { id },
+      {
+        $set: {
+          [field]: value
+        }
+      }
+    );
   }
 }
 

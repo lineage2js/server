@@ -1,6 +1,5 @@
 const net = require('net');
 const Client = require('./Client');
-const config = require('./../config');
 const Player = require('./Models/Player');
 const players = require('./Models/Players');
 
@@ -9,18 +8,18 @@ class Server {
     this._server = null;
   }
 
-  start(callback) {
+  start(host, port, callback) {
     this._server = net.createServer(this._handler.bind(this));
     
-    this._server.on('listening', this._onListening.bind(this, callback));
+    this._server.on('listening', this._onListening.bind(this, host, port, callback));
     this._server.on('connection', this._onConnection);
-    this._server.listen(config.gameserver.port, config.gameserver.host);
+    this._server.listen(port, host);
   }
 
-  _onListening(callback) {
-    console.log(`game server listening on ${config.gameserver.host}:${config.gameserver.port}`);
+  _onListening(host, port, callback) {
+    console.log(`game server listening on ${host}:${port}`);
     
-    callback()
+    callback();
   }
 
   _onConnection() {

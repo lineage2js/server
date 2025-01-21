@@ -85,9 +85,9 @@ class CharacterCreate {
       return;
     }
 
-    const isUsedName = await database.checkNameExist(this.name);
+    const isUsedCharacterName = await database.checkCharacterNameExists(this.name);
 
-    if (isUsedName) {
+    if (isUsedCharacterName) {
       this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_NAME_ALREADY_EXISTS))
       
       return;

@@ -1,24 +1,29 @@
-const ServerPacket = require('./ServerPacket.js'); 
+const ServerPacket = require('./ServerPacket.js');
 
 class ServerList {
-  constructor(host, port, maxPlayer = 100) {
-    host = host.split(".");
-
-    this._packet = new ServerPacket(20);
+  constructor(gameservers, playersOnline) {
+    this._packet = new ServerPacket(1 + 3 + (gameservers.length * (16 + 4)));
     this._packet.writeC(0x04)
-      .writeC(1) // Number of servers
-      .writeC(0) // Last server
-      .writeC(1) // Server ID
-      .writeC(host[0]) // Server IP
-      .writeC(host[1]) // Server IP
-      .writeC(host[2]) // Server IP
-      .writeC(host[3]) // Server IP
-      .writeD(port) // Server port
-      .writeC(0) // Age limit
-      .writeC(0) // PVP ? YES - 1, NO - 0
-      .writeH(0) // Number of players online
-      .writeH(maxPlayer) // Max player
-      .writeC(1); // 1 = UP, 0 - DOWN
+      .writeC(gameservers.length)
+      .writeC(0x00); // Last server. 0 for normal sorting
+
+    for (let i = 0; i < gameservers.length; i++) {
+      const server = gameservers[i];
+      const octets = server.host.split(".");
+
+      this._packet.writeC(server.id)
+      .writeC(Number(octets[0]))
+      .writeC(Number(octets[1]))
+      .writeC(Number(octets[2]))
+      .writeC(Number(octets[3]))
+      .writeD(server.port)
+      .writeC(server.ageLimit)
+      .writeC(server.isPvP ? 0x01 : 0x00)
+      .writeH(playersOnline)
+      .writeH(server.maxPlayers)
+      .writeC(server.status)
+      .writeD(server.type);
+    }
   }
 
   getBuffer() {

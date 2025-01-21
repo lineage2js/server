@@ -22,7 +22,7 @@ class RequestAuthLogin {
   }
 
   async _init() {
-    const user = await database.getAccountByLogin(this.login);
+    const user = await database.getUserByLogin(this.login);
 
     if (!user) {
       this._client.sendPacket(new serverPackets.LoginFail(serverPackets.LoginFail.reason.REASON_USER_OR_PASS_WRONG));
@@ -36,7 +36,7 @@ class RequestAuthLogin {
       return;
     }
 
-    this._client.sendPacket(new serverPackets.LoginOk([0x00000000, 0x00000000]))
+    this._client.sendPacket(new serverPackets.LoginOk([0x00000000, 0x00000000])); // fix
   }
 }
 
