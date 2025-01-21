@@ -9,7 +9,7 @@ class CharacterSelectInfo {
       this._packet.writeD(characters.length);
 
       for(let i = 0; i < characters.length; i++) {
-        this._packet.writeS(characters[i].name)
+        this._packet.writeS(characters[i].characterName)
           .writeD(characters[i].objectId)
           .writeS(login)
           .writeD(0x55555555)	// getSessionId

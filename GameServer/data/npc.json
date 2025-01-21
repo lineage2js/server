@@ -1,7 +1,7 @@
 [
 	{
 	    "id": 1,
-	    "name": "Gremlin",
+	    "characterName": "Gremlin",
 	    "title": "Monster",
 	    "level": 1,
 	    "gender": "male",

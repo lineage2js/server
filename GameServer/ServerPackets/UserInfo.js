@@ -2,14 +2,14 @@ const ServerPacket = require('./ServerPacket.js');
 
 class UserInfo {
   constructor(player) {
-    this._packet = new ServerPacket(600 + ServerPacket.strlen(player.name));
+    this._packet = new ServerPacket(600 + ServerPacket.strlen(player.characterName));
     this._packet.writeC(0x04)
       .writeD(player.x)
       .writeD(player.y)
       .writeD(player.z)
       .writeD(player.heading) 
       .writeD(player.objectId)
-      .writeS(player.name)
+      .writeS(player.characterName)
       .writeD(player.raceId)
       .writeD(player.gender)
       .writeD(player.classId)

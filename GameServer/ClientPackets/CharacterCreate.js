@@ -55,7 +55,7 @@ class CharacterCreate {
     return this._data.getData()[13];
   }
 
-  _checkNameLetters(name) {
+  _checkCharacterNameLetters(name) {
     const regexp = /^[0-9A-Za-z]*$/gi;
 
     if (regexp.test(name)) {
@@ -93,7 +93,7 @@ class CharacterCreate {
       return;
     }
 
-    if(this.name.length >= 16 || !this._checkNameLetters(this.name)) {
+    if(this.characterName.length >= 16 || !this._checkCharacterNameLetters(this.name)) {
       this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_16_ENG_CHARS))
 
       return;

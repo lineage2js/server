@@ -37,7 +37,7 @@ class NpcInfo {
       
       .writeC(0) // invisible ?? 0=false  1=true   2=summoned (only works if model has a summon animation)
       
-      .writeS(npc.name)
+      .writeS(npc.characterName)
       .writeS(npc.title)
       .writeD(0)
       .writeD(0)
