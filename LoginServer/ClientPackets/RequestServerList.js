@@ -24,7 +24,7 @@ class RequestServerList {
 
   async _init() {
     const gameservers = await database.getGameServers();
-    const playersOnline = 0; // fix
+    const playersOnline = await database.getCharactersOnline();
 
     this._client.sendPacket(new serverPackets.ServerList(gameservers, playersOnline));
   }

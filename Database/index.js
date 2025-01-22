@@ -47,6 +47,12 @@ class Database {
     }
   }
 
+  async getCharactersOnline() {
+    const characters = await this._db.collection('characters').find({ online: true }).toArray();
+
+    return characters.length;
+  }
+
   async getNextObjectId() {
     const objectId = await this._db.collection('counters').findOne(
       {
