@@ -1,22 +1,21 @@
 const net = require('net');
 const Client = require('./Client');
-const config = require('./../config');
 
 class Server {
   constructor() {
     this._server = null;
   }
 
-  start(callback) {
+  start(host, port, callback) {
     this._server = net.createServer(this._handler.bind(this));
 
-    this._server.on('listening', this._onListening.bind(this, callback));
+    this._server.on('listening', this._onListening.bind(this, host, port, callback));
     this._server.on('connection', this._onConnection);
-    this._server.listen(config.loginserver.port, config.loginserver.host);
+    this._server.listen(port, host);
   }
 
-  _onListening(callback) {
-    console.log(`login server listening on ${config.loginserver.host}:${config.loginserver.port}`);
+  _onListening(host, port, callback) {
+    console.log(`login server listening on ${host}:${port}`);
 
     callback();
   }

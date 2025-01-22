@@ -61,12 +61,14 @@ class Client {
   }
 
   _init() {
+    const sessionID = 0x00000000;
+
     this._socket.setEncoding('binary');
     this._socket.on('error', () => {});
     this._socket.on('data', this._onData.bind(this));
     this._socket.on('close', this._onClose.bind(this));
 
-    this.sendPacket(new serverPackets.InitLS(), false);
+    this.sendPacket(new serverPackets.InitLS(sessionID), false);
   }
 }
 

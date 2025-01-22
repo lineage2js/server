@@ -1,6 +1,6 @@
 const Server = require('./GameServer/Server');
-const database = require('./Database');
 const npcs = require('./GameServer/Models/Npcs');
+const database = require('./Database');
 const config = require('./config');
 const serverStatus = require('./enums/serverStatus');
 const serverTypes = require('./enums/serverTypes');

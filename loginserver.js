@@ -1,5 +1,6 @@
 const Server = require('./LoginServer/Server');
 const database = require('./Database');
+const config = require('./config');
 const server = new Server();
 
 async function run() {
@@ -14,7 +15,7 @@ async function run() {
   }
 
   try {
-    server.start(() => {
+    server.start(config.loginserver.host, config.loginserver.port, () => {
       // console.log('\n');
       // console.log('########################################');
       // console.log('# lineage2js                           #');
