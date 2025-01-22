@@ -1,17 +1,17 @@
 const MongoClient = require("mongodb").MongoClient;
-const config = require('../config');
-const mongoClient = new MongoClient(`mongodb://${config.database.host}/`);
 
 class Database {
   constructor() {
     this._db = null;
   }
 
-  async connect(callback) {
+  async connect(host, dbname, callback) {
     try {
+      const mongoClient = new MongoClient(`mongodb://${host}/`);
+
       await mongoClient.connect();
       
-      this._db = mongoClient.db(config.database.dbname);
+      this._db = mongoClient.db(dbname);
 
       callback();
     } catch {

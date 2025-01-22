@@ -8,7 +8,7 @@ const server = new Server();
 
 async function run() {
   try {
-    await database.connect(() => {
+    await database.connect(config.database.host, config.database.dbname, () => {
       console.log("database connected: success");
     });
   } catch(e) {
