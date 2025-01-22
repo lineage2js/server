@@ -66,8 +66,8 @@ class CharacterCreate {
   }
 
   async checkMaxNumberCharacters(login) {
-    const characters = await database.getCharactersByLogin(login);
     const MAXIMUM_NUMBER_OF_CHARACTERS = 7;
+    const characters = await database.getCharactersByLogin(login);
 
     if (characters.length >= MAXIMUM_NUMBER_OF_CHARACTERS) {
       return true;
@@ -77,6 +77,7 @@ class CharacterCreate {
   }
 
   async _init() {
+    const MAXIMUM_LENGTH_CHARACTER_NAME = 16;
     const player = players.getPlayerByClient(this._client);
     
     if (await this.checkMaxNumberCharacters(player.login)) {
@@ -93,7 +94,7 @@ class CharacterCreate {
       return;
     }
 
-    if(this.characterName.length >= 16 || !this._checkCharacterNameLetters(this.name)) {
+    if(this.characterName.length >= MAXIMUM_LENGTH_CHARACTER_NAME || !this._checkCharacterNameLetters(this.name)) {
       this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_16_ENG_CHARS))
 
       return;

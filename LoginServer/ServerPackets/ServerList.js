@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class ServerList {
   constructor(gameservers, playersOnline) {
-    this._packet = new ServerPacket(1 + 3 + (gameservers.length * (16 + 4))); // fix size
+    this._packet = new ServerPacket(1 + 3 + (gameservers.length * (20)));
     this._packet.writeC(0x04)
       .writeC(gameservers.length)
       .writeC(0x00); // Last server. 0 for normal sorting
