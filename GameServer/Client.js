@@ -1,10 +1,11 @@
-const XOR = require('./libs/XOR.js');
-const xor = new XOR([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
+// const XOR = require('./libs/XOR.js');
+// const xor = new XOR([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
 const clientPackets = require('./ClientPackets/clientPackets');
 
 class Client {
   constructor(socket) {
     this._socket = socket;
+    this._protocolVersion = 0;
     
     this._init();
   }
@@ -21,6 +22,14 @@ class Client {
     const packet = Buffer.concat([packetLength, payload]);
 
     this._socket.write(packet);
+  }
+
+  setProtocolVersion(value) {
+    this._protocolVersion = value;
+  }
+  
+  getProtocolVersion() {
+    return this._protocolVersion;
   }
 
   _getPacketLength(buffer) {

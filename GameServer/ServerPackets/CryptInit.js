@@ -1,10 +1,10 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class CryptInit {
-  constructor(key) {
+  constructor(isCompliesProtocolVersion, key) {
     this._packet = new ServerPacket(10);
     this._packet.writeC(0x00)
-      .writeC(0x01) // 0x00 - protocol version is different, 0x01 - ok
+      .writeC(isCompliesProtocolVersion ? 0x01 : 0x00)
       .writeC(key[0])
       .writeC(key[1])
       .writeC(key[2])

@@ -2,6 +2,7 @@ const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const database = require('./../../Database');
 const players = require('./../Models/Players');
+const config = require('./../../config');
 
 class RequestAuthLogin {
   constructor(packet, client) {
@@ -40,6 +41,10 @@ class RequestAuthLogin {
   }
 
   async _init() {
+    if (this._client.getProtocolVersion() !== config.main.CLIENT_PROTOCOL_VERSION) {
+      return;
+    }
+
     const player = players.getPlayerByClient(this._client);
     const characters = await database.getCharactersByLogin(this.login);
 

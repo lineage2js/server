@@ -17,9 +17,16 @@ class ProtocolVersion {
   }
 
   _init() {
+    let isCompliesProtocolVersion = true;
+
     if (this.version === config.main.CLIENT_PROTOCOL_VERSION) {
-      this._client.sendPacket(new serverPackets.CryptInit(config.main.encryptionKeys.XOR), false);
+      isCompliesProtocolVersion = true;
+    } else {
+      isCompliesProtocolVersion = false;
     }
+
+    this._client.setProtocolVersion(this.version);
+    this._client.sendPacket(new serverPackets.CryptInit(isCompliesProtocolVersion, config.main.encryptionKeys.XOR), false);
   }
 }
 
