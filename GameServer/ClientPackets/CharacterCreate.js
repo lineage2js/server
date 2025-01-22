@@ -94,7 +94,7 @@ class CharacterCreate {
       return;
     }
 
-    if(this.characterName.length >= MAXIMUM_LENGTH_CHARACTER_NAME || !this._checkCharacterNameLetters(this.name)) {
+    if(this.name.length >= MAXIMUM_LENGTH_CHARACTER_NAME || !this._checkCharacterNameLetters(this.name)) {
       this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_16_ENG_CHARS))
 
       return;
@@ -109,7 +109,7 @@ class CharacterCreate {
     });
     const character = Character.create(characterTemplate);
 
-    character.name = this.name;
+    character.characterName = this.name;
     character.objectId = await database.getNextObjectId();
     character.login = player.login;
     character.maximumHp = character.hp;

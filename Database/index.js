@@ -37,8 +37,8 @@ class Database {
     return await this._db.collection('characters').find({ login }).toArray();
   }
 
-  async checkCharacterNameExists(name) {
-    const character = await this._db.collection('characters').findOne({ name });
+  async checkCharacterNameExists(characterName) {
+    const character = await this._db.collection('characters').findOne({ characterName });
 
     if (character) {
       return true;
