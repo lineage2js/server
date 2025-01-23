@@ -92,6 +92,10 @@ class Client {
         new clientPackets.RequestAttack(packet, this);
 
         break;
+      case 9:
+          new clientPackets.Logout(packet, this);
+  
+          break;
       }
   }
 

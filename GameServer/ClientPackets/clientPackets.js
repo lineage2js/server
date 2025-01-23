@@ -9,6 +9,7 @@ const CharacterDelete = require('./CharacterDelete');
 const MoveBackwardToLocation = require('./MoveBackwardToLocation');
 const Action = require('./Action');
 const RequestAttack = require('./RequestAttack');
+const Logout = require('./Logout');
 
 module.exports = {
   ProtocolVersion,
@@ -22,4 +23,5 @@ module.exports = {
   MoveBackwardToLocation,
   Action,
   RequestAttack,
+  Logout,
 }

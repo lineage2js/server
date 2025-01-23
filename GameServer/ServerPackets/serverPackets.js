@@ -19,6 +19,7 @@ const DropItem = require('./DropItem');
 const StopRotating = require('./StopRotating');
 const DeleteObject = require('./DeleteObject');
 const StopMove = require('./StopMove');
+const LeaveWorld = require('./LeaveWorld');
 
 module.exports = {
   CryptInit,
@@ -42,4 +43,5 @@ module.exports = {
   StopRotating,
   DeleteObject,
   StopMove,
+  LeaveWorld,
 }
