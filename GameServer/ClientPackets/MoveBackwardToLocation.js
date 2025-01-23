@@ -59,13 +59,13 @@ class MoveBackwardToLocation {
 
     let objectId = await database.getNextObjectId();
 
-    this._client.sendPacket(new serverPackets.DropItem(player, {
-      objectId: objectId++,
-      itemId: 57,
-      x: player.x,
-      y: player.y,
-      z: player.z
-    }));
+    // this._client.sendPacket(new serverPackets.DropItem(player, {
+    //   objectId: objectId++,
+    //   itemId: 57,
+    //   x: player.x,
+    //   y: player.y,
+    //   z: player.z
+    // }));
 
     const path = {
       target: {
