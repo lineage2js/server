@@ -31,7 +31,7 @@ async function run() {
       const isGameServerExists = await database.checkGameServerExistsById(config.gameserver.id);
       
       if (!isGameServerExists) {
-        database.addGameServer({
+        await database.addGameServer({
           id: config.gameserver.id, 
           host: config.gameserver.host,
           port: config.gameserver.port,
