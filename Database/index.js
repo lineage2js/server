@@ -43,6 +43,23 @@ class Database {
     await this._db.collection('characters').insertOne(document);
   }
 
+  async updateCharacterByObjectId(objectId, character) {
+    await this._db.collection('characters').updateOne(
+      { objectId },
+      {
+        $set: {
+          x: character.x,
+          y: character.y,
+          z: character.z
+        }
+      }
+    ); // fix?
+  }
+
+  async getCharacterByLogin(login) {
+    return await this._db.collection('characters').findOne({ login });
+  }
+
   async getCharactersByLogin(login) {
     return await this._db.collection('characters').find({ login }).toArray();
   }

@@ -59,13 +59,13 @@ class MoveBackwardToLocation {
 
     let objectId = await database.getNextObjectId();
 
-    // this._client.sendPacket(new serverPackets.DropItem(player, {
-    //   objectId: objectId++,
-    //   itemId: 57,
-    //   x: player.x,
-    //   y: player.y,
-    //   z: player.z
-    // }));
+    this._client.sendPacket(new serverPackets.DropItem(player, {
+      objectId: objectId++,
+      itemId: 57,
+      x: player.x,
+      y: player.y,
+      z: player.z
+    }));
 
     const path = {
       target: {
@@ -85,7 +85,7 @@ class MoveBackwardToLocation {
     const dx = path.target.x - path.origin.x;
     const dy = path.target.y - path.origin.y;
     
-    let distance = Math.sqrt(dx * dx + dy * dy) - (10 + 18);
+    let distance = Math.sqrt(dx * dx + dy * dy) - (10);
 
     // walk
     if (distance < 36) {
@@ -97,8 +97,6 @@ class MoveBackwardToLocation {
         callback: (event) => {
           if (event.runs === 1) {
             event.stop();
-
-            //player.attack(this.objectId);
           }
           
           player.update({
@@ -158,8 +156,6 @@ class MoveBackwardToLocation {
         callback: (event) => {
           if (event.runs === 1) {
             event.stop();
-
-            //player.attack(this.objectId);
           }
 
           player.update({
@@ -202,7 +198,7 @@ class MoveBackwardToLocation {
           
           const dx = path.target.x - player.x;
           const dy = path.target.y - player.y;
-          const distance = Math.sqrt(dx * dx + dy * dy) - (10 + 18);
+          const distance = Math.sqrt(dx * dx + dy * dy) - (10);
   
           if (distance < 126) {
             event.stop();
@@ -217,7 +213,7 @@ class MoveBackwardToLocation {
 
       let dx = path.target.x - x;
       let dy = path.target.y - y;
-      let distance = Math.sqrt(dx * dx + dy * dy) - 36 - (10 + 18);
+      let distance = Math.sqrt(dx * dx + dy * dy) - 36 - (10);
       
       while(distance > 126) {
         x = x + (Math.cos(angle) * 126);
@@ -225,7 +221,7 @@ class MoveBackwardToLocation {
 
         dx = path.target.x - x;
         dy = path.target.y - y;
-        distance = Math.sqrt(dx * dx + dy * dy) - 36 - (10 + 18);
+        distance = Math.sqrt(dx * dx + dy * dy) - 36 - (10);
       }
 
       return distance;
@@ -255,21 +251,13 @@ class MoveBackwardToLocation {
             y: player.y,
             z: player.z
           }));
-  
-          //player.attack(this.objectId);
         }
       });
     }
 
-    //tasks.start(`move:${player.objectId}`);
+    tasks.start(`move:${player.objectId}`);
 
     this._client.sendPacket(new serverPackets.MoveToLocation(path, player.objectId));
-
-    player.update({
-      x: this.targetX,
-      y: this.targetY,
-      z: this.targetZ
-    });
   }
 }
 
