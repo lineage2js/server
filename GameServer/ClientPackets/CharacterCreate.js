@@ -65,7 +65,7 @@ class CharacterCreate {
     }
   }
 
-  async checkMaxNumberCharacters(login) {
+  async checkAvailableNumberCharacters(login) {
     const MAXIMUM_NUMBER_OF_CHARACTERS = 7;
     const characters = await database.getCharactersByLogin(login);
 
@@ -79,27 +79,32 @@ class CharacterCreate {
   async _init() {
     const MAXIMUM_LENGTH_CHARACTER_NAME = 16;
     const player = players.getPlayerByClient(this._client);
+    const isManyCharacters = await this.checkAvailableNumberCharacters(player.login);
     
-    if (await this.checkMaxNumberCharacters(player.login)) {
+    // check how many characters are on the account
+    if (isManyCharacters) {
       this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_TOO_MANY_CHARACTERS))
       
       return;
     }
 
+    // check character name for length and regular expression
+    if(this.name <= 0 || this.name.length >= MAXIMUM_LENGTH_CHARACTER_NAME || !this._checkCharacterNameLetters(this.name)) {
+      this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_16_ENG_CHARS))
+
+      return;
+    }
+
     const isUsedCharacterName = await database.checkCharacterNameExists(this.name);
 
+    // check character name for availability
     if (isUsedCharacterName) {
       this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_NAME_ALREADY_EXISTS))
       
       return;
     }
 
-    if(this.name.length >= MAXIMUM_LENGTH_CHARACTER_NAME || !this._checkCharacterNameLetters(this.name)) {
-      this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_16_ENG_CHARS))
-
-      return;
-    }
-
+    // Get character template by classId (classId is unique)
     const characterTemplate = characterTemplates.find(characterTemplate => {
       if (characterTemplate.classId === this.classId) {
         return true;
@@ -107,20 +112,26 @@ class CharacterCreate {
         return false;
       }
     });
+
+    // create character
     const character = Character.create(characterTemplate);
 
     character.characterName = this.name;
+    character.gender = this.gender;
     character.objectId = await database.getNextObjectId();
     character.login = player.login;
     character.maximumHp = character.hp;
     character.maximumMp = character.mp;
-    character.gender = this.gender;
     character.hairStyle = this.hairStyle;
     character.hairColor = this.hairColor;
     character.face = this.face;
 
+    console.log(character)
+
+    // add character to database
     await database.addCharacter(character);
 
+    // get all characters on user account
     const characters = await database.getCharactersByLogin(player.login);
     
     this._client.sendPacket(new serverPackets.CharacterCreateSuccess());

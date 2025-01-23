@@ -30,7 +30,17 @@ class Database {
   }
 
   async addCharacter(character) {
-    await this._db.collection('characters').insertOne(character);
+    const document = {};
+
+    for (const key in character) {
+      if (key.startsWith('_')) {
+        continue;
+      }
+
+      document[key] = character[key];
+    }
+
+    await this._db.collection('characters').insertOne(document);
   }
 
   async getCharactersByLogin(login) {
