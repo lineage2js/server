@@ -48,7 +48,12 @@ class Database {
   }
 
   async checkCharacterNameExists(characterName) {
-    const character = await this._db.collection('characters').findOne({ characterName });
+    const character = await this._db.collection('characters').findOne({
+      'characterName': {
+        $regex: `^${characterName}$`,
+        $options: 'i'
+      }
+    });
 
     if (character) {
       return true;
