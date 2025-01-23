@@ -126,8 +126,6 @@ class CharacterCreate {
     character.hairColor = this.hairColor;
     character.face = this.face;
 
-    console.log(character)
-
     // add character to database
     await database.addCharacter(character);
 
