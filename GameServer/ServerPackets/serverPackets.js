@@ -20,6 +20,7 @@ const StopRotating = require('./StopRotating');
 const DeleteObject = require('./DeleteObject');
 const StopMove = require('./StopMove');
 const LeaveWorld = require('./LeaveWorld');
+const RestartResponse = require('./RestartResponse');
 
 module.exports = {
   CryptInit,
@@ -44,4 +45,5 @@ module.exports = {
   DeleteObject,
   StopMove,
   LeaveWorld,
+  RestartResponse,
 }

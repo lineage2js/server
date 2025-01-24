@@ -10,6 +10,7 @@ const MoveBackwardToLocation = require('./MoveBackwardToLocation');
 const Action = require('./Action');
 const RequestAttack = require('./RequestAttack');
 const Logout = require('./Logout');
+const RequestRestart = require('./RequestRestart');
 
 module.exports = {
   ProtocolVersion,
@@ -24,4 +25,5 @@ module.exports = {
   Action,
   RequestAttack,
   Logout,
+  RequestRestart,
 }

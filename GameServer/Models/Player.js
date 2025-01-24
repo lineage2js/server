@@ -7,6 +7,8 @@ class Player extends Character {
 
     this._client = client;
     this.target = null;
+    // this characterObjectId fix
+    // this getActiveChar ?
   }
 
   getClient() {

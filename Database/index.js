@@ -60,8 +60,12 @@ class Database {
     return await this._db.collection('characters').findOne({ login });
   }
 
-  async getCharactersByLogin(login) {
+  async getCharactersByLogin(login) { // fix delete
     return await this._db.collection('characters').find({ login }).toArray();
+  }
+
+  async getCharacterByObjectId(objectId) {
+    return await this._db.collection('characters').findOne({ objectId });
   }
 
   async checkCharacterNameExists(characterName) {

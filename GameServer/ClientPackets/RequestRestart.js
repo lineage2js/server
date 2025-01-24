@@ -3,7 +3,7 @@ const ClientPacket = require("./ClientPacket");
 const database = require('./../../Database');
 const players = require('./../Models/Players');
 
-class Logout {
+class RequestRestart {
   constructor(packet, client) {
     this._client = client;
     this._data = new ClientPacket(packet);
@@ -22,8 +22,12 @@ class Logout {
 
     await database.updateCharacterByObjectId(character.objectId, character);
 
-    this._client.sendPacket(new serverPackets.LeaveWorld());
+    const allowRestart = true; // fix
+    const characters = await database.getCharactersByLogin(player.login);
+
+    this._client.sendPacket(new serverPackets.RestartResponse(allowRestart));
+    this._client.sendPacket(new serverPackets.CharacterSelectInfo(player.login, characters));
   }
 }
 
-module.exports = Logout;
+module.exports = RequestRestart;

@@ -93,9 +93,11 @@ class Client {
 
         break;
       case 9:
-          new clientPackets.Logout(packet, this);
+        new clientPackets.Logout(packet, this);
   
-          break;
+        break;
+      case 70:
+        new clientPackets.RequestRestart(packet, this);
       }
   }
 

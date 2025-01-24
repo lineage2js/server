@@ -50,9 +50,9 @@ class RequestAuthLogin {
 
     player.update({
       login: this.login
-    });
+    }); // fix?
 
-    this._client.sendPacket(new serverPackets.CharacterSelectInfo(this.login, characters));
+    this._client.sendPacket(new serverPackets.CharacterSelectInfo(player.login, characters));
   }
 }
 
