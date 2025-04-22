@@ -98,6 +98,10 @@ class Character extends EventEmitter {
     this.legs = { objectId: 0, itemId: 0 }
     this.feet = { objectId: 0, itemId: 0 }
     this.back = { objectId: 0, itemId: 0 }
+
+    //
+    this.target = null;
+    //
   }
 
   get runSpeed() {

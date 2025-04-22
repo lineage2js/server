@@ -21,6 +21,13 @@ const DeleteObject = require('./DeleteObject');
 const StopMove = require('./StopMove');
 const LeaveWorld = require('./LeaveWorld');
 const RestartResponse = require('./RestartResponse');
+const ActionFailed = require('./ActionFailed');
+const SpawnItem = require('./SpawnItem');
+const ShowRadar = require('./ShowRadar');
+const StatusUpdate = require('./StatusUpdate');
+const Die = require('./Die');
+const AutoAttackStop = require('./AutoAttackStop');
+const TargetUnselected = require('./TargetUnselected');
 
 module.exports = {
   CryptInit,
@@ -46,4 +53,11 @@ module.exports = {
   StopMove,
   LeaveWorld,
   RestartResponse,
+  ActionFailed,
+  SpawnItem,
+  ShowRadar,
+  StatusUpdate,
+  Die,
+  AutoAttackStop,
+  TargetUnselected,
 }

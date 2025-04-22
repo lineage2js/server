@@ -1,7 +1,7 @@
 const net = require('net');
 const Client = require('./Client');
 const Player = require('./Models/Player');
-const players = require('./Models/Players');
+const playersManager = require('./Managers/PlayersManager');
 
 class Server {
   constructor() {
@@ -30,7 +30,7 @@ class Server {
     const client = new Client(socket);
     const player = new Player(client);
 
-    players.add(player);
+    playersManager.add(player);
   }
 }
 

@@ -98,6 +98,12 @@ class Client {
         break;
       case 70:
         new clientPackets.RequestRestart(packet, this);
+
+        break;
+      case 55:
+          new clientPackets.RequestTargetCancel(packet, this);
+
+        break;
       }
   }
 

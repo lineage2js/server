@@ -1,4 +1,4 @@
-const ServerPacket = require('./ServerPacket.js'); 
+const ServerPacket = require('./ServerPacket'); 
 
 class TargetSelected {
   constructor(objectId, color = 0) {

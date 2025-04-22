@@ -1,7 +1,7 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const database = require('./../../Database');
-const players = require('./../Models/Players');
+const playersManager = require('./../Managers/PlayersManager');
 
 class CharacterDelete {
   constructor(packet, client) {
@@ -18,7 +18,7 @@ class CharacterDelete {
   }
 
   async _init() {
-    const player = players.getPlayerByClient(this._client);
+    const player = playersManager.getPlayerByClient(this._client);
     const characters = await database.getCharactersByLogin(player.login);
     const character = characters[this.characterSlot];
 

@@ -1,6 +1,6 @@
 {
-  "name": "lineage2js-2.0",
-  "version": "1.0.0",
+  "name": "server",
+  "version": "0.0.1",
   "description": "",
   "main": "gameserver.js",
   "scripts": {
@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "clockwok": "github:space2pacman/clockwok",
     "mongodb": "^6.5.0"
   }
 }

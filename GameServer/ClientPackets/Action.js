@@ -1,6 +1,7 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
-const players = require('./../Models/Players');
+const playersManager = require('./../Managers/PlayersManager');
+const npcManager = require('./../Managers/NpcManager');
 
 class Action {
   constructor(packet, client) {
@@ -37,9 +38,11 @@ class Action {
   }
 
   _init() {
-    const player = players.getPlayerByClient(this._client);
+    const player = playersManager.getPlayerByClient(this._client);
+    const npc = npcManager.getNpcByObjectId(this.objectId);
 
     this._client.sendPacket(new serverPackets.TargetSelected(this.objectId));
+    this._client.sendPacket(new serverPackets.StatusUpdate(this.objectId, npc.hp, npc.maximumHp));
 
     player.target = this.objectId;
   }

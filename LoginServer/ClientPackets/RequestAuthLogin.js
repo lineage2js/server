@@ -18,7 +18,7 @@ class RequestAuthLogin {
   }
 
   get password() {
-    return this._data.getData()[2].toString("ascii").replace(/\u0000/gi, "").toLowerCase();
+    return this._data.getData()[2].toString("ascii").replace(/\u0000/gi, "");
   }
 
   async _init() {

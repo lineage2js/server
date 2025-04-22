@@ -3,7 +3,7 @@ const ClientPacket = require("./ClientPacket");
 const Character = require('./../Models/Character');
 const database = require('./../../Database');
 const characterTemplates = require('./../data/characterTemplates.json');
-const players = require('./../Models/Players');
+const playersManager = require('./../Managers/PlayersManager');
 
 class CharacterCreate {
   constructor(packet, client) {
@@ -78,7 +78,7 @@ class CharacterCreate {
 
   async _init() {
     const MAXIMUM_LENGTH_CHARACTER_NAME = 16;
-    const player = players.getPlayerByClient(this._client);
+    const player = playersManager.getPlayerByClient(this._client);
     const isManyCharacters = await this.checkAvailableNumberCharacters(player.login);
     
     // check how many characters are on the account

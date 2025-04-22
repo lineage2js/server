@@ -1,5 +1,7 @@
 const Server = require('./GameServer/Server');
-const npcs = require('./GameServer/Models/Npcs');
+const npcManager = require('./GameServer/Managers/NpcManager');
+const movingManager = require('./GameServer/Managers/MovingManager');
+const entitiesManager = require('./GameServer/Managers/EntitiesManager');
 const database = require('./Database');
 const config = require('./config');
 const serverStatus = require('./enums/serverStatus');
@@ -25,6 +27,7 @@ async function run() {
       // console.log('# game server                          #');
       // console.log('# Chronicle ....... %s                 #', 'C1');
       // console.log('# Protocol ........ %d                #', 419);
+      // console.log('# Version. ........ %s              #', '0.0.1');
       // console.log('########################################');
       // console.log('\n');
 
@@ -44,10 +47,11 @@ async function run() {
       }
 
       const gameserver = await database.getGameServerById(config.gameserver.id);
-
+      
       await database.updateGameServerById(gameserver.id, "status", serverStatus.STATUS_UP);
-
-      npcs.spawn();
+      entitiesManager.enable();
+      await npcManager.enable()
+      movingManager.enable();
     });
   } catch {
 

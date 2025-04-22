@@ -80,8 +80,8 @@ class UserInfo {
       .writeD(0)
       .writeD(player.karma)
 
-      .writeD(115) // 126 / 1.1 = base?
-      .writeD(80)
+      .writeD(115) // baseRunSpeed
+      .writeD(80) // baseWalkSpeed
       .writeD(player.swimSpeed)
       .writeD(player.swimSpeed)
       .writeD(player.runSpeed) // getFloatingRunSpeed
@@ -107,7 +107,7 @@ class UserInfo {
     this._packet.writeD(player.hairStyle)
       .writeD(player.hairColor)
       .writeD(player.face)
-      .writeD(player.gm)
+      .writeD(1)
       .writeS(player.title)
       .writeD(player.clanId)
       .writeD(player.clanCrestId)
