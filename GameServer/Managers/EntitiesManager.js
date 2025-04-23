@@ -20,35 +20,42 @@ class EntitiesManager {
       this._entities.push(npc);
     });
 
-    let objectId = await database.getNextObjectId();
+    // let objectId = await database.getNextObjectId();
 
-    npcManager.on('updatePosition', npc => {
-      const packet = new serverPackets.DropItem(npc, {
-        objectId: objectId,
-        itemId: 57,
-        x: npc.x,
-        y: npc.y,
-        z: npc.z
-      });
+    // npcManager.on('updatePosition', npc => {
+    //   const packet = new serverPackets.DropItem(npc, {
+    //     objectId: objectId,
+    //     itemId: 57,
+    //     x: npc.x,
+    //     y: npc.y,
+    //     z: npc.z
+    //   });
       
-      playersManager.emit('notify', packet);
+    //   playersManager.emit('notify', packet);
 
-      // setTimeout((function(objId) {
-      //   return function() {
-      //     playersManager.emit('notify', new serverPackets.DeleteObject(objId));
-      //   }
-      // })(objectId), 1000);
+    //   // setTimeout((function(objId) {
+    //   //   return function() {
+    //   //     playersManager.emit('notify', new serverPackets.DeleteObject(objId));
+    //   //   }
+    //   // })(objectId), 1000);
 
-      objectId++;
-    });
+    //   objectId++;
+    // });
 
-    npcManager.on('move', npc => {
+    npcManager.on('move', npc => {      
       const packet = new serverPackets.MoveToLocation(npc.path, npc.objectId);
       
       playersManager.emit('notify', packet);
     });
 
     npcManager.on('attack', npc => {
+      { // if npc state attack. isRunning = true
+        console.log(npc.isRunning)
+        const packet = new serverPackets.ChangeMoveType(npc.objectId, 1);
+      
+        playersManager.emit('notify', packet);
+      }
+
       const packet = new serverPackets.Attack(npc, npc.target);
       
       playersManager.emit('notify', packet);

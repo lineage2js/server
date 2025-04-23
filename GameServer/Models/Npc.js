@@ -48,6 +48,7 @@ class Npc extends Character {
     this.job = '';
     this.isAttacking = false;
     this.isMoving = false;
+    this.isRunning = false;
     
     //
     this.lastTimeTick = 0;
@@ -87,7 +88,7 @@ class Npc extends Character {
     const time = (tick  - this.lastTimeTick) / 1000;
     let dist;
     
-    if (distance < (22 / 10)) {
+    if (distance < ((this.isRunning ? 55 : 22) / 10)) { // fix
       dist = distance;
 
       const path = {
@@ -117,7 +118,7 @@ class Npc extends Character {
       this.updateState('stop');
     }
 
-    dist = 22 * time;
+    dist = (this.isRunning ? 55 : 22) * time;
 
     const path = {
       target: {
@@ -174,6 +175,10 @@ class Npc extends Character {
     if (this.job !== 'attack') {
       return; // fix?
     }
+
+    //  for updateJob
+    this.isRunning = true;
+    //
 
     const entity = entitiesManager.getEntityByObjectId(objectId);
     const path = {

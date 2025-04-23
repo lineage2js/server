@@ -31,7 +31,7 @@ class NpcInfo {
       .writeD(0) // chest
       .writeD(npc.leftHand) // getLeftHandItem
       .writeC(1) // name above char 1=true ... ??
-      .writeC(0) // walking=0 
+      .writeC(npc.isRunning ? 1 : 0) // walking=0 
       .writeC(0) // attacking 1=true
       .writeC(dead) // dead 1=true
       
