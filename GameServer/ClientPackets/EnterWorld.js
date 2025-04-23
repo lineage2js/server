@@ -25,6 +25,23 @@ class EnterWorld {
 
     spawnedNpcs.forEach(npc => {
       this._client.sendPacket(new serverPackets.NpcInfo(npc));
+
+      if (npc.state === 'move') {
+        const path = {
+          target: {
+            x: npc.path.target.x,
+            y: npc.path.target.y,
+            z: -3115
+          },
+          origin: {
+            x: npc.x,
+            y: npc.y,
+            z: npc.z
+          }
+        }
+
+        this._client.sendPacket(new serverPackets.MoveToLocation(path, npc.objectId));
+      }
     });
   }
 }

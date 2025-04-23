@@ -20,27 +20,27 @@ class EntitiesManager {
       this._entities.push(npc);
     });
 
-    //let objectId = await database.getNextObjectId();
+    let objectId = await database.getNextObjectId();
 
-    // npcManager.on('updatePosition', npc => {
-    //   const packet = new serverPackets.DropItem(npc, {
-    //     objectId: objectId,
-    //     itemId: 57,
-    //     x: npc.x,
-    //     y: npc.y,
-    //     z: npc.z
-    //   });
+    npcManager.on('updatePosition', npc => {
+      const packet = new serverPackets.DropItem(npc, {
+        objectId: objectId,
+        itemId: 57,
+        x: npc.x,
+        y: npc.y,
+        z: npc.z
+      });
       
-    //   objectId++;
-      
-    //   playersManager.emit('notify', packet);
+      playersManager.emit('notify', packet);
 
-    //   // setTimeout((function(objId) {
-    //   //   return function() {
-    //   //     playersManager.emit('notify', new serverPackets.DeleteObject(objId));
-    //   //   }
-    //   // })(objectId), 1000);
-    // });
+      // setTimeout((function(objId) {
+      //   return function() {
+      //     playersManager.emit('notify', new serverPackets.DeleteObject(objId));
+      //   }
+      // })(objectId), 1000);
+
+      objectId++;
+    });
 
     npcManager.on('move', npc => {
       const packet = new serverPackets.MoveToLocation(npc.path, npc.objectId);
