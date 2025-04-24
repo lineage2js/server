@@ -182,9 +182,6 @@ class Player extends Character {
 
         //
         if (npc.hp <= 0) {
-          this._client.sendPacket(new serverPackets.StatusUpdate(objectId, 0, npc.maximumHp));
-          this._client.sendPacket(new serverPackets.Die(npc.objectId));
-          
           npc.job = 'dead';
           npc.updateState('stop');
           npc.emit('died');
@@ -193,7 +190,6 @@ class Player extends Character {
     
           setTimeout(() => {
             this._client.sendPacket(new serverPackets.AutoAttackStop(this.objectId));
-            this._client.sendPacket(new serverPackets.DeleteObject(npc.objectId));
           }, 3000);
     
           return;

@@ -49,8 +49,12 @@ class NpcManager extends EventEmitter {
         });
 
         npc.on('died', () => {
+          this.emit('died', npc);
           this.remove(npc);
-          this.spawnNpc(npc.id);
+          
+          setTimeout(() => {
+            this.spawnNpc(npc.id);
+          }, 2000);
         });
 
         npc.update(npcData);
@@ -97,8 +101,12 @@ class NpcManager extends EventEmitter {
     });
 
     npc.on('died', () => {
+      this.emit('died', npc);
       this.remove(npc);
-      this.spawnNpc(npc.id);
+      
+      setTimeout(() => {
+        this.spawnNpc(npc.id);
+      }, 2000);
     });
 
     npc.objectId = await database.getNextObjectId();
@@ -133,8 +141,8 @@ class NpcManager extends EventEmitter {
   _getRandomPos() {
 		let max = { x: -80000, y: 270000 };
 		let min = { x: -60000, y: 250000 };
-		let xp = [-71921, -72081, -72277, -72105];
-		let yp = [257496, 257310, 257480, 257686];
+		let xp = [-71988, -71390, -72283, -72895];
+		let yp = [256706, 257435, 258192, 257464];
 		let x;
 		let y;
 			

@@ -70,6 +70,22 @@ class EntitiesManager {
       playersManager.emit('notify', packet);
     });
 
+    npcManager.on('died', async npc => {
+      playersManager.emit('notify', new serverPackets.StatusUpdate(npc.objectId, 0, npc.maximumHp));
+      playersManager.emit('notify', new serverPackets.Die(npc.objectId));
+      playersManager.emit('notify', new serverPackets.DropItem(npc, {
+        objectId: await database.getNextObjectId(),
+        itemId: Math.floor(Math.random() * 100) + 1,
+        x: npc.x + 10,
+        y: npc.y - 10,
+        z: npc.z
+      }));
+
+      setTimeout(() => {
+        playersManager.emit('notify', new serverPackets.DeleteObject(npc.objectId));
+      }, 3000);
+    });
+
     playersManager.on('spawn', player => {
       this._entities.push(player);
     });
