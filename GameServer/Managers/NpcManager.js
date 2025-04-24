@@ -42,7 +42,16 @@ class NpcManager extends EventEmitter {
 
         npc.on('stop', () => {
           this.emit('stop', npc);
-        })
+        });
+
+        npc.on('changeMove', () => {
+          this.emit('changeMove', npc);
+        });
+
+        npc.on('died', () => {
+          this.remove(npc);
+          this.spawnNpc(npc.id);
+        });
 
         npc.update(npcData);
         
@@ -54,19 +63,58 @@ class NpcManager extends EventEmitter {
         npc.y = positions[1];
         npc.z = -3115;
         npc.maximumHp = npc.hp; // fix
-
-        npc.on('died', () => {
-          this.remove(npc);
-          this.spawnNpcs();
-        });
-
-        npc.enable();
+        
         this.spawn(npc);
+        npc.enable(); // fix. По AI ждать 5 сек
       }
     }
   }
 
-  remove(npc) { // fix
+  async spawnNpc(id) {
+    const npcData = npcsList.find(npcItem => npcItem.id === id);
+    const npc = new Npc();
+
+    npc.update(npcData);
+
+    npc.on('move', () => {
+      this.emit('move', npc);
+    });
+
+    npc.on('updatePosition', () => {
+      this.emit('updatePosition', npc);
+    });
+
+    npc.on('attack', () => {
+      this.emit('attack', npc);
+    });
+
+    npc.on('stop', () => {
+      this.emit('stop', npc);
+    });
+
+    npc.on('changeMove', () => {
+      this.emit('changeMove', npc);
+    });
+
+    npc.on('died', () => {
+      this.remove(npc);
+      this.spawnNpc(npc.id);
+    });
+
+    npc.objectId = await database.getNextObjectId();
+        
+    const positions = this._getRandomPos();
+
+    npc.x = positions[0];
+    npc.y = positions[1];
+    npc.z = -3115;
+    npc.maximumHp = npc.hp; // fix
+
+    this.spawn(npc);
+    npc.enable();
+  }
+
+  remove(npc) { // fix так же удалять из EntitiesManager
     const npcRemove = this._npcs.indexOf(npc);
 
     this._npcs.splice(npcRemove, 1);
@@ -95,7 +143,7 @@ class NpcManager extends EventEmitter {
 			y = Math.floor(min.y + Math.random() * (max.y + 1 - min.y));
 		} while(!this._inPoly(xp, yp, x, y))
 
-		return [x, y]
+		return [x, y];
 	}
 
   _inPoly(xp, yp, x, y){

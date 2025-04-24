@@ -43,6 +43,8 @@ class Npc extends Character {
     this.class = null;
     this.collisionRadius = null;
     this.collisionHeight = null;
+    this.baseRunSpeed = 0;
+    this.baseWalkSpeed = 0;
 
     this.state = '';
     this.job = '';
@@ -53,6 +55,14 @@ class Npc extends Character {
     //
     this.lastTimeTick = 0;
     //
+  }
+
+  get runSpeed() {
+    return this.baseRunSpeed * 1.1;
+  }
+
+  get walkSpeed() {
+    return this.baseWalkSpeed * 1.1;
   }
 
   async enable() {
@@ -88,7 +98,7 @@ class Npc extends Character {
     const time = (tick  - this.lastTimeTick) / 1000;
     let dist;
     
-    if (distance < ((this.isRunning ? 55 : 22) / 10)) { // fix
+    if (distance < ((this.isRunning ? this.runSpeed : this.walkSpeed) / 10)) { // fix
       dist = distance;
 
       const path = {
@@ -118,7 +128,7 @@ class Npc extends Character {
       this.updateState('stop');
     }
 
-    dist = (this.isRunning ? 55 : 22) * time;
+    dist = (this.isRunning ? this.runSpeed : this.walkSpeed) * time;
 
     const path = {
       target: {
@@ -177,6 +187,7 @@ class Npc extends Character {
     }
 
     //  for updateJob
+    this.emit('changeMove');
     this.isRunning = true;
     //
 

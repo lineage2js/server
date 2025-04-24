@@ -190,14 +190,6 @@ class Player extends Character {
           npc.emit('died');
           
           this.isAttacking = false;
-
-          setTimeout(() => {
-            const spawnedNpcs = npcManager.getSpawnedNpcs();
-        
-            spawnedNpcs.forEach(npc => {
-              this._client.sendPacket(new serverPackets.NpcInfo(npc));
-            });
-          }, 1000);
     
           setTimeout(() => {
             this._client.sendPacket(new serverPackets.AutoAttackStop(this.objectId));

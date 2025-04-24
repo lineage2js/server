@@ -18,6 +18,10 @@ class EntitiesManager {
 
     npcManager.on('spawn', npc => {
       this._entities.push(npc);
+
+      const packet = new serverPackets.NpcInfo(npc);
+      
+      playersManager.emit('notify', packet);
     });
 
     // let objectId = await database.getNextObjectId();
@@ -42,21 +46,20 @@ class EntitiesManager {
     //   objectId++;
     // });
 
-    npcManager.on('move', npc => {      
+    npcManager.on('move', npc => {
       const packet = new serverPackets.MoveToLocation(npc.path, npc.objectId);
       
       playersManager.emit('notify', packet);
     });
 
     npcManager.on('attack', npc => {
-      { // if npc state attack. isRunning = true
-        console.log(npc.isRunning)
-        const packet = new serverPackets.ChangeMoveType(npc.objectId, 1);
-      
-        playersManager.emit('notify', packet);
-      }
-
       const packet = new serverPackets.Attack(npc, npc.target);
+      
+      playersManager.emit('notify', packet);
+    });
+
+    npcManager.on('changeMove', npc => {
+      const packet = new serverPackets.ChangeMoveType(npc.objectId, 1); // running
       
       playersManager.emit('notify', packet);
     });
