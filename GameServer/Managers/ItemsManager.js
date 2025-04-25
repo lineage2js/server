@@ -8,7 +8,7 @@ class ItemsManager extends EventEmitter {
 
     this._items = [];
 
-    this.on('createItem', async (x, y, z) => {
+    this.on('createItem', async (x, y, z) => { // fix name
       const objectId = await database.getNextObjectId();
       const itemId = Math.floor(Math.random() * 100) + 1;
       const item = new Item(objectId, itemId, x, y, z);

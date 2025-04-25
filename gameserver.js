@@ -1,5 +1,6 @@
 const Server = require('./GameServer/Server');
 const npcManager = require('./GameServer/Managers/NpcManager');
+const botsManager = require('./GameServer/Managers/BotsManager');
 const movingManager = require('./GameServer/Managers/MovingManager');
 const entitiesManager = require('./GameServer/Managers/EntitiesManager');
 const database = require('./Database');
@@ -50,7 +51,8 @@ async function run() {
       
       await database.updateGameServerById(gameserver.id, "status", serverStatus.STATUS_UP);
       entitiesManager.enable();
-      await npcManager.enable()
+      await npcManager.enable();
+      await botsManager.enable();
       movingManager.enable();
     });
   } catch {

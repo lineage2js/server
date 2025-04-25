@@ -25,7 +25,7 @@ class EnterWorld {
 
     spawnedNpcs.forEach(npc => {
       this._client.sendPacket(new serverPackets.NpcInfo(npc));
-
+      
       if (npc.state === 'move') {
         const path = {
           target: {

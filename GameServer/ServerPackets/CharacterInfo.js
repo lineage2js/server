@@ -16,36 +16,36 @@ class CharacterInfo {
     
     .writeD(0x00)
 
-    .writeD(player.head.itemId)
-    .writeD(player.hand.right.itemId)
-    .writeD(player.hand.left.itemId)
-    .writeD(player.gloves.itemId)
-    .writeD(player.chest.itemId)
-    .writeD(player.legs.itemId)
-    .writeD(player.feet.itemId)
-    .writeD(player.back.itemId)
-    .writeD(player.hand.leftAndRight.itemId)
-    .writeD(player.underwear.itemId)
+    .writeD(0)
+    .writeD(0)
+    .writeD(0)
+    .writeD(0)
+    .writeD(0)
+    .writeD(0)
+    .writeD(0)
+    .writeD(0)
+    .writeD(0)
+    .writeD(0)
 
     .writeD(0x00)
-    .writeD(player.mSpd)
-    .writeD(player.pSpd)
+    .writeD(0)
+    .writeD(0)
     
     .writeD(0)
     .writeD(player.karma)
 
-    .writeD(player.runSpeed)
-    .writeD(player.walkSpeed)
-    .writeD(player.swimSpeed)
-    .writeD(player.swimSpeed)
-    .writeD(player.runSpeed) // getFloatingRunSpeed
-    .writeD(player.walkSpeed) // getFloatingWalkSpeed
-    .writeD(player.runSpeed) // getFlyingRunSpeed
-    .writeD(player.walkSpeed) // getFlyingWalkSpeed
+    .writeD(player.baseRunSpeed)
+    .writeD(player.baseWalkSpeed)
+    .writeD(32)
+    .writeD(32)
+    .writeD(player.baseRunSpeed) // getFloatingRunSpeed
+    .writeD(player.baseWalkSpeed) // getFloatingWalkSpeed
+    .writeD(player.baseRunSpeed) // getFlyingRunSpeed
+    .writeD(player.baseWalkSpeed) // getFlyingWalkSpeed
 
     // male
     if(player.gender === 0) {
-      this._packet.writeF(player.maleMovementMultiplier)
+      this._packet.writeF(player.maleAttackSpeedMultiplier)
         .writeF((player.pSpd / 500) / 0.555)
         .writeF(player.maleCollisionRadius)
         .writeF(player.maleCollisionHeight)
@@ -53,7 +53,7 @@ class CharacterInfo {
 
     // female
     if(player.gender === 1) {
-      this._packet.writeF(player.femaleMovementMultiplier)
+      this._packet.writeF(player.femaleAttackSpeedMultiplier)
         .writeF((player.pSpd / 500) / 0.555)
         .writeF(player.femaleCollisionRadius)
         .writeF(player.femaleCollisionHeight)
@@ -71,8 +71,8 @@ class CharacterInfo {
       .writeD(0x00)	// getAllyId new in rev 417
       .writeD(0x00)	// new in rev 417   siege-flags
 
-      .writeC(0)
-      .writeC(0)
+      .writeC(1)
+      .writeC(1)
 
       .writeC(0)
       .writeC(0x00) // isDead dead = 1  alive = 0

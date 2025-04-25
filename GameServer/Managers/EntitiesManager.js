@@ -15,6 +15,7 @@ class EntitiesManager {
     const npcManager = require('./NpcManager');
     const playersManager = require('./PlayersManager');
     const itemsManager = require('./ItemsManager');
+    const botsManager = require('./BotsManager');
     const serverPackets = require('./../ServerPackets/serverPackets');
 
     npcManager.on('spawn', npc => {
@@ -96,6 +97,14 @@ class EntitiesManager {
 
     playersManager.on('spawn', player => {
       this._entities.push(player);
+
+      //
+      for (let i = 0; i < botsManager._bots.length; i++) {
+        const packet = new serverPackets.CharacterInfo(botsManager._bots[i]);
+      
+        playersManager.emit('notify', packet); 
+      }
+      //
     });
 
     playersManager.on('move', player => {
@@ -107,6 +116,36 @@ class EntitiesManager {
     playersManager.on('pickup', (player, item) => {
       {
         const packet = new serverPackets.GetItem(player, item); // fix Может подписатся на event окончание доставки пактеа?
+      
+        playersManager.emit('notify', packet);
+      }
+
+      {
+        const packet = new serverPackets.DeleteObject(item.objectId);
+      
+        playersManager.emit('notify', packet);
+      }
+    });
+
+    botsManager.on('spawn', bot => {
+      this._entities.push(bot);
+    });
+
+    botsManager.on('attack', bot => {
+      const packet = new serverPackets.Attack(bot, bot.target);
+      
+      playersManager.emit('notify', packet);
+    });
+
+    botsManager.on('move', bot => {
+      const packet = new serverPackets.MoveToLocation(bot.path, bot.objectId);
+      
+      playersManager.emit('notify', packet);
+    });
+
+    botsManager.on('pickup', (bot, item) => {
+      {
+        const packet = new serverPackets.GetItem(bot, item); // fix Может подписатся на event окончание доставки пактеа?
       
         playersManager.emit('notify', packet);
       }
