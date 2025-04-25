@@ -11,9 +11,10 @@ class EntitiesManager {
     return this._entities.find(entity => entity.objectId === objectId);
   }
 
-  async enable() {
+  async enable() { // fix, load
     const npcManager = require('./NpcManager');
     const playersManager = require('./PlayersManager');
+    const itemsManager = require('./ItemsManager');
     const serverPackets = require('./../ServerPackets/serverPackets');
 
     npcManager.on('spawn', npc => {
@@ -73,13 +74,20 @@ class EntitiesManager {
     npcManager.on('died', async npc => {
       playersManager.emit('notify', new serverPackets.StatusUpdate(npc.objectId, 0, npc.maximumHp));
       playersManager.emit('notify', new serverPackets.Die(npc.objectId));
-      playersManager.emit('notify', new serverPackets.DropItem(npc, {
-        objectId: await database.getNextObjectId(),
-        itemId: Math.floor(Math.random() * 100) + 1,
-        x: npc.x + 10,
-        y: npc.y - 10,
-        z: npc.z
-      }));
+
+      itemsManager.once('createdItem', item => { // fix создается на died, drop привязан к npc
+        this._entities.push(item);
+
+        playersManager.emit('notify', new serverPackets.DropItem(npc, {
+          objectId: item.objectId,
+          itemId: item.itemId,
+          x: item.x,
+          y: item.y,
+          z: item.z
+        }));
+      });
+
+      itemsManager.emit('createItem', npc.x, npc.y, npc.z); // fix event name, emit change to method
 
       setTimeout(() => {
         playersManager.emit('notify', new serverPackets.DeleteObject(npc.objectId));
@@ -88,6 +96,26 @@ class EntitiesManager {
 
     playersManager.on('spawn', player => {
       this._entities.push(player);
+    });
+
+    playersManager.on('move', player => {
+      const packet = new serverPackets.MoveToLocation(player.path, player.objectId);
+      
+      playersManager.emit('notify', packet);
+    });
+
+    playersManager.on('pickup', (player, item) => {
+      {
+        const packet = new serverPackets.GetItem(player, item); // fix Может подписатся на event окончание доставки пактеа?
+      
+        playersManager.emit('notify', packet);
+      }
+
+      {
+        const packet = new serverPackets.DeleteObject(item.objectId);
+      
+        playersManager.emit('notify', packet);
+      }
     });
   }
 }

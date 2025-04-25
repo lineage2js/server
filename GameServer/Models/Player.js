@@ -39,6 +39,10 @@ class Player extends Character {
     this.isMoving = false;
     this.isAttacking = false;
 
+    //
+    this.pickupItem = null; // хранить objectId? как target?
+    //
+
     this._init();
   }
 
@@ -61,6 +65,11 @@ class Player extends Character {
         break;
       case 'attack':
         this.updateState('attack', payload);
+
+        break;
+      case 'pickup':
+        this.pickupItem = payload;
+        this.updateState('pickup');
 
         break;
     }
@@ -86,6 +95,10 @@ class Player extends Character {
         this.stop();
 
         break;
+      case 'pickup':
+        this.pickup();
+
+        break;
     }
   }
 
@@ -105,7 +118,7 @@ class Player extends Character {
     }
   }
 
-  follow(path) { // objectId
+  follow(path) { // objectId // наверное надо в follow переместить updateState('stop') а не в updatePosition хранить
     this.move(path);
 
     function tick() {
@@ -221,7 +234,41 @@ class Player extends Character {
       if (this.job === 'attack') {
         this.updateState('attack', this.target);
       }
+
+      if (this.job === 'pickup') {
+        this.updateState('pickup');
+      }
     }, 200);
+  }
+
+  pickup() {
+    const path = {
+      target: {
+        x: this.pickupItem.x,
+        y: this.pickupItem.y,
+        z: this.pickupItem.z
+      },
+      origin: {
+        x: this.x,
+        y: this.y,
+        z: this.z
+      }
+    }
+
+    this.path = path;
+
+    const dx = this.path.target.x - this.x;
+    const dy = this.path.target.y - this.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance > 10) { // fix?
+      this.updateState('move', this.path);
+      this.emit('move');
+
+      return;
+    }
+
+    this.emit('pickup', this.pickupItem); //fix?
   }
 
   update(data) { // remove
@@ -256,21 +303,21 @@ class Player extends Character {
       });
 
       //
-      this._client.sendPacket(new serverPackets.DropItem(this, {
-        objectId: objectId,
-        itemId: 118,
-        x: this.x,
-        y: this.y,
-        z: this.z
-      }));
+      // this._client.sendPacket(new serverPackets.DropItem(this, {
+      //   objectId: objectId,
+      //   itemId: 118,
+      //   x: this.x,
+      //   y: this.y,
+      //   z: this.z
+      // }));
   
-      setTimeout((function(client, objId) {
-        return function() {
-          client.sendPacket(new serverPackets.DeleteObject(objId));
-        }
-      })(this._client, objectId), 5000);
+      // setTimeout((function(client, objId) {
+      //   return function() {
+      //     client.sendPacket(new serverPackets.DeleteObject(objId));
+      //   }
+      // })(this._client, objectId), 5000);
   
-      objectId++;
+      // objectId++;
       //
   
       this.positionUpdateTimestamp = tick;
@@ -290,21 +337,21 @@ class Player extends Character {
     });
 
     //
-    this._client.sendPacket(new serverPackets.DropItem(this, {
-      objectId: objectId,
-      itemId: 57,
-      x: this.x,
-      y: this.y,
-      z: this.z
-    }));
+    // this._client.sendPacket(new serverPackets.DropItem(this, {
+    //   objectId: objectId,
+    //   itemId: 57,
+    //   x: this.x,
+    //   y: this.y,
+    //   z: this.z
+    // }));
 
-    setTimeout((function(client, objId) {
-      return function() {
-        client.sendPacket(new serverPackets.DeleteObject(objId));
-      }
-    })(this._client, objectId), 5000);
+    // setTimeout((function(client, objId) {
+    //   return function() {
+    //     client.sendPacket(new serverPackets.DeleteObject(objId));
+    //   }
+    // })(this._client, objectId), 5000);
 
-    objectId++;
+    // objectId++;
     //
 
     this.positionUpdateTimestamp = tick;

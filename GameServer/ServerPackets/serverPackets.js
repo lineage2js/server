@@ -29,6 +29,7 @@ const Die = require('./Die');
 const AutoAttackStop = require('./AutoAttackStop');
 const TargetUnselected = require('./TargetUnselected');
 const ChangeMoveType = require('./ChangeMoveType');
+const GetItem = require('./GetItem');
 
 module.exports = {
   CryptInit,
@@ -62,4 +63,5 @@ module.exports = {
   AutoAttackStop,
   TargetUnselected,
   ChangeMoveType,
+  GetItem,
 }

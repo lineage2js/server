@@ -1,7 +1,9 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
+const entitiesManager = require('./../Managers/EntitiesManager');
 const playersManager = require('./../Managers/PlayersManager');
-const npcManager = require('./../Managers/NpcManager');
+const Npc = require('./../Models/Npc');
+const Item = require('./../Models/Item');
 
 class Action {
   constructor(packet, client) {
@@ -39,12 +41,18 @@ class Action {
 
   _init() {
     const player = playersManager.getPlayerByClient(this._client);
-    const npc = npcManager.getNpcByObjectId(this.objectId);
+    const entity = entitiesManager.getEntityByObjectId(this.objectId);
 
-    this._client.sendPacket(new serverPackets.TargetSelected(this.objectId));
-    this._client.sendPacket(new serverPackets.StatusUpdate(this.objectId, npc.hp, npc.maximumHp));
+    if (entity instanceof Npc) {
+      this._client.sendPacket(new serverPackets.TargetSelected(entity.objectId));
+      this._client.sendPacket(new serverPackets.StatusUpdate(entity.objectId, entity.hp, entity.maximumHp));
 
-    player.target = this.objectId;
+      player.target = this.objectId;
+    }
+
+    if (entity instanceof Item) {
+      player.updateJob('pickup', entity);
+    }
   }
 }
 
