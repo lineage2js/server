@@ -199,6 +199,7 @@ class Player extends Character {
           npc.updateState('stop');
           npc.emit('died');
           
+          this.target = null;
           this.isAttacking = false;
     
           setTimeout(() => {

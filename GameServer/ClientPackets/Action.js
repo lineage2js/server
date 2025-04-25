@@ -44,10 +44,19 @@ class Action {
     const entity = entitiesManager.getEntityByObjectId(this.objectId);
 
     if (entity instanceof Npc) {
+      if (player.target !== null && !player.isAttacking) {
+        player.isAttacking = true;
+        
+        player.updateJob('attack', this.objectId);
+
+        return;
+      }
+
       this._client.sendPacket(new serverPackets.TargetSelected(entity.objectId));
       this._client.sendPacket(new serverPackets.StatusUpdate(entity.objectId, entity.hp, entity.maximumHp));
 
       player.target = this.objectId;
+
     }
 
     if (entity instanceof Item) {
