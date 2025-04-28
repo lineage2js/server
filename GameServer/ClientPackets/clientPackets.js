@@ -12,6 +12,7 @@ const RequestAttack = require('./RequestAttack');
 const Logout = require('./Logout');
 const RequestRestart = require('./RequestRestart');
 const RequestTargetCancel = require('./RequestTargetCancel');
+const RequestItemList = require('./RequestItemList');
 
 module.exports = {
   ProtocolVersion,
@@ -28,4 +29,5 @@ module.exports = {
   Logout,
   RequestRestart,
   RequestTargetCancel,
+  RequestItemList,
 }

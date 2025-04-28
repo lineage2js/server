@@ -52,7 +52,7 @@ async function run() {
       await database.updateGameServerById(gameserver.id, "status", serverStatus.STATUS_UP);
       entitiesManager.enable();
       await npcManager.enable();
-      await botsManager.enable();
+      //await botsManager.enable();
       movingManager.enable();
     });
   } catch {

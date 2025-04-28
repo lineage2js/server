@@ -104,6 +104,10 @@ class Client {
           new clientPackets.RequestTargetCancel(packet, this);
 
         break;
+      case 15:
+          new clientPackets.RequestItemList(packet, this);
+
+        break;
       }
   }
 

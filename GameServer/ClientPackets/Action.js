@@ -48,7 +48,6 @@ class Action {
         player.isAttacking = true;
         
         player.updateJob('attack', this.objectId);
-
         return;
       }
 

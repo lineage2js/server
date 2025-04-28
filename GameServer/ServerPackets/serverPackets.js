@@ -26,10 +26,12 @@ const SpawnItem = require('./SpawnItem');
 const ShowRadar = require('./ShowRadar');
 const StatusUpdate = require('./StatusUpdate');
 const Die = require('./Die');
+const AutoAttackStart = require('./AutoAttackStart');
 const AutoAttackStop = require('./AutoAttackStop');
 const TargetUnselected = require('./TargetUnselected');
 const ChangeMoveType = require('./ChangeMoveType');
 const GetItem = require('./GetItem');
+const ItemList = require('./ItemList');
 
 module.exports = {
   CryptInit,
@@ -60,8 +62,10 @@ module.exports = {
   ShowRadar,
   StatusUpdate,
   Die,
+  AutoAttackStart,
   AutoAttackStop,
   TargetUnselected,
   ChangeMoveType,
   GetItem,
+  ItemList,
 }
