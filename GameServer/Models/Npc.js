@@ -33,9 +33,10 @@ class Npc extends Character {
     super();
 
     this.id = null;
+    this.name = null;
     this.type = null;
-    this.attackRange = null;
-    this.attacked = null;
+    this.baseAttackRange = null;
+    this.canBeAttacked = null;
     this.aggressive = null;
     this.rightHand = null;
     this.leftHand = null;
@@ -51,6 +52,9 @@ class Npc extends Character {
     this.isAttacking = false;
     this.isMoving = false;
     this.isRunning = false;
+
+    this.baseAttackSpeed = null;
+    this.getMagicalSpeed = 333; // fix
     
     //
     this.lastTimeTick = 0;
@@ -159,7 +163,7 @@ class Npc extends Character {
   updateState(state, payload) {
     this.state = state;
 
-    console.log(` --- npc ${this.characterName} state`, state);
+    //console.log(` --- npc ${this.name} state`, state);
 
     switch(state) {
       case 'move':
@@ -187,8 +191,8 @@ class Npc extends Character {
     }
 
     //  for updateJob
-    this.emit('changeMove');
     this.isRunning = true;
+    this.emit('changeMove');
     //
 
     const entity = entitiesManager.getEntityByObjectId(objectId);
@@ -286,7 +290,7 @@ class Npc extends Character {
         }
 
         this.updateState('move', path);
-      }, 1000);
+      }, 15000);
     }
 
     if (this.job === 'attack') {
@@ -306,8 +310,10 @@ class Npc extends Character {
   _getRandomPos() {
 		let max = { x: -80000, y: 270000 };
 		let min = { x: -60000, y: 250000 };
-		let xp = [-71988, -71390, -72283, -72895];
-		let yp = [256706, 257435, 258192, 257464];
+		// let xp = [-71988, -71390, -72283, -72895];
+		// let yp = [256706, 257435, 258192, 257464];
+    let xp = [-77220, -75280, -71332, -71416, -74252, -76076];
+    let yp = [253656, 251732, 253756, 254696, 257300, 255984];
 		let x;
 		let y;
 			

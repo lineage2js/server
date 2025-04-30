@@ -1,0 +1,223 @@
+[
+  {
+    "type": "warrior",
+    "id": 432,
+    "name": "elpy",
+    "level": 1,
+    "exp": 1,
+    "acquireExpRate": 29.39,
+    "canBeAttacked": 1,
+    "acquireSp": 2,
+    "corpseMakeList": [
+      {
+        "itemName": "charcoal",
+        "min": 1,
+        "max": 1,
+        "chance": 1.9899
+      },
+      {
+        "itemName": "charcoal",
+        "min": 1,
+        "max": 1,
+        "chance": 1.9899
+      }
+    ],
+    "additionalMakeList": [],
+    "additionalMakeMultiList": [
+      {
+        "itemName": "{{adena",
+        "min": 7,
+        "max": 10,
+        "chance": 100
+      },
+      {
+        "itemName": "{{bone_dagger",
+        "min": 1,
+        "max": 1,
+        "chance": 100
+      },
+      {
+        "itemName": "{{charcoal",
+        "min": 1,
+        "max": 1,
+        "chance": 12.5
+      },
+      {
+        "itemName": "thread",
+        "min": 1,
+        "max": 1,
+        "chance": 25
+      },
+      {
+        "itemName": "wooden_arrow",
+        "min": 20,
+        "max": 39,
+        "chance": 62.5
+      }
+    ],
+    "slotRhand": "",
+    "slotLhand": "",
+    "baseAttackRange": 40,
+    "str": 40,
+    "int": 21,
+    "dex": 30,
+    "wit": 20,
+    "con": 43,
+    "men": 10,
+    "orgHpRegen": 2,
+    "orgMpRegen": 0.9,
+    "baseWalkSpeed": 50,
+    "baseRunSpeed": 80,
+    "SwimmingWalkSpeed": 50,
+    "SwimmingRunSpeed": 0,
+    "FlyingWalkSpeed": 0,
+    "FlyingRunSpeed": 0,
+    "FloatingWalkSpeed": 0,
+    "FloatingRunSpeed": 0,
+    "hp": 39.7451923076923,
+    "mp": 40,
+    "baseDefend": 44.4444444444444,
+    "baseMagicAttack": 5.78703703703704,
+    "baseMagicDefend": 32.5225155877146,
+    "basePhysicalAttack": 4,
+    "physicalHitModify": 4.75,
+    "physicalAvoidModify": 0,
+    "baseAttackSpeed": 253,
+    "baseReuseDelay": 0,
+    "baseCritical": 4,
+    "magicUseSpeedModify": 0,
+    "collisionRadius": 5,
+    "collisionHeight": 4.5
+  },
+  {
+    "type": "warrior",
+    "id": 12082,
+    "name": "tuto_keltir",
+    "level": 1,
+    "exp": 1,
+    "acquireExpRate": 29.39,
+    "canBeAttacked": 1,
+    "acquireSp": 2,
+    "corpseMakeList": [
+      {
+        "itemName": "charcoal",
+        "min": 1,
+        "max": 1,
+        "chance": 0.9797
+      }
+    ],
+    "additionalMakeList": [
+      {
+        "itemName": "adena",
+        "min": 5,
+        "max": 7,
+        "chance": 100
+      },
+      {
+        "itemName": "apprentice's_earing",
+        "min": 1,
+        "max": 1,
+        "chance": 2.3992
+      },
+      {
+        "itemName": "charcoal",
+        "min": 1,
+        "max": 1,
+        "chance": 0.4898
+      },
+      {
+        "itemName": "thread",
+        "min": 1,
+        "max": 1,
+        "chance": 0.9797
+      },
+      {
+        "itemName": "sb_advanced_attack_power1",
+        "min": 1,
+        "max": 1,
+        "chance": 1.045
+      }
+    ],
+    "additionalMakeMultiList": [],
+    "slotRhand": "",
+    "slotLhand": "",
+    "baseAttackRange": 40,
+    "str": 40,
+    "int": 21,
+    "dex": 30,
+    "wit": 20,
+    "con": 43,
+    "men": 10,
+    "orgHpRegen": 2,
+    "orgMpRegen": 0.9,
+    "baseWalkSpeed": 23,
+    "baseRunSpeed": 110,
+    "SwimmingWalkSpeed": 50,
+    "SwimmingRunSpeed": 0,
+    "FlyingWalkSpeed": 0,
+    "FlyingRunSpeed": 0,
+    "FloatingWalkSpeed": 0,
+    "FloatingRunSpeed": 0,
+    "hp": 39.7451923076923,
+    "mp": 40,
+    "baseDefend": 44.4444444444444,
+    "baseMagicAttack": 5.78703703703704,
+    "baseMagicDefend": 32.5225155877146,
+    "basePhysicalAttack": 4,
+    "physicalHitModify": 0,
+    "physicalAvoidModify": 0,
+    "baseAttackSpeed": 253,
+    "baseReuseDelay": 0,
+    "baseCritical": 8,
+    "magicUseSpeedModify": 0,
+    "collisionRadius": 9.5,
+    "collisionHeight": 10
+  },
+  {
+    "type": "citizen",
+    "id": 7008,
+    "name": "roien",
+    "level": 70,
+    "exp": 429634524.325,
+    "acquireExpRate": 0.1,
+    "canBeAttacked": 0,
+    "acquireSp": 10,
+    "corpseMakeList": [],
+    "additionalMakeList": [],
+    "additionalMakeMultiList": [],
+    "slotRhand": "",
+    "slotLhand": "",
+    "baseAttackRange": 40,
+    "str": 40,
+    "int": 21,
+    "dex": 30,
+    "wit": 20,
+    "con": 43,
+    "men": 10,
+    "orgHpRegen": 7.5,
+    "orgMpRegen": 2.7,
+    "baseWalkSpeed": 80,
+    "baseRunSpeed": 120,
+    "SwimmingWalkSpeed": 50,
+    "SwimmingRunSpeed": 0,
+    "FlyingWalkSpeed": 0,
+    "FlyingRunSpeed": 0,
+    "FloatingWalkSpeed": 0,
+    "FloatingRunSpeed": 0,
+    "hp": 2444.46818899627,
+    "mp": 1345.8,
+    "baseDefend": 295.91597408024,
+    "baseMagicAttack": 470.404627426724,
+    "baseMagicDefend": 216.538467292763,
+    "basePhysicalAttack": 688.863725587608,
+    "physicalHitModify": 4.75,
+    "physicalAvoidModify": 0,
+    "baseAttackSpeed": 253,
+    "baseReuseDelay": 0,
+    "baseCritical": 4,
+    "magicUseSpeedModify": 0,
+    "collisionRadius": 8,
+    "collisionHeight": 23.5
+  }
+
+]

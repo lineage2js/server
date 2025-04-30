@@ -6,14 +6,14 @@ class NpcInfo {
     this._packet.writeC(0x22)
       .writeD(npc.objectId)
       .writeD(1000000 + npc.id)
-      .writeD(npc.attacked)
+      .writeD(npc.canBeAttacked)
       .writeD(npc.x)
       .writeD(npc.y)
       .writeD(npc.z)
       .writeD(0x00) // getHeading
       .writeD(0x00)
-      .writeD(npc.mSpd) // getMagicalSpeed
-      .writeD(npc.pSpd) // getPhysicalSpeed
+      .writeD(npc.getMagicalSpeed) // getMagicalSpeed
+      .writeD(npc.baseAttackSpeed) // getPhysicalSpeed
       .writeD(npc.baseRunSpeed) // getRunSpeed
       .writeD(npc.baseWalkSpeed) // getWalkSpeed
       .writeD(50)	// swimspeed
@@ -24,7 +24,7 @@ class NpcInfo {
       .writeD(20) // getFlyingWalkSpeed
       
       .writeF(1.1) // getMovementMultiplier
-      .writeF((npc.pSpd / 500) / 0.555) // getAttackSpeedMultiplier
+      .writeF((npc.baseAttackSpeed / 500) / 0.555) // getAttackSpeedMultiplier
       .writeF(npc.collisionRadius) // getCollisionRadius
       .writeF(npc.collisionHeight) // getCollisionHeight
       .writeD(npc.rightHand) // getRightHandItem
@@ -37,7 +37,7 @@ class NpcInfo {
       
       .writeC(0) // invisible ?? 0=false  1=true   2=summoned (only works if model has a summon animation)
       
-      .writeS(npc.characterName)
+      .writeS('') // for name. if empty name from client
       .writeS(npc.title)
       .writeD(0)
       .writeD(0)

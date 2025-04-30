@@ -55,7 +55,6 @@ class Action {
       this._client.sendPacket(new serverPackets.StatusUpdate(entity.objectId, entity.hp, entity.maximumHp));
 
       player.target = this.objectId;
-
     }
 
     if (entity instanceof Item) {

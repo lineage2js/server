@@ -1,18 +1,19 @@
 const EventEmitter = require('events');
 const Npc = require('./../../GameServer/Models/Npc');
 const database = require('./../../Database');
-const npcsList = require('./../../GameServer/data/npcsList.json');
-const spawnList = require('./../../GameServer/data/spawnList.json');
+const npcsList = require('./../../Data/npcsList.json');
+const spawnList = require('./../../Data/spawnList.json');
 
 class NpcManager extends EventEmitter {
   constructor() {
     super();    
 
-    this._npcs = []
+    this._npcs = [];
   }
 
   spawn(npc) {
     this._npcs.push(npc);
+    console.log(this._npcs.length)
     this.emit('spawn', npc);
   }
 
@@ -20,58 +21,77 @@ class NpcManager extends EventEmitter {
     await this.spawnNpcs();
   }
 
-  async spawnNpcs() {
+  async spawnNpcs() {    
     for (let i = 0; i < spawnList.length; i++) {
       const spawnData = spawnList[i];
-      const npcData = npcsList.find(data => data.id === spawnData.npcId);
 
-      for(let j = 0; j < spawnData.count; j++) {
-        const npc = new Npc();
+      for(let j = 0; j < spawnData['npcMakers']['npcs'].length; j++) {
+        const npcItem = spawnData['npcMakers']['npcs'][j];
+        const npcData = npcsList.find(data => data.name === npcItem.name);
 
-        npc.on('move', () => {
-          this.emit('move', npc);
-        });
+        for(let k = 0; k < npcItem.total; k++) {
+          const npc = new Npc();
 
-        npc.on('updatePosition', () => {
-          this.emit('updatePosition', npc);
-        });
 
-        npc.on('attack', () => {
-          this.emit('attack', npc);
-        });
+          npc.on('move', () => {
+            this.emit('move', npc);
+          });
 
-        npc.on('stop', () => {
-          this.emit('stop', npc);
-        });
+          npc.on('updatePosition', () => {
+            this.emit('updatePosition', npc);
+          });
 
-        npc.on('changeMove', () => {
-          this.emit('changeMove', npc);
-        });
+          npc.on('attack', () => {
+            this.emit('attack', npc);
+          });
 
-        npc.on('died', () => {
-          this.emit('died', npc);
-          this.remove(npc);
+          npc.on('stop', () => {
+            this.emit('stop', npc);
+          });
+
+          npc.on('changeMove', () => {
+            this.emit('changeMove', npc);
+          });
+
+          npc.on('died', () => {
+            this.emit('died', npc);
+            this.remove(npc);
+            
+            setTimeout(() => {
+              this.spawnNpc(npc.id);
+            }, 2000);
+          });
+
+          npc.update(npcData);
           
-          setTimeout(() => {
-            this.spawnNpc(npc.id);
-          }, 2000);
-        });
+          npc.objectId = await database.getNextObjectId();
+          
+          let positions;
 
-        npc.update(npcData);
-        
-        npc.objectId = await database.getNextObjectId();
-        
-        const positions = this._getRandomPos();
+          if (npcItem.pos === 'anywhere') {
+            //console.log(npcItem.name, spawnData['territory']['coordinates'])
+            positions = this._getRandomPos(spawnData['territory']['coordinates']);
+          }
 
-        npc.x = positions[0];
-        npc.y = positions[1];
-        npc.z = -3115;
-        npc.maximumHp = npc.hp; // fix
-        
-        this.spawn(npc);
-        npc.enable(); // fix. По AI ждать 5 сек
-      }
+          if (Array.isArray(npcItem.pos)) {
+            positions = [npcItem.pos[0], npcItem.pos[1]];
+          }
+
+          npc.x = positions[0];
+          npc.y = positions[1];
+          npc.z = -3115;
+          npc.maximumHp = npc.hp; // fix
+          
+          this.spawn(npc);
+
+          if (npc.type === 'warrior') {
+            npc.enable(); // fix. По AI ждать 5 сек
+          }
+        }
+      } 
     }
+
+    console.log('spawn end')
   }
 
   async spawnNpc(id) {
@@ -111,7 +131,7 @@ class NpcManager extends EventEmitter {
 
     npc.objectId = await database.getNextObjectId();
         
-    const positions = this._getRandomPos();
+    const positions = this._getRandomPos(spawnList[0]['territory']['coordinates']); // fix
 
     npc.x = positions[0];
     npc.y = positions[1];
@@ -138,11 +158,15 @@ class NpcManager extends EventEmitter {
     return npc;
   }
 
-  _getRandomPos() {
-		let max = { x: -80000, y: 270000 };
-		let min = { x: -60000, y: 250000 };
-		let xp = [-71988, -71390, -72283, -72895];
-		let yp = [256706, 257435, 258192, 257464];
+  _getRandomPos(coordinates) {
+    let xp = coordinates.map(i => i.x);
+    let yp = coordinates.map(i => i.y);
+
+		let max = { x: Math.max(...xp), y: Math.max(...yp) };
+		let min = { x: Math.min(...xp), y: Math.min(...yp) };
+		// let xp = [-71988, -71390, -72283, -72895];
+		// let yp = [256706, 257435, 258192, 257464];
+    
 		let x;
 		let y;
 			
