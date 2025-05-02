@@ -274,6 +274,10 @@ class Npc extends Character {
 
     if (this.job === 'patrol') {
       setTimeout(() => {
+        if (this.job !== 'patrol') {
+          return;
+        }
+
         const positions = this._getRandomPos();
 
         let path = {
