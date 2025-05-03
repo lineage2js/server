@@ -10,7 +10,7 @@ class NpcInfo {
       .writeD(npc.x)
       .writeD(npc.y)
       .writeD(npc.z)
-      .writeD(0x00) // getHeading
+      .writeD(npc.heading) // getHeading
       .writeD(0x00)
       .writeD(npc.getMagicalSpeed) // getMagicalSpeed
       .writeD(npc.baseAttackSpeed) // getPhysicalSpeed

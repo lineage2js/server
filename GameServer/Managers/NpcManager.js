@@ -74,12 +74,16 @@ class NpcManager extends EventEmitter {
           }
 
           if (Array.isArray(npcItem.pos)) {
-            positions = [npcItem.pos[0], npcItem.pos[1]];
+            npc.x = npcItem.pos[0];
+            npc.y = npcItem.pos[1];
+            npc.z = npcItem.pos[2];
+            npc.heading = npcItem.pos[3];
+          } else {
+            npc.x = positions[0];
+            npc.y = positions[1];
+            npc.z = -3115;
           }
 
-          npc.x = positions[0];
-          npc.y = positions[1];
-          npc.z = -3115;
           npc.maximumHp = npc.hp; // fix
           
           this.spawn(npc);
