@@ -81,7 +81,7 @@ class NpcManager extends EventEmitter {
           } else {
             npc.x = positions[0];
             npc.y = positions[1];
-            npc.z = -3115;
+            npc.z = (spawnData['territory']['coordinates'][0]['zMin'] + spawnData['territory']['coordinates'][0]['zMax']) / 2;
           }
 
           npc.maximumHp = npc.hp; // fix
