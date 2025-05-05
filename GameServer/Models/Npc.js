@@ -58,6 +58,7 @@ class Npc extends Character {
     
     //
     this.lastTimeTick = 0;
+    this.coordinates = null;
     //
   }
 
@@ -71,7 +72,7 @@ class Npc extends Character {
 
   async enable() {
     //
-    const positions = this._getRandomPos();
+    const positions = this._getRandomPos(this.coordinates);
 
     let path = {
       target: {
@@ -278,7 +279,7 @@ class Npc extends Character {
           return;
         }
 
-        const positions = this._getRandomPos();
+        const positions = this._getRandomPos(this.coordinates);
 
         let path = {
           target: {
@@ -311,16 +312,14 @@ class Npc extends Character {
   }
 
   // create math utils
-  _getRandomPos() {
-		let max = { x: -80000, y: 270000 };
-		let min = { x: -60000, y: 250000 };
-		// let xp = [-71988, -71390, -72283, -72895];
-		// let yp = [256706, 257435, 258192, 257464];
-    let xp = [-77220, -75280, -71332, -71416, -74252, -76076];
-    let yp = [253656, 251732, 253756, 254696, 257300, 255984];
+  _getRandomPos(coordinates) {
+    let xp = coordinates.map(i => i.x);
+    let yp = coordinates.map(i => i.y);
+		let max = { x: Math.max(...xp), y: Math.max(...yp) };
+		let min = { x: Math.min(...xp), y: Math.min(...yp) };
 		let x;
 		let y;
-			
+		
 		do {
 			x = Math.floor(min.x + Math.random() * (max.x + 1 - min.x));
 			y = Math.floor(min.y + Math.random() * (max.y + 1 - min.y));

@@ -32,7 +32,6 @@ class NpcManager extends EventEmitter {
         for(let k = 0; k < npcItem.total; k++) {
           const npc = new Npc();
 
-
           npc.on('move', () => {
             this.emit('move', npc);
           });
@@ -89,6 +88,8 @@ class NpcManager extends EventEmitter {
           this.spawn(npc);
 
           if (npc.type === 'warrior') {
+            npc.coordinates = spawnData['territory']['coordinates'];
+
             npc.enable(); // fix. По AI ждать 5 сек
           }
         }
