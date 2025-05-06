@@ -1,4 +1,4 @@
-const сharacterStatusEnums = require('./../../enums/сharacterStatusEnums');
+const characterStatusEnums = require('./../../enums/characterStatusEnums');
 //
 const database = require('./../../Database');
 //
@@ -76,11 +76,11 @@ class EntitiesManager {
     npcManager.on('died', async npc => {
       playersManager.emit('notify', new serverPackets.StatusUpdate(npc.objectId, [
         {
-          id: сharacterStatusEnums.CUR_HP,
+          id: characterStatusEnums.CUR_HP,
           value: 0,
         },
         {
-          id: сharacterStatusEnums.MAX_HP,
+          id: characterStatusEnums.MAX_HP,
           value: npc.maximumHp,
         }
       ]));
@@ -126,11 +126,11 @@ class EntitiesManager {
     playersManager.on('updateExp', player => {
       const packet = new serverPackets.StatusUpdate(player.objectId, [
         {
-          id: сharacterStatusEnums.EXP,
+          id: characterStatusEnums.EXP,
           value: player.exp
         },
         {
-          id: сharacterStatusEnums.LEVEL,
+          id: characterStatusEnums.LEVEL,
           value: 2,
         }
       ]);

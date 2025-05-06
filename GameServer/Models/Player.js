@@ -1,6 +1,6 @@
 const Character = require('./Character');
 const serverPackets = require('./../ServerPackets/serverPackets');
-const сharacterStatusEnums = require('./../../enums/сharacterStatusEnums');
+const characterStatusEnums = require('./../../enums/characterStatusEnums');
 
 //
 const database = require('./../../Database');
@@ -216,11 +216,11 @@ class Player extends Character {
 
         this._client.sendPacket(new serverPackets.StatusUpdate(objectId, [
           {
-            id: сharacterStatusEnums.CUR_HP,
+            id: characterStatusEnums.CUR_HP,
             value: npc.hp,
           },
           {
-            id: сharacterStatusEnums.MAX_HP,
+            id: characterStatusEnums.MAX_HP,
             value: npc.maximumHp,
           }
         ]));

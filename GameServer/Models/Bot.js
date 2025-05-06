@@ -6,7 +6,7 @@ const database = require('./../../Database');
 const movingManager = require('./../Managers/MovingManager');
 const npcManager = require('./../Managers/NpcManager');
 const itemsManager = require('../Managers/ItemsManager');
-const сharacterStatusEnums = require('./../../enums/сharacterStatusEnums');
+const characterStatusEnums = require('./../../enums/characterStatusEnums');
 let objectId;
 //
 
@@ -251,11 +251,11 @@ class Bot extends Character {
 
         this._client.sendPacket(new serverPackets.StatusUpdate(objectId, [
           {
-            id: сharacterStatusEnums.CUR_HP,
+            id: characterStatusEnums.CUR_HP,
             value: npc.hp,
           },
           {
-            id: сharacterStatusEnums.MAX_HP,
+            id: characterStatusEnums.MAX_HP,
             value: npc.maximumHp,
           }
         ]));

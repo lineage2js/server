@@ -4,7 +4,7 @@ const entitiesManager = require('./../Managers/EntitiesManager');
 const playersManager = require('./../Managers/PlayersManager');
 const Npc = require('./../Models/Npc');
 const Item = require('./../Models/Item');
-const сharacterStatusEnums = require('./../../enums/сharacterStatusEnums');
+const characterStatusEnums = require('./../../enums/characterStatusEnums');
 
 class Action {
   constructor(packet, client) {
@@ -55,11 +55,11 @@ class Action {
       this._client.sendPacket(new serverPackets.TargetSelected(entity.objectId));
       this._client.sendPacket(new serverPackets.StatusUpdate(entity.objectId, [
         {
-          id: сharacterStatusEnums.CUR_HP,
+          id: characterStatusEnums.CUR_HP,
           value: entity.hp,
         },
         {
-          id: сharacterStatusEnums.MAX_HP,
+          id: characterStatusEnums.MAX_HP,
           value: entity.maximumHp,
         }
       ]));
