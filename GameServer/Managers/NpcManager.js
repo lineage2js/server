@@ -57,7 +57,7 @@ class NpcManager extends EventEmitter {
             this.remove(npc);
             
             setTimeout(() => {
-              this.spawnNpc(npc.id);
+              this.spawnNpc(npc.id, spawnData['territory']['coordinates']);
             }, 2000);
           });
 
@@ -99,7 +99,7 @@ class NpcManager extends EventEmitter {
     console.log('spawn end')
   }
 
-  async spawnNpc(id) {
+  async spawnNpc(id, coordinates) {
     const npcData = npcsList.find(npcItem => npcItem.id === id);
     const npc = new Npc();
 
@@ -130,7 +130,7 @@ class NpcManager extends EventEmitter {
       this.remove(npc);
       
       setTimeout(() => {
-        this.spawnNpc(npc.id);
+        this.spawnNpc(npc.id, coordinates);
       }, 2000);
     });
 
@@ -138,9 +138,11 @@ class NpcManager extends EventEmitter {
         
     const positions = this._getRandomPos(spawnList[0]['territory']['coordinates']); // fix
 
+    npc.coordinates = coordinates;
+
     npc.x = positions[0];
     npc.y = positions[1];
-    npc.z = -3115;
+    npc.z = (coordinates[0]['zMin'] + coordinates[0]['zMax']) / 2;;
     npc.maximumHp = npc.hp; // fix
 
     this.spawn(npc);
