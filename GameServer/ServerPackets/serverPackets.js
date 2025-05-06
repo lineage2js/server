@@ -32,6 +32,7 @@ const TargetUnselected = require('./TargetUnselected');
 const ChangeMoveType = require('./ChangeMoveType');
 const GetItem = require('./GetItem');
 const ItemList = require('./ItemList');
+const SocialAction = require('./SocialAction');
 
 module.exports = {
   CryptInit,
@@ -68,4 +69,5 @@ module.exports = {
   ChangeMoveType,
   GetItem,
   ItemList,
+  SocialAction,
 }

@@ -1,5 +1,6 @@
 const Character = require('./Character');
 const serverPackets = require('./../ServerPackets/serverPackets');
+const сharacterStatusEnums = require('./../../enums/сharacterStatusEnums');
 
 //
 const database = require('./../../Database');
@@ -198,6 +199,9 @@ class Player extends Character {
           npc.job = 'dead';
           npc.updateState('stop');
           npc.emit('died');
+
+          this.exp += 100;
+          this.emit('updateExp');
           
           this.target = null;
           this.isAttacking = false;
@@ -210,7 +214,16 @@ class Player extends Character {
         }
         //
 
-        this._client.sendPacket(new serverPackets.StatusUpdate(objectId, npc.hp, npc.maximumHp));
+        this._client.sendPacket(new serverPackets.StatusUpdate(objectId, [
+          {
+            id: сharacterStatusEnums.CUR_HP,
+            value: npc.hp,
+          },
+          {
+            id: сharacterStatusEnums.MAX_HP,
+            value: npc.maximumHp,
+          }
+        ]));
       }, 500000 / 330 / 2);
   
       setTimeout(() => {

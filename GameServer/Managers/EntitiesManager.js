@@ -1,3 +1,4 @@
+const сharacterStatusEnums = require('./../../enums/сharacterStatusEnums');
 //
 const database = require('./../../Database');
 //
@@ -73,7 +74,16 @@ class EntitiesManager {
     });
 
     npcManager.on('died', async npc => {
-      playersManager.emit('notify', new serverPackets.StatusUpdate(npc.objectId, 0, npc.maximumHp));
+      playersManager.emit('notify', new serverPackets.StatusUpdate(npc.objectId, [
+        {
+          id: сharacterStatusEnums.CUR_HP,
+          value: 0,
+        },
+        {
+          id: сharacterStatusEnums.MAX_HP,
+          value: npc.maximumHp,
+        }
+      ]));
       playersManager.emit('notify', new serverPackets.Die(npc.objectId));
 
       itemsManager.once('createdItem', item => { // fix создается на died, drop привязан к npc
@@ -111,6 +121,23 @@ class EntitiesManager {
       const packet = new serverPackets.MoveToLocation(player.path, player.objectId);
       
       playersManager.emit('notify', packet);
+    });
+
+    playersManager.on('updateExp', player => {
+      const packet = new serverPackets.StatusUpdate(player.objectId, [
+        {
+          id: сharacterStatusEnums.EXP,
+          value: player.exp
+        },
+        {
+          id: сharacterStatusEnums.LEVEL,
+          value: 2,
+        }
+      ]);
+      
+      playersManager.emit('notify', packet);
+
+      playersManager.emit('notify', new serverPackets.SocialAction(player.objectId, 15)); // fix
     });
 
     playersManager.on('pickup', (player, item) => {

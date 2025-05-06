@@ -25,6 +25,10 @@ class PlayersManager extends EventEmitter {
     player.on('pickup', (item) => {
       this.emit('pickup', player, item); // fix?
     });
+
+    player.on('updateExp', () => {
+      this.emit('updateExp', player);
+    });
   }
 
   getPlayerByClient(client) {
