@@ -128,10 +128,17 @@ class EntitiesManager {
         {
           id: characterStatusEnums.EXP,
           value: player.exp
-        },
+        }
+      ]);
+      
+      playersManager.emit('notify', packet);
+    });
+
+    playersManager.on('updateLevel', player => {
+      const packet = new serverPackets.StatusUpdate(player.objectId, [
         {
           id: characterStatusEnums.LEVEL,
-          value: 2,
+          value: player.level,
         }
       ]);
       

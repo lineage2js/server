@@ -1,6 +1,7 @@
 const Character = require('./Character');
 const serverPackets = require('./../ServerPackets/serverPackets');
 const characterStatusEnums = require('./../../enums/characterStatusEnums');
+const levelExpTable = require('./../data/exp.json');
 
 //
 const database = require('./../../Database');
@@ -8,6 +9,21 @@ const movingManager = require('./../Managers/MovingManager');
 const npcManager = require('./../Managers/NpcManager');
 let objectId;
 //
+
+function findLevel(exp) { // оптимизировать
+  let level = 1;
+  
+  // Перебираем уровни, пока не найдем нужный
+  for (let i = 1; i <= 60; i++) {
+    if (exp >= levelExpTable[i]) {
+      level = i;
+    } else {
+      break;
+    }
+  }
+  
+  return level;
+}
 
 function moveCloser(x1, y1, x2, y2, distance) {
   // Вычисляем разницу между координатами
@@ -202,6 +218,16 @@ class Player extends Character {
 
           this.exp += 100;
           this.emit('updateExp');
+
+          {
+            const level = findLevel(this.exp);
+            
+            if (this.level < level) {
+              this.level = level;
+
+              this.emit('updateLevel');
+            }
+          }
           
           this.target = null;
           this.isAttacking = false;

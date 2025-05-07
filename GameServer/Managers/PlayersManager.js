@@ -29,6 +29,10 @@ class PlayersManager extends EventEmitter {
     player.on('updateExp', () => {
       this.emit('updateExp', player);
     });
+
+    player.on('updateLevel', () => {
+      this.emit('updateLevel', player);
+    });
   }
 
   getPlayerByClient(client) {
