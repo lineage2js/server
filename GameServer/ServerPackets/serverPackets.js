@@ -33,6 +33,7 @@ const ChangeMoveType = require('./ChangeMoveType');
 const GetItem = require('./GetItem');
 const ItemList = require('./ItemList');
 const SocialAction = require('./SocialAction');
+const SystemMessage = require('./SystemMessage');
 
 module.exports = {
   CryptInit,
@@ -70,4 +71,5 @@ module.exports = {
   GetItem,
   ItemList,
   SocialAction,
+  SystemMessage,
 }

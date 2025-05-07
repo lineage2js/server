@@ -18,6 +18,7 @@ class EnterWorld {
 
     this._client.sendPacket(new serverPackets.UserInfo(player));
     this._client.sendPacket(new serverPackets.SunRise()); // TimeManager?
+    this._client.sendPacket(new serverPackets.SystemMessage(34)); // fix
 
     // fix?
     playersManager.emit('spawn', player);
