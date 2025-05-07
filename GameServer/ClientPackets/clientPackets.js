@@ -13,6 +13,7 @@ const Logout = require('./Logout');
 const RequestRestart = require('./RequestRestart');
 const RequestTargetCancel = require('./RequestTargetCancel');
 const RequestItemList = require('./RequestItemList');
+const RequestShortCutReg = require('./RequestShortCutReg');
 
 module.exports = {
   ProtocolVersion,
@@ -30,4 +31,5 @@ module.exports = {
   RequestRestart,
   RequestTargetCancel,
   RequestItemList,
+  RequestShortCutReg,
 }

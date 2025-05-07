@@ -101,11 +101,15 @@ class Client {
 
         break;
       case 55:
-          new clientPackets.RequestTargetCancel(packet, this);
+        new clientPackets.RequestTargetCancel(packet, this);
 
         break;
       case 15:
-          new clientPackets.RequestItemList(packet, this);
+        new clientPackets.RequestItemList(packet, this);
+
+        break;
+      case 51:
+        new clientPackets.RequestShortCutReg(packet, this);
 
         break;
       }

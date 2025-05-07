@@ -34,6 +34,7 @@ const GetItem = require('./GetItem');
 const ItemList = require('./ItemList');
 const SocialAction = require('./SocialAction');
 const SystemMessage = require('./SystemMessage');
+const ShortCutRegister = require('./ShortCutRegister');
 
 module.exports = {
   CryptInit,
@@ -72,4 +73,5 @@ module.exports = {
   ItemList,
   SocialAction,
   SystemMessage,
+  ShortCutRegister,
 }
