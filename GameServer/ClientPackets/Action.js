@@ -45,6 +45,26 @@ class Action {
     const entity = entitiesManager.getEntityByObjectId(this.objectId);
 
     if (entity instanceof Npc) {
+      if (entity.type === 'citizen' && player.target == null) {
+        this._client.sendPacket(new serverPackets.TargetSelected(entity.objectId));
+
+        player.target = this.objectId;
+        
+        return;
+      }
+
+      if (entity.type === 'citizen' && player.target !== null) {
+        //
+        const fs = require('fs');
+        const path = require('path');
+        const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/roien001.htm'), 'utf8');
+        //
+        this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
+        this._client.sendPacket(new serverPackets.ActionFailed()); // fix?
+
+        return;
+      }
+
       if (player.target !== null && !player.isAttacking) {
         player.isAttacking = true;
         

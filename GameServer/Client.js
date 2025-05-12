@@ -112,6 +112,10 @@ class Client {
         new clientPackets.RequestShortCutReg(packet, this);
 
         break;
+      case 33:
+        new clientPackets.RequestBypassToServer(this, packet);
+
+        break;
       }
   }
 

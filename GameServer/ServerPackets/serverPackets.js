@@ -35,6 +35,7 @@ const ItemList = require('./ItemList');
 const SocialAction = require('./SocialAction');
 const SystemMessage = require('./SystemMessage');
 const ShortCutRegister = require('./ShortCutRegister');
+const NpcHtmlMessage = require('./NpcHtmlMessage');
 
 module.exports = {
   CryptInit,
@@ -74,4 +75,5 @@ module.exports = {
   SocialAction,
   SystemMessage,
   ShortCutRegister,
+  NpcHtmlMessage,
 }
