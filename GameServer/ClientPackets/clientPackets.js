@@ -15,6 +15,7 @@ const RequestTargetCancel = require('./RequestTargetCancel');
 const RequestItemList = require('./RequestItemList');
 const RequestShortCutReg = require('./RequestShortCutReg');
 const RequestBypassToServer = require('./RequestBypassToServer');
+const RequestSkillList = require('./RequestSkillList');
 
 module.exports = {
   ProtocolVersion,
@@ -34,4 +35,5 @@ module.exports = {
   RequestItemList,
   RequestShortCutReg,
   RequestBypassToServer,
+  RequestSkillList,
 }

@@ -116,7 +116,11 @@ class Client {
         new clientPackets.RequestBypassToServer(this, packet);
 
         break;
-      }
+      case 0x3f:
+        new clientPackets.RequestSkillList(this, packet);
+
+        break;
+    }
   }
 
   _onClose() {
