@@ -140,6 +140,10 @@ class Client {
         new clientPackets.RequestActionUse(this, packet);
 
         break;
+      case 0x38:
+        new clientPackets.Say2(this, packet);
+
+        break;
     }
   }
 

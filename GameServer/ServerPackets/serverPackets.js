@@ -41,6 +41,7 @@ const MagicSkillUse = require('./MagicSkillUse');
 const MagicSkillLaunched = require('./MagicSkillLaunched');
 const ShowBoard = require('./ShowBoard');
 const ChangeWaitType = require('./ChangeWaitType');
+const CreateSay = require('./CreateSay');
 
 module.exports = {
   CryptInit,
@@ -86,4 +87,5 @@ module.exports = {
   MagicSkillLaunched,
   ShowBoard,
   ChangeWaitType,
+  CreateSay,
 }
