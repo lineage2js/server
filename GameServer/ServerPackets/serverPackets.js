@@ -37,6 +37,8 @@ const SystemMessage = require('./SystemMessage');
 const ShortCutRegister = require('./ShortCutRegister');
 const NpcHtmlMessage = require('./NpcHtmlMessage');
 const SkillList = require('./SkillList');
+const MagicSkillUse = require('./MagicSkillUse');
+const MagicSkillLaunched = require('./MagicSkillLaunched');
 
 module.exports = {
   CryptInit,
@@ -78,4 +80,6 @@ module.exports = {
   ShortCutRegister,
   NpcHtmlMessage,
   SkillList,
+  MagicSkillUse,
+  MagicSkillLaunched,
 }

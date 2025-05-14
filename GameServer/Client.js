@@ -116,10 +116,12 @@ class Client {
         new clientPackets.RequestBypassToServer(this, packet);
 
         break;
-      case 0x3f:
+      case 0x3F:
         new clientPackets.RequestSkillList(this, packet);
 
         break;
+      case 0x2F:
+        new clientPackets.RequestMagicSkillUse(this, packet);
     }
   }
 
