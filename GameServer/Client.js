@@ -128,6 +128,10 @@ class Client {
         new clientPackets.RequestShowBoard(this, packet);
 
         break;
+      case 0x1B:
+        new clientPackets.RequestSocialAction(this, packet);
+
+        break;
     }
   }
 

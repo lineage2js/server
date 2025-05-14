@@ -18,6 +18,7 @@ const RequestBypassToServer = require('./RequestBypassToServer');
 const RequestSkillList = require('./RequestSkillList');
 const RequestMagicSkillUse = require('./RequestMagicSkillUse');
 const RequestShowBoard = require('./RequestShowBoard');
+const RequestSocialAction = require('./RequestSocialAction');
 
 module.exports = {
   ProtocolVersion,
@@ -40,4 +41,5 @@ module.exports = {
   RequestSkillList,
   RequestMagicSkillUse,
   RequestShowBoard,
+  RequestSocialAction,
 }
