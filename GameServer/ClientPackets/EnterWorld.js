@@ -49,13 +49,13 @@ class EnterWorld {
     //
     //this._client.sendPacket(new serverPackets.CreateSay({ objectId: 0, characterName: '' }, 10, 'Welcome to Lineage 2 JS'));
     //
-    this._client.sendPacket(new serverPackets.VehicleInfo({
-      objectId: await database.getNextObjectId(),
-      x: -96622,
-      y: 261660,
-      z: -3610,
-      heading: 32768
-    }));
+    // this._client.sendPacket(new serverPackets.VehicleInfo({
+    //   objectId: await database.getNextObjectId(),
+    //   x: -96622,
+    //   y: 261660,
+    //   z: -3610,
+    //   heading: 32768
+    // }));
     //
   }
 }
