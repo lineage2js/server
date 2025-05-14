@@ -122,6 +122,12 @@ class Client {
         break;
       case 0x2F:
         new clientPackets.RequestMagicSkillUse(this, packet);
+
+        break;
+      case 0x57:
+        new clientPackets.RequestShowBoard(this, packet);
+
+        break;
     }
   }
 

@@ -39,6 +39,7 @@ const NpcHtmlMessage = require('./NpcHtmlMessage');
 const SkillList = require('./SkillList');
 const MagicSkillUse = require('./MagicSkillUse');
 const MagicSkillLaunched = require('./MagicSkillLaunched');
+const ShowBoard = require('./ShowBoard');
 
 module.exports = {
   CryptInit,
@@ -82,4 +83,5 @@ module.exports = {
   SkillList,
   MagicSkillUse,
   MagicSkillLaunched,
+  ShowBoard,
 }
