@@ -132,6 +132,10 @@ class Client {
         new clientPackets.RequestSocialAction(this, packet);
 
         break;
+      case 0x48:
+        new clientPackets.ValidatePosition(this, packet);
+
+        break;
     }
   }
 
