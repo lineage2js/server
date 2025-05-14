@@ -395,6 +395,8 @@ class Player extends Character {
     //
 
     this.positionUpdateTimestamp = tick;
+
+    this.emit('move'); // ?
   }
 }
 

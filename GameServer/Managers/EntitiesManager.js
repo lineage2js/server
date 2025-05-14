@@ -17,6 +17,7 @@ class EntitiesManager {
     const playersManager = require('./PlayersManager');
     const itemsManager = require('./ItemsManager');
     const botsManager = require('./BotsManager');
+    const visibilityManager = require('./VisibilityManager');
     const serverPackets = require('./../ServerPackets/serverPackets');
 
     npcManager.on('spawn', npc => {
@@ -114,7 +115,8 @@ class EntitiesManager {
       
         playersManager.emit('notify', packet); 
       }
-      //
+
+      visibilityManager.addPlayer(player);
     });
 
     playersManager.on('move', player => {

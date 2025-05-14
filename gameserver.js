@@ -3,6 +3,7 @@ const npcManager = require('./GameServer/Managers/NpcManager');
 const botsManager = require('./GameServer/Managers/BotsManager');
 const movingManager = require('./GameServer/Managers/MovingManager');
 const entitiesManager = require('./GameServer/Managers/EntitiesManager');
+const visibilityManager = require('./GameServer/Managers/VisibilityManager');
 const database = require('./Database');
 const config = require('./config');
 const serverStatus = require('./enums/serverStatus');
@@ -54,6 +55,7 @@ async function run() {
       await npcManager.enable();
       //await botsManager.enable();
       movingManager.enable();
+      visibilityManager.enable();
     });
   } catch {
 

@@ -25,27 +25,6 @@ class EnterWorld {
     playersManager.emit('spawn', player);
     //
 
-    spawnedNpcs.forEach(npc => {
-      this._client.sendPacket(new serverPackets.NpcInfo(npc));
-      
-      if (npc.state === 'move') {
-        const path = {
-          target: {
-            x: npc.path.target.x,
-            y: npc.path.target.y,
-            z: -3115
-          },
-          origin: {
-            x: npc.x,
-            y: npc.y,
-            z: npc.z
-          }
-        }
-
-        this._client.sendPacket(new serverPackets.MoveToLocation(path, npc.objectId));
-      }
-    });
-
     //
     //this._client.sendPacket(new serverPackets.CreateSay({ objectId: 0, characterName: '' }, 10, 'Welcome to Lineage 2 JS'));
     //
