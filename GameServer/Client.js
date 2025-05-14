@@ -136,6 +136,10 @@ class Client {
         new clientPackets.ValidatePosition(this, packet);
 
         break;
+      case 0x45:
+        new clientPackets.RequestActionUse(this, packet);
+
+        break;
     }
   }
 

@@ -20,6 +20,7 @@ const RequestMagicSkillUse = require('./RequestMagicSkillUse');
 const RequestShowBoard = require('./RequestShowBoard');
 const RequestSocialAction = require('./RequestSocialAction');
 const ValidatePosition = require('./ValidatePosition');
+const RequestActionUse = require('./RequestActionUse');
 
 module.exports = {
   ProtocolVersion,
@@ -44,4 +45,5 @@ module.exports = {
   RequestShowBoard,
   RequestSocialAction,
   ValidatePosition,
+  RequestActionUse,
 }
