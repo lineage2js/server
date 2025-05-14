@@ -44,6 +44,10 @@ class EnterWorld {
         this._client.sendPacket(new serverPackets.MoveToLocation(path, npc.objectId));
       }
     });
+
+    //
+    //this._client.sendPacket(new serverPackets.CreateSay({ objectId: 0, characterName: '' }, 10, 'Welcome to Lineage 2 JS'));
+    //
   }
 }
 
