@@ -99,7 +99,7 @@ class EntitiesManager {
         }));
       });
 
-      itemsManager.emit('createItem', npc.x, npc.y, npc.z); // fix event name, emit change to method
+      itemsManager.emit('createItem', npc.x, npc.y, npc.z + 100); // fix event name, emit change to method
 
       setTimeout(() => {
         playersManager.emit('notify', new serverPackets.DeleteObject(npc.objectId));

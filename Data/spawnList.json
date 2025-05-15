@@ -3476,5 +3476,2317 @@
         }
       ]
     }
+  },
+  {
+    "territory": {
+      "id": "t16_25_001",
+      "coordinates": [
+        {
+          "x": -99516,
+          "y": 245948,
+          "zMin": -3732,
+          "zMax": -2882
+        },
+        {
+          "x": -98584,
+          "y": 246888,
+          "zMin": -3732,
+          "zMax": -2882
+        },
+        {
+          "x": -98592,
+          "y": 255596,
+          "zMin": -3732,
+          "zMax": -2882
+        },
+        {
+          "x": -103852,
+          "y": 255596,
+          "zMin": -3732,
+          "zMax": -2882
+        },
+        {
+          "x": -105740,
+          "y": 251128,
+          "zMin": -3732,
+          "zMax": -2882
+        },
+        {
+          "x": -105300,
+          "y": 249036,
+          "zMin": -3732,
+          "zMax": -2882
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc",
+          "pos": "anywhere",
+          "total": 8,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 9,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "goblin_scout",
+          "pos": "anywhere",
+          "total": 8,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_002",
+      "coordinates": [
+        {
+          "x": -103468,
+          "y": 252516,
+          "zMin": -3424,
+          "zMax": -3174
+        },
+        {
+          "x": -102708,
+          "y": 252668,
+          "zMin": -3424,
+          "zMax": -3174
+        },
+        {
+          "x": -103500,
+          "y": 253912,
+          "zMin": -3424,
+          "zMax": -3174
+        },
+        {
+          "x": -104400,
+          "y": 253660,
+          "zMin": -3424,
+          "zMax": -3174
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_003",
+      "coordinates": [
+        {
+          "x": -100576,
+          "y": 253600,
+          "zMin": -3524,
+          "zMax": -3224
+        },
+        {
+          "x": -99300,
+          "y": 254412,
+          "zMin": -3524,
+          "zMax": -3224
+        },
+        {
+          "x": -100936,
+          "y": 255520,
+          "zMin": -3524,
+          "zMax": -3224
+        },
+        {
+          "x": -101564,
+          "y": 254612,
+          "zMin": -3524,
+          "zMax": -3224
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_004",
+      "coordinates": [
+        {
+          "x": -100956,
+          "y": 250632,
+          "zMin": -3628,
+          "zMax": -3278
+        },
+        {
+          "x": -98896,
+          "y": 251264,
+          "zMin": -3628,
+          "zMax": -3278
+        },
+        {
+          "x": -99308,
+          "y": 253344,
+          "zMin": -3628,
+          "zMax": -3278
+        },
+        {
+          "x": -101832,
+          "y": 252440,
+          "zMin": -3628,
+          "zMax": -3278
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "goblin_scout",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_005",
+      "coordinates": [
+        {
+          "x": -103772,
+          "y": 250392,
+          "zMin": -3508,
+          "zMax": -3308
+        },
+        {
+          "x": -103056,
+          "y": 250308,
+          "zMin": -3508,
+          "zMax": -3308
+        },
+        {
+          "x": -102600,
+          "y": 250752,
+          "zMin": -3508,
+          "zMax": -3308
+        },
+        {
+          "x": -102620,
+          "y": 251208,
+          "zMin": -3508,
+          "zMax": -3308
+        },
+        {
+          "x": -103144,
+          "y": 251580,
+          "zMin": -3508,
+          "zMax": -3308
+        },
+        {
+          "x": -103692,
+          "y": 251516,
+          "zMin": -3508,
+          "zMax": -3308
+        },
+        {
+          "x": -103972,
+          "y": 251256,
+          "zMin": -3508,
+          "zMax": -3308
+        },
+        {
+          "x": -104112,
+          "y": 250804,
+          "zMin": -3508,
+          "zMax": -3308
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf_chieftain",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_006",
+      "coordinates": [
+        {
+          "x": -104392,
+          "y": 249020,
+          "zMin": -3468,
+          "zMax": -3218
+        },
+        {
+          "x": -101908,
+          "y": 248060,
+          "zMin": -3468,
+          "zMax": -3218
+        },
+        {
+          "x": -101924,
+          "y": 249440,
+          "zMin": -3468,
+          "zMax": -3218
+        },
+        {
+          "x": -104604,
+          "y": 250192,
+          "zMin": -3468,
+          "zMax": -3218
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_007",
+      "coordinates": [
+        {
+          "x": -103492,
+          "y": 244096,
+          "zMin": -3756,
+          "zMax": -3306
+        },
+        {
+          "x": -102020,
+          "y": 245020,
+          "zMin": -3756,
+          "zMax": -3306
+        },
+        {
+          "x": -101796,
+          "y": 247176,
+          "zMin": -3756,
+          "zMax": -3306
+        },
+        {
+          "x": -105144,
+          "y": 248968,
+          "zMin": -3756,
+          "zMax": -3306
+        },
+        {
+          "x": -104720,
+          "y": 245872,
+          "zMin": -3756,
+          "zMax": -3306
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "goblin_scout",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_008",
+      "coordinates": [
+        {
+          "x": -103420,
+          "y": 244052,
+          "zMin": -3792,
+          "zMax": -3592
+        },
+        {
+          "x": -101972,
+          "y": 245148,
+          "zMin": -3792,
+          "zMax": -3592
+        },
+        {
+          "x": -102444,
+          "y": 245572,
+          "zMin": -3792,
+          "zMax": -3592
+        },
+        {
+          "x": -105488,
+          "y": 244116,
+          "zMin": -3792,
+          "zMax": -3592
+        },
+        {
+          "x": -104860,
+          "y": 243724,
+          "zMin": -3792,
+          "zMax": -3592
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "giant_toad",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_009",
+      "coordinates": [
+        {
+          "x": -101904,
+          "y": 246464,
+          "zMin": -3796,
+          "zMax": -3346
+        },
+        {
+          "x": -100384,
+          "y": 246468,
+          "zMin": -3796,
+          "zMax": -3346
+        },
+        {
+          "x": -100456,
+          "y": 247240,
+          "zMin": -3796,
+          "zMax": -3346
+        },
+        {
+          "x": -101820,
+          "y": 247296,
+          "zMin": -3796,
+          "zMax": -3346
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "giant_toad",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25-010",
+      "coordinates": [
+        {
+          "x": -99612,
+          "y": 245480,
+          "zMin": -3788,
+          "zMax": -3438
+        },
+        {
+          "x": -98476,
+          "y": 246332,
+          "zMin": -3788,
+          "zMax": -3438
+        },
+        {
+          "x": -98508,
+          "y": 247440,
+          "zMin": -3788,
+          "zMax": -3438
+        },
+        {
+          "x": -100524,
+          "y": 247268,
+          "zMin": -3788,
+          "zMax": -3438
+        },
+        {
+          "x": -100276,
+          "y": 245908,
+          "zMin": -3788,
+          "zMax": -3438
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "giant_toad",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_011",
+      "coordinates": [
+        {
+          "x": -105612,
+          "y": 244232,
+          "zMin": -3696,
+          "zMax": -2746
+        },
+        {
+          "x": -104484,
+          "y": 244712,
+          "zMin": -3696,
+          "zMax": -2746
+        },
+        {
+          "x": -106680,
+          "y": 250684,
+          "zMin": -3696,
+          "zMax": -2746
+        },
+        {
+          "x": -109000,
+          "y": 250792,
+          "zMin": -3696,
+          "zMax": -2746
+        },
+        {
+          "x": -109340,
+          "y": 248364,
+          "zMin": -3696,
+          "zMax": -2746
+        },
+        {
+          "x": -108608,
+          "y": 246396,
+          "zMin": -3696,
+          "zMax": -2746
+        },
+        {
+          "x": -107188,
+          "y": 244524,
+          "zMin": -3696,
+          "zMax": -2746
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "goblin_scout",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 7,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_012",
+      "coordinates": [
+        {
+          "x": -108568,
+          "y": 250796,
+          "zMin": -3504,
+          "zMax": -3154
+        },
+        {
+          "x": -106724,
+          "y": 250744,
+          "zMin": -3504,
+          "zMax": -3154
+        },
+        {
+          "x": -105924,
+          "y": 252868,
+          "zMin": -3504,
+          "zMax": -3154
+        },
+        {
+          "x": -106380,
+          "y": 253472,
+          "zMin": -3504,
+          "zMax": -3154
+        },
+        {
+          "x": -109024,
+          "y": 253492,
+          "zMin": -3504,
+          "zMax": -3154
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_013",
+      "coordinates": [
+        {
+          "x": -116268,
+          "y": 250028,
+          "zMin": -3456,
+          "zMax": -3006
+        },
+        {
+          "x": -113116,
+          "y": 249284,
+          "zMin": -3456,
+          "zMax": -3006
+        },
+        {
+          "x": -110548,
+          "y": 253908,
+          "zMin": -3456,
+          "zMax": -3006
+        },
+        {
+          "x": -112104,
+          "y": 254728,
+          "zMin": -3456,
+          "zMax": -3006
+        },
+        {
+          "x": -115032,
+          "y": 252640,
+          "zMin": -3456,
+          "zMax": -3006
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_sub_leader",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_014",
+      "coordinates": [
+        {
+          "x": -117932,
+          "y": 243508,
+          "zMin": -3336,
+          "zMax": -2536
+        },
+        {
+          "x": -113604,
+          "y": 243864,
+          "zMin": -3336,
+          "zMax": -2536
+        },
+        {
+          "x": -113300,
+          "y": 249068,
+          "zMin": -3336,
+          "zMax": -2536
+        },
+        {
+          "x": -116124,
+          "y": 249772,
+          "zMin": -3336,
+          "zMax": -2536
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_leader",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_sub_leader",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_015",
+      "coordinates": [
+        {
+          "x": -116252,
+          "y": 248256,
+          "zMin": -3332,
+          "zMax": -2982
+        },
+        {
+          "x": -114056,
+          "y": 248284,
+          "zMin": -3332,
+          "zMax": -2982
+        },
+        {
+          "x": -113880,
+          "y": 249544,
+          "zMin": -3332,
+          "zMax": -2982
+        },
+        {
+          "x": -115248,
+          "y": 250160,
+          "zMin": -3332,
+          "zMax": -2982
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_016",
+      "coordinates": [
+        {
+          "x": -116928,
+          "y": 244152,
+          "zMin": -3296,
+          "zMax": -2996
+        },
+        {
+          "x": -115188,
+          "y": 244648,
+          "zMin": -3296,
+          "zMax": -2996
+        },
+        {
+          "x": -115136,
+          "y": 246804,
+          "zMin": -3296,
+          "zMax": -2996
+        },
+        {
+          "x": -116548,
+          "y": 247196,
+          "zMin": -3296,
+          "zMax": -2996
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf_chieftain",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_017",
+      "coordinates": [
+        {
+          "x": -113484,
+          "y": 244152,
+          "zMin": -3492,
+          "zMax": -3292
+        },
+        {
+          "x": -111364,
+          "y": 244232,
+          "zMin": -3492,
+          "zMax": -3292
+        },
+        {
+          "x": -111312,
+          "y": 244404,
+          "zMin": -3492,
+          "zMax": -3292
+        },
+        {
+          "x": -113488,
+          "y": 244728,
+          "zMin": -3492,
+          "zMax": -3292
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "giant_spider",
+          "pos": "anywhere",
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_018",
+      "coordinates": [
+        {
+          "x": -106300,
+          "y": 236204,
+          "zMin": -3776,
+          "zMax": -3376
+        },
+        {
+          "x": -98608,
+          "y": 239144,
+          "zMin": -3776,
+          "zMax": -3376
+        },
+        {
+          "x": -98584,
+          "y": 243176,
+          "zMin": -3776,
+          "zMax": -3376
+        },
+        {
+          "x": -103364,
+          "y": 241724,
+          "zMin": -3776,
+          "zMax": -3376
+        },
+        {
+          "x": -107940,
+          "y": 239436,
+          "zMin": -3776,
+          "zMax": -3376
+        },
+        {
+          "x": -108864,
+          "y": 238404,
+          "zMin": -3776,
+          "zMax": -3376
+        },
+        {
+          "x": -108888,
+          "y": 237128,
+          "zMin": -3776,
+          "zMax": -3376
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc",
+          "pos": "anywhere",
+          "total": 10,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 10,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 8,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_019",
+      "coordinates": [
+        {
+          "x": -102148,
+          "y": 238928,
+          "zMin": -3616,
+          "zMax": -3216
+        },
+        {
+          "x": -100604,
+          "y": 239196,
+          "zMin": -3616,
+          "zMax": -3216
+        },
+        {
+          "x": -100436,
+          "y": 241088,
+          "zMin": -3616,
+          "zMax": -3216
+        },
+        {
+          "x": -102000,
+          "y": 240756,
+          "zMin": -3616,
+          "zMax": -3216
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_020",
+      "coordinates": [
+        {
+          "x": -104316,
+          "y": 237916,
+          "zMin": -3632,
+          "zMax": -3282
+        },
+        {
+          "x": -102436,
+          "y": 238376,
+          "zMin": -3632,
+          "zMax": -3282
+        },
+        {
+          "x": -102572,
+          "y": 241216,
+          "zMin": -3632,
+          "zMax": -3282
+        },
+        {
+          "x": -105376,
+          "y": 240032,
+          "zMin": -3632,
+          "zMax": -3282
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_021",
+      "coordinates": [
+        {
+          "x": -108324,
+          "y": 237836,
+          "zMin": -3728,
+          "zMax": -3478
+        },
+        {
+          "x": -106444,
+          "y": 236664,
+          "zMin": -3728,
+          "zMax": -3478
+        },
+        {
+          "x": -104872,
+          "y": 238260,
+          "zMin": -3728,
+          "zMax": -3478
+        },
+        {
+          "x": -106440,
+          "y": 239512,
+          "zMin": -3728,
+          "zMax": -3478
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_022",
+      "coordinates": [
+        {
+          "x": -110632,
+          "y": 237904,
+          "zMin": -3684,
+          "zMax": -3334
+        },
+        {
+          "x": -109548,
+          "y": 237532,
+          "zMin": -3684,
+          "zMax": -3334
+        },
+        {
+          "x": -108136,
+          "y": 239984,
+          "zMin": -3684,
+          "zMax": -3334
+        },
+        {
+          "x": -109332,
+          "y": 239604,
+          "zMin": -3684,
+          "zMax": -3334
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_023",
+      "coordinates": [
+        {
+          "x": -99180,
+          "y": 231444,
+          "zMin": -3640,
+          "zMax": -3340
+        },
+        {
+          "x": -98624,
+          "y": 231480,
+          "zMin": -3640,
+          "zMax": -3340
+        },
+        {
+          "x": -98616,
+          "y": 237500,
+          "zMin": -3640,
+          "zMax": -3340
+        },
+        {
+          "x": -99868,
+          "y": 236056,
+          "zMin": -3640,
+          "zMax": -3340
+        },
+        {
+          "x": -100452,
+          "y": 234168,
+          "zMin": -3640,
+          "zMax": -3340
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_024",
+      "coordinates": [
+        {
+          "x": -100412,
+          "y": 229464,
+          "zMin": -3768,
+          "zMax": -3518
+        },
+        {
+          "x": -98556,
+          "y": 229472,
+          "zMin": -3768,
+          "zMax": -3518
+        },
+        {
+          "x": -98508,
+          "y": 231212,
+          "zMin": -3768,
+          "zMax": -3518
+        },
+        {
+          "x": -99060,
+          "y": 231144,
+          "zMin": -3768,
+          "zMax": -3518
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 1,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_025",
+      "coordinates": [
+        {
+          "x": -105772,
+          "y": 235780,
+          "zMin": -3800,
+          "zMax": -3300
+        },
+        {
+          "x": -100952,
+          "y": 233944,
+          "zMin": -3800,
+          "zMax": -3300
+        },
+        {
+          "x": -100236,
+          "y": 236036,
+          "zMin": -3800,
+          "zMax": -3300
+        },
+        {
+          "x": -101356,
+          "y": 237580,
+          "zMin": -3800,
+          "zMax": -3300
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_grunt",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_026",
+      "coordinates": [
+        {
+          "x": -104604,
+          "y": 229520,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -100964,
+          "y": 229464,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -99680,
+          "y": 231444,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -100928,
+          "y": 233836,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -104060,
+          "y": 235016,
+          "zMin": -3764,
+          "zMax": -3264
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_archer",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "goblin_scout",
+          "pos": "anywhere",
+          "total": 6,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_sub_leader",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_027",
+      "coordinates": [
+        {
+          "x": -109732,
+          "y": 229480,
+          "zMin": -3816,
+          "zMax": -3366
+        },
+        {
+          "x": -104700,
+          "y": 229520,
+          "zMin": -3816,
+          "zMax": -3366
+        },
+        {
+          "x": -104140,
+          "y": 235092,
+          "zMin": -3816,
+          "zMax": -3366
+        },
+        {
+          "x": -105748,
+          "y": 235752,
+          "zMin": -3816,
+          "zMax": -3366
+        },
+        {
+          "x": -110228,
+          "y": 231436,
+          "zMin": -3816,
+          "zMax": -3366
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_sub_leader",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_chieftain",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_leader",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_028",
+      "coordinates": [
+        {
+          "x": -102756,
+          "y": 229908,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -101260,
+          "y": 229748,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -100164,
+          "y": 231540,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -101664,
+          "y": 231868,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -102964,
+          "y": 231432,
+          "zMin": -3764,
+          "zMax": -3264
+        },
+        {
+          "x": -103196,
+          "y": 230528,
+          "zMin": -3764,
+          "zMax": -3264
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_leader",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_029",
+      "coordinates": [
+        {
+          "x": -103588,
+          "y": 235136,
+          "zMin": -3568,
+          "zMax": -3318
+        },
+        {
+          "x": -101652,
+          "y": 233252,
+          "zMin": -3568,
+          "zMax": -3318
+        },
+        {
+          "x": -101236,
+          "y": 235348,
+          "zMin": -3568,
+          "zMax": -3318
+        },
+        {
+          "x": -102352,
+          "y": 236464,
+          "zMin": -3568,
+          "zMax": -3318
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_leader",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_030",
+      "coordinates": [
+        {
+          "x": -103332,
+          "y": 241752,
+          "zMin": -3792,
+          "zMax": -3392
+        },
+        {
+          "x": -99784,
+          "y": 242828,
+          "zMin": -3792,
+          "zMax": -3392
+        },
+        {
+          "x": -101140,
+          "y": 244048,
+          "zMin": -3792,
+          "zMax": -3392
+        },
+        {
+          "x": -101940,
+          "y": 244196,
+          "zMin": -3792,
+          "zMax": -3392
+        },
+        {
+          "x": -103420,
+          "y": 243080,
+          "zMin": -3792,
+          "zMax": -3392
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "giant_toad",
+          "pos": "anywhere",
+          "total": 6,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_031",
+      "coordinates": [
+        {
+          "x": -118732,
+          "y": 239608,
+          "zMin": -3332,
+          "zMax": -2782
+        },
+        {
+          "x": -116624,
+          "y": 239528,
+          "zMin": -3332,
+          "zMax": -2782
+        },
+        {
+          "x": -114760,
+          "y": 243788,
+          "zMin": -3332,
+          "zMax": -2782
+        },
+        {
+          "x": -117968,
+          "y": 243464,
+          "zMin": -3332,
+          "zMax": -2782
+        },
+        {
+          "x": -119492,
+          "y": 240684,
+          "zMin": -3332,
+          "zMax": -2782
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "orc_fighter_sub_leader",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_032",
+      "coordinates": [
+        {
+          "x": -118672,
+          "y": 239872,
+          "zMin": -3316,
+          "zMax": -2966
+        },
+        {
+          "x": -117212,
+          "y": 239836,
+          "zMin": -3316,
+          "zMax": -2966
+        },
+        {
+          "x": -117220,
+          "y": 241368,
+          "zMin": -3316,
+          "zMax": -2966
+        },
+        {
+          "x": -117956,
+          "y": 242700,
+          "zMin": -3316,
+          "zMax": -2966
+        },
+        {
+          "x": -118900,
+          "y": 241152,
+          "zMin": -3316,
+          "zMax": -2966
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf_hunter",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_033",
+      "coordinates": [
+        {
+          "x": -120404,
+          "y": 234320,
+          "zMin": -3072,
+          "zMax": -2472
+        },
+        {
+          "x": -117856,
+          "y": 234264,
+          "zMin": -3072,
+          "zMax": -2472
+        },
+        {
+          "x": -116672,
+          "y": 239496,
+          "zMin": -3072,
+          "zMax": -2472
+        },
+        {
+          "x": -118764,
+          "y": 239532,
+          "zMin": -3072,
+          "zMax": -2472
+        },
+        {
+          "x": -120092,
+          "y": 236856,
+          "zMin": -3072,
+          "zMax": -2472
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_fighter_leader",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_chieftain",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_034",
+      "coordinates": [
+        {
+          "x": -120016,
+          "y": 234756,
+          "zMin": -3032,
+          "zMax": -2832
+        },
+        {
+          "x": -118232,
+          "y": 234456,
+          "zMin": -3032,
+          "zMax": -2832
+        },
+        {
+          "x": -118612,
+          "y": 236388,
+          "zMin": -3032,
+          "zMax": -2832
+        },
+        {
+          "x": -119932,
+          "y": 236456,
+          "zMin": -3032,
+          "zMax": -2832
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_035",
+      "coordinates": [
+        {
+          "x": -119576,
+          "y": 229492,
+          "zMin": -2988,
+          "zMax": -2638
+        },
+        {
+          "x": -116556,
+          "y": 229468,
+          "zMin": -2988,
+          "zMax": -2638
+        },
+        {
+          "x": -117132,
+          "y": 232212,
+          "zMin": -2988,
+          "zMax": -2638
+        },
+        {
+          "x": -120068,
+          "y": 233252,
+          "zMin": -2988,
+          "zMax": -2638
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_fighter_leader",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_036",
+      "coordinates": [
+        {
+          "x": -119860,
+          "y": 232356,
+          "zMin": -2980,
+          "zMax": -2780
+        },
+        {
+          "x": -118440,
+          "y": 230968,
+          "zMin": -2980,
+          "zMax": -2780
+        },
+        {
+          "x": -118864,
+          "y": 234148,
+          "zMin": -2980,
+          "zMax": -2780
+        },
+        {
+          "x": -120292,
+          "y": 234176,
+          "zMin": -2980,
+          "zMax": -2780
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "poker",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_25_011",
+      "coordinates": [
+        {
+          "x": -102472,
+          "y": 212568,
+          "zMin": -3356,
+          "zMax": -3006
+        },
+        {
+          "x": -101204,
+          "y": 212436,
+          "zMin": -3356,
+          "zMax": -3006
+        },
+        {
+          "x": -101712,
+          "y": 214380,
+          "zMin": -3356,
+          "zMax": -3006
+        },
+        {
+          "x": -103328,
+          "y": 214620,
+          "zMin": -3356,
+          "zMax": -3006
+        },
+        {
+          "x": -103784,
+          "y": 213548,
+          "zMin": -3356,
+          "zMax": -3006
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "blader",
+          "pos": "anywhere",
+          "total": 1,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "bow_guard_01",
+      "coordinates": [
+        {
+          "x": -100587,
+          "y": 237258,
+          "zMin": -3641,
+          "zMax": -3441
+        },
+        {
+          "x": -99508,
+          "y": 237119,
+          "zMin": -3641,
+          "zMax": -3441
+        },
+        {
+          "x": -99481,
+          "y": 237889,
+          "zMin": -3641,
+          "zMax": -3441
+        },
+        {
+          "x": -100588,
+          "y": 237869,
+          "zMin": -3641,
+          "zMax": -3441
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "bowman",
+          "pos": [
+            -100536,
+            237822,
+            -3572,
+            24576
+          ],
+          "total": 1,
+          "respawn": "1min"
+        },
+        {
+          "name": "bowman",
+          "pos": [
+            -100531,
+            237302,
+            -3568,
+            40960
+          ],
+          "total": 1,
+          "respawn": "1min"
+        },
+        {
+          "name": "bowman",
+          "pos": [
+            -99843,
+            237523,
+            -3568,
+            0
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "bow_guard_02",
+      "coordinates": [
+        {
+          "x": -109974,
+          "y": 255526,
+          "zMin": -3586,
+          "zMax": -3386
+        },
+        {
+          "x": -109730,
+          "y": 255497,
+          "zMin": -3586,
+          "zMax": -3386
+        },
+        {
+          "x": -109677,
+          "y": 256257,
+          "zMin": -3586,
+          "zMax": -3386
+        },
+        {
+          "x": -109960,
+          "y": 256252,
+          "zMin": -3586,
+          "zMax": -3386
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "bowman",
+          "pos": [
+            -109715,
+            256200,
+            -3520,
+            36864
+          ],
+          "total": 1,
+          "respawn": "1min"
+        },
+        {
+          "name": "bowman",
+          "pos": [
+            -109935,
+            255573,
+            -3520,
+            57344
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "NPC_t16_25_030917_01",
+      "coordinates": [
+        {
+          "x": -112317,
+          "y": 244198,
+          "zMin": -3586,
+          "zMax": -3386
+        },
+        {
+          "x": -112117,
+          "y": 244198,
+          "zMin": -3586,
+          "zMax": -3386
+        },
+        {
+          "x": -112117,
+          "y": 244398,
+          "zMin": -3586,
+          "zMax": -3386
+        },
+        {
+          "x": -112317,
+          "y": 244398,
+          "zMin": -3586,
+          "zMax": -3386
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "ramus",
+          "pos": [
+            -112206,
+            244303,
+            -3450,
+            16384
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "NPC_t16_25_030917_02",
+      "coordinates": [
+        {
+          "x": -118719,
+          "y": 233139,
+          "zMin": -3029,
+          "zMax": -2829
+        },
+        {
+          "x": -118519,
+          "y": 233139,
+          "zMin": -3029,
+          "zMax": -2829
+        },
+        {
+          "x": -118519,
+          "y": 233339,
+          "zMin": -3029,
+          "zMax": -2829
+        },
+        {
+          "x": -118719,
+          "y": 233339,
+          "zMin": -3029,
+          "zMax": -2829
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "summoner_almors",
+          "pos": [
+            -118618,
+            233239,
+            -2910,
+            32768
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "16_25_New_NPC01",
+      "coordinates": [
+        {
+          "x": -106564,
+          "y": 233292,
+          "zMin": -3675,
+          "zMax": -3475
+        },
+        {
+          "x": -106364,
+          "y": 233292,
+          "zMin": -3675,
+          "zMax": -3475
+        },
+        {
+          "x": -106364,
+          "y": 233492,
+          "zMin": -3675,
+          "zMax": -3475
+        },
+        {
+          "x": -106564,
+          "y": 233492,
+          "zMin": -3675,
+          "zMax": -3475
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "lemoniell",
+          "pos": [
+            -106485,
+            233377,
+            -3629,
+            12288
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "16_25_1104_NPC02",
+      "coordinates": [
+        {
+          "x": -100452,
+          "y": 237932,
+          "zMin": -3626,
+          "zMax": -3426
+        },
+        {
+          "x": -100252,
+          "y": 237932,
+          "zMin": -3626,
+          "zMax": -3426
+        },
+        {
+          "x": -100252,
+          "y": 238132,
+          "zMin": -3626,
+          "zMax": -3426
+        },
+        {
+          "x": -100452,
+          "y": 238132,
+          "zMin": -3626,
+          "zMax": -3426
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "sir_collin_windawood",
+          "pos": [
+            -100332,
+            238019,
+            -3573,
+            36864
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
   }
 ]
