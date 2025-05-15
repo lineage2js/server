@@ -35,7 +35,7 @@ class VisibilityManager {
           const dy = npc.y - player.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
         
-          if (dist < 500) {
+          if (dist < 1500) {
             const packet = new serverPackets.NpcInfo(npc);
 
             client.sendPacket(packet);
