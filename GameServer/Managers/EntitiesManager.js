@@ -1,7 +1,4 @@
 const characterStatusEnums = require('./../../enums/characterStatusEnums');
-//
-const database = require('./../../Database');
-//
 
 class EntitiesManager {
   constructor() {
@@ -27,28 +24,6 @@ class EntitiesManager {
       
       playersManager.emit('notify', packet);
     });
-
-    // let objectId = await database.getNextObjectId();
-
-    // npcManager.on('updatePosition', npc => {
-    //   const packet = new serverPackets.DropItem(npc, {
-    //     objectId: objectId,
-    //     itemId: 57,
-    //     x: npc.x,
-    //     y: npc.y,
-    //     z: npc.z
-    //   });
-      
-    //   playersManager.emit('notify', packet);
-
-    //   // setTimeout((function(objId) {
-    //   //   return function() {
-    //   //     playersManager.emit('notify', new serverPackets.DeleteObject(objId));
-    //   //   }
-    //   // })(objectId), 1000);
-
-    //   objectId++;
-    // });
 
     npcManager.on('move', npc => {
       const packet = new serverPackets.MoveToLocation(npc.path, npc.objectId);

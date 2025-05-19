@@ -15,14 +15,6 @@ class VisibilityManager {
   }
 
   enable() {
-    // npcManager.on('spawn', npc => {
-    //   this._npcs.push(npc);
-    // });
-
-    // playersManager.on('spawn', player => {
-    //   this._players.push(player);
-    // });
-
     setInterval(() => {
       for (let i = 0; i < this._players.length; i++) {
         const player = this._players[i];

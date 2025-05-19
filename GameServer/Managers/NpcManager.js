@@ -171,8 +171,6 @@ class NpcManager extends EventEmitter {
 
 		let max = { x: Math.max(...xp), y: Math.max(...yp) };
 		let min = { x: Math.min(...xp), y: Math.min(...yp) };
-		// let xp = [-71988, -71390, -72283, -72895];
-		// let yp = [256706, 257435, 258192, 257464];
     
 		let x;
 		let y;
