@@ -165,6 +165,12 @@ class NpcManager extends EventEmitter {
     return npc;
   }
 
+  getNpcById(id) {
+    const npc = this._npcs.find(npc => npc.id === id);
+
+    return npc;
+  }
+
   _getRandomPos(coordinates) {
     let xp = coordinates.map(i => i.x);
     let yp = coordinates.map(i => i.y);

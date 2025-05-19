@@ -60,6 +60,10 @@ class Npc extends Character {
     this.lastTimeTick = 0;
     this.coordinates = null;
     //
+
+    //
+    this.npcAi = null;
+    //
   }
 
   get runSpeed() {
