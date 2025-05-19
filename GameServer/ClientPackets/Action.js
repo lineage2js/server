@@ -57,10 +57,15 @@ class Action {
         //
         const fs = require('fs');
         const path = require('path');
-        const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/roien001.htm'), 'utf8');
+        const html = fs.readFileSync(path.resolve(__dirname, `./../../Data/html/${entity.npcAi.fnHi}`), 'utf16le'); // fix
+
         //
         this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
         this._client.sendPacket(new serverPackets.ActionFailed()); // fix?
+
+        //
+        player.lastTalkedNpcId = entity.id;
+        //
 
         return;
       }

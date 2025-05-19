@@ -57,6 +57,7 @@ class Player extends Character {
     this.isAttacking = false;
 
     //
+    this.lastTalkedNpcId = null;
     this.pickupItem = null; // хранить objectId? как target?
     //
 
