@@ -1,12 +1,17 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class QuestList {
-  constructor() {
-    this._packet = new ServerPacket(10);
+  constructor(quests = []) {
+    this._packet = new ServerPacket(3 + (quests.length * 8));
     this._packet.writeC(0x98)
-      .writeH(1)
-      .writeD(201)
-      .writeD(1);
+      .writeH(quests.length);
+
+    for (let i = 0; i < quests.length; i++) {
+      const quest = quests[i];
+
+      this._packet.writeD(quest.id)
+        .writeD(quest.numberState);
+    }
   }
 
   getBuffer() {
