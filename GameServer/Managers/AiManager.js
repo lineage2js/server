@@ -3,7 +3,7 @@ const EventEmitter = require('events');
 
 class AiManager extends EventEmitter {
   onTalkSelect(aiName, talker) {
-    ai.carl.on('showPage', (talker, htmlName) => {
+    ai.carl.once('showPage', (talker, htmlName) => { // fix once. Подписатся один раз иди удалить из памяти
       const fs = require('fs');
       const path = require('path');
       const html = fs.readFileSync(path.resolve(__dirname, `./../../Data/html/${htmlName}`), 'utf16le');
@@ -11,8 +11,12 @@ class AiManager extends EventEmitter {
       this.emit('showPage', talker, html);
     });
 
-    ai.carl.on('setMemo', (talker, memo) => {
+    ai.carl.once('setMemo', (talker, memo) => {
       this.emit('setMemo', talker, memo);
+    });
+
+    ai.carl.once('soundEffect', (talker, soundName) => {
+      this.emit('soundEffect', talker, soundName);
     });
 
     ai.carl.onTalkSelected(talker);
