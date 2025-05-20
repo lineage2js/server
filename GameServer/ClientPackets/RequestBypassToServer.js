@@ -26,13 +26,7 @@ class RequestBypassToServer {
 
     //
     if (npc.npcAi.ai === 'carl') {
-      const ai = aiManager.getAiByName(npc.npcAi.ai);
-
-      if (this.command === 'talk_select') {
-        ai.onTalkSelected(player);
-      }
-
-      //this._client.sendPacket(new serverPackets.QuestList([{ id: 201, numberState: 1 }]))
+      aiManager.executeCommand(this.command, 'carl', player);
       
       return;
     }

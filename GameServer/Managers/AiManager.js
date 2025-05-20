@@ -2,8 +2,8 @@ const ai = require('./../../Data/ai');
 const EventEmitter = require('events');
 
 class AiManager extends EventEmitter {
-  getAiByName(name) {
-    if (name === 'carl') {
+  executeCommand(command, aiName, talker) {
+    if (command === 'talk_select') {
       ai.carl.on('showPage', (talker, htmlName) => {
         const fs = require('fs');
         const path = require('path');
@@ -12,7 +12,7 @@ class AiManager extends EventEmitter {
         this.emit('showPage', talker, html);
       })
 
-      return ai.carl;
+      ai.carl.onTalkSelected(talker);
     }
   }
 }
