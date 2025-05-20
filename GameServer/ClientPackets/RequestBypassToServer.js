@@ -26,12 +26,13 @@ class RequestBypassToServer {
 
     //
     if (npc.npcAi.ai === 'carl') {
-      aiManager.executeCommand(this.command, 'carl', player);
+      if (this.command === 'talk_select') {
+        aiManager.onTalkSelect('carl', player);
+      }
       
       return;
     }
     //
-
     
     const fs = require('fs');
     const path = require('path');

@@ -182,6 +182,19 @@ class EntitiesManager {
         playersManager.emit('notify', packet);
       }
     });
+
+    aiManager.on('setMemo', (talker, memo) => {
+      {
+        const packet = new serverPackets.QuestList([
+          {
+            id: memo,
+            numberState: 1
+          }
+        ]);
+      
+        playersManager.emit('notify', packet);
+      }
+    });
   }
 }
 
