@@ -3,6 +3,7 @@ const ClientPacket = require("./ClientPacket");
 const database = require('./../../Database');
 const playersManager = require('./../Managers/PlayersManager');
 const npcManager = require('./../Managers/NpcManager');
+const aiManager = require('./../Managers/AiManager');
 
 class RequestBypassToServer {
   constructor(client, packet) {
@@ -25,13 +26,13 @@ class RequestBypassToServer {
 
     //
     if (npc.npcAi.ai === 'carl') {
-      const fs = require('fs');
-      const path = require('path');
-      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/carl_q0201_01.htm'), 'utf16le');
-      
-      this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
-      this._client.sendPacket(new serverPackets.ActionFailed()); // fix?
-      this._client.sendPacket(new serverPackets.QuestList([{ id: 201, numberState: 1 }]))
+      const ai = aiManager.getAiByName(npc.npcAi.ai);
+
+      if (this.command === 'talk_select') {
+        ai.onTalkSelected(player);
+      }
+
+      //this._client.sendPacket(new serverPackets.QuestList([{ id: 201, numberState: 1 }]))
       
       return;
     }

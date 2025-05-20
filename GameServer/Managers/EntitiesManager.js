@@ -15,6 +15,7 @@ class EntitiesManager {
     const itemsManager = require('./ItemsManager');
     const botsManager = require('./BotsManager');
     const visibilityManager = require('./VisibilityManager');
+    const aiManager = require('./AiManager');
     const serverPackets = require('./../ServerPackets/serverPackets');
 
     npcManager.on('spawn', npc => {
@@ -163,6 +164,20 @@ class EntitiesManager {
 
       {
         const packet = new serverPackets.DeleteObject(item.objectId);
+      
+        playersManager.emit('notify', packet);
+      }
+    });
+
+    aiManager.on('showPage', (talker, html) => {
+      {
+        const packet = new serverPackets.NpcHtmlMessage(html);
+      
+        playersManager.emit('notify', packet);
+      }
+
+      {
+        const packet = new serverPackets.ActionFailed(); // fix?
       
         playersManager.emit('notify', packet);
       }
