@@ -7,7 +7,7 @@ const levelExpTable = require('./../data/exp.json');
 const database = require('./../../Database');
 const movingManager = require('./../Managers/MovingManager');
 const npcManager = require('./../Managers/NpcManager');
-let objectId;
+const aiManager = require('./../Managers/AiManager');
 //
 
 function findLevel(exp) { // оптимизировать
@@ -57,16 +57,17 @@ class Player extends Character {
     this.isAttacking = false;
 
     //
+    this.quests = [];
     this.lastTalkedNpcId = null;
     this.pickupItem = null; // хранить objectId? как target?
     //
 
-    this._init();
+    //this._init();
   }
 
-  async _init() {
-    objectId = await database.getNextObjectId();
-  }
+  // async _init() {
+  //   objectId = await database.getNextObjectId();
+  // }
 
   getClient() {
     return this._client;
@@ -228,6 +229,10 @@ class Player extends Character {
 
               this.emit('updateLevel');
             }
+          }
+
+          { // fix test
+            aiManager.onMyDying('tuto_keltir', this);
           }
           
           this.target = null;

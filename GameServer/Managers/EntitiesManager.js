@@ -184,6 +184,10 @@ class EntitiesManager {
     });
 
     aiManager.on('setMemo', (talker, memo) => {
+      //
+      talker.quests.push({ id: memo, state: 0 });
+      //
+
       const packet = new serverPackets.QuestList([
         {
           id: memo,

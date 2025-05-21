@@ -21,6 +21,14 @@ class AiManager extends EventEmitter {
 
     ai.carl.onTalkSelected(talker);
   }
+
+  onMyDying(aiName, talker) {
+    ai.tuto_keltir.once('giveItem', (talker, item) => {
+      
+    });
+
+    ai.tuto_keltir.onMyDying(talker);
+  }
 }
 
 module.exports = new AiManager();
