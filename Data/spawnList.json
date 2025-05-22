@@ -5788,5 +5788,1038 @@
         }
       ]
     }
+  },
+  {
+    "territory": "",
+    "npcMakers": {
+      "npcs": []
+    }
+  },
+  {
+    "territory": {
+      "id": "16_24_New_NPC01",
+      "coordinates": [
+        {
+          "x": -115156,
+          "y": 222060,
+          "zMin": -2976,
+          "zMax": -2776
+        },
+        {
+          "x": -114956,
+          "y": 222060,
+          "zMin": -2976,
+          "zMax": -2776
+        },
+        {
+          "x": -114956,
+          "y": 222260,
+          "zMin": -2976,
+          "zMax": -2776
+        },
+        {
+          "x": -115156,
+          "y": 222260,
+          "zMin": -2976,
+          "zMax": -2776
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "marius",
+          "pos": [
+            -115080,
+            222168,
+            -2930,
+            42000
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "16_24_New_NPC02",
+      "coordinates": [
+        {
+          "x": -104340,
+          "y": 221980,
+          "zMin": -3495,
+          "zMax": -3295
+        },
+        {
+          "x": -104140,
+          "y": 221980,
+          "zMin": -3495,
+          "zMax": -3295
+        },
+        {
+          "x": -104140,
+          "y": 222180,
+          "zMin": -3495,
+          "zMax": -3295
+        },
+        {
+          "x": -104340,
+          "y": 222180,
+          "zMin": -3495,
+          "zMax": -3295
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "mesella",
+          "pos": [
+            -104240,
+            222064,
+            -3437,
+            16384
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": "",
+    "npcMakers": {
+      "npcs": []
+    }
+  },
+  {
+    "territory": {
+      "id": "16_24_NPC_030514",
+      "coordinates": [
+        {
+          "x": -114788,
+          "y": 222204,
+          "zMin": -3063,
+          "zMax": -2863
+        },
+        {
+          "x": -114588,
+          "y": 222204,
+          "zMin": -3063,
+          "zMax": -2863
+        },
+        {
+          "x": -114588,
+          "y": 222404,
+          "zMin": -3063,
+          "zMax": -2863
+        },
+        {
+          "x": -114788,
+          "y": 222404,
+          "zMin": -3063,
+          "zMax": -2863
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "edmond",
+          "pos": [
+            -114685,
+            222291,
+            -2925,
+            44000
+          ],
+          "total": 1,
+          "respawn": "1min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": "",
+    "npcMakers": {
+      "npcs": []
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_001",
+      "coordinates": [
+        {
+          "x": -108496,
+          "y": 223400,
+          "zMin": -3764,
+          "zMax": -2964
+        },
+        {
+          "x": -101364,
+          "y": 219192,
+          "zMin": -3764,
+          "zMax": -2964
+        },
+        {
+          "x": -100052,
+          "y": 224428,
+          "zMin": -3764,
+          "zMax": -2964
+        },
+        {
+          "x": -101488,
+          "y": 228896,
+          "zMin": -3764,
+          "zMax": -2964
+        },
+        {
+          "x": -108784,
+          "y": 228996,
+          "zMin": -3764,
+          "zMax": -2964
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_fighter_leader",
+          "pos": "anywhere",
+          "total": 8,
+          "respawn": "15sec"
+        },
+        {
+          "name": "werewolf_chieftain",
+          "pos": "anywhere",
+          "total": 9,
+          "respawn": "15sec"
+        },
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 8,
+          "respawn": "15sec"
+        },
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 9,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_002",
+      "coordinates": [
+        {
+          "x": -107680,
+          "y": 226640,
+          "zMin": -3728,
+          "zMax": -3478
+        },
+        {
+          "x": -105196,
+          "y": 226116,
+          "zMin": -3728,
+          "zMax": -3478
+        },
+        {
+          "x": -103592,
+          "y": 227816,
+          "zMin": -3728,
+          "zMax": -3478
+        },
+        {
+          "x": -106328,
+          "y": 228440,
+          "zMin": -3728,
+          "zMax": -3478
+        },
+        {
+          "x": -107828,
+          "y": 227600,
+          "zMin": -3728,
+          "zMax": -3478
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "werewolf_chieftain",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_003",
+      "coordinates": [
+        {
+          "x": -102852,
+          "y": 225716,
+          "zMin": -3752,
+          "zMax": -3502
+        },
+        {
+          "x": -100996,
+          "y": 226072,
+          "zMin": -3752,
+          "zMax": -3502
+        },
+        {
+          "x": -101616,
+          "y": 228252,
+          "zMin": -3752,
+          "zMax": -3502
+        },
+        {
+          "x": -102980,
+          "y": 228372,
+          "zMin": -3752,
+          "zMax": -3502
+        },
+        {
+          "x": -103984,
+          "y": 226348,
+          "zMin": -3752,
+          "zMax": -3502
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "orc_fighter_sub_leader",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_004",
+      "coordinates": [
+        {
+          "x": -103472,
+          "y": 224552,
+          "zMin": -3700,
+          "zMax": -3300
+        },
+        {
+          "x": -100844,
+          "y": 222636,
+          "zMin": -3700,
+          "zMax": -3300
+        },
+        {
+          "x": -100444,
+          "y": 224276,
+          "zMin": -3700,
+          "zMax": -3300
+        },
+        {
+          "x": -101252,
+          "y": 225432,
+          "zMin": -3700,
+          "zMax": -3300
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_005",
+      "coordinates": [
+        {
+          "x": -105388,
+          "y": 223784,
+          "zMin": -3696,
+          "zMax": -3496
+        },
+        {
+          "x": -104788,
+          "y": 224184,
+          "zMin": -3696,
+          "zMax": -3496
+        },
+        {
+          "x": -104876,
+          "y": 224856,
+          "zMin": -3696,
+          "zMax": -3496
+        },
+        {
+          "x": -105460,
+          "y": 225108,
+          "zMin": -3696,
+          "zMax": -3496
+        },
+        {
+          "x": -105884,
+          "y": 224844,
+          "zMin": -3696,
+          "zMax": -3496
+        },
+        {
+          "x": -106032,
+          "y": 224500,
+          "zMin": -3696,
+          "zMax": -3496
+        },
+        {
+          "x": -105760,
+          "y": 223916,
+          "zMin": -3696,
+          "zMax": -3496
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "giant_spider",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_006",
+      "coordinates": [
+        {
+          "x": -106368,
+          "y": 215296,
+          "zMin": -3464,
+          "zMax": -2814
+        },
+        {
+          "x": -104244,
+          "y": 215184,
+          "zMin": -3464,
+          "zMax": -2814
+        },
+        {
+          "x": -101788,
+          "y": 217408,
+          "zMin": -3464,
+          "zMax": -2814
+        },
+        {
+          "x": -101320,
+          "y": 219100,
+          "zMin": -3464,
+          "zMax": -2814
+        },
+        {
+          "x": -105792,
+          "y": 221736,
+          "zMin": -3464,
+          "zMax": -2814
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 6,
+          "respawn": "15sec"
+        },
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 6,
+          "respawn": "15sec"
+        },
+        {
+          "name": "giant_spider",
+          "pos": "anywhere",
+          "total": 6,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_007",
+      "coordinates": [
+        {
+          "x": -105076,
+          "y": 218364,
+          "zMin": -3280,
+          "zMax": -2730
+        },
+        {
+          "x": -102432,
+          "y": 217728,
+          "zMin": -3280,
+          "zMax": -2730
+        },
+        {
+          "x": -102008,
+          "y": 219128,
+          "zMin": -3280,
+          "zMax": -2730
+        },
+        {
+          "x": -103448,
+          "y": 219736,
+          "zMin": -3280,
+          "zMax": -2730
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_008",
+      "coordinates": [
+        {
+          "x": -105760,
+          "y": 215932,
+          "zMin": -3464,
+          "zMax": -3114
+        },
+        {
+          "x": -104392,
+          "y": 215500,
+          "zMin": -3464,
+          "zMax": -3114
+        },
+        {
+          "x": -103020,
+          "y": 216676,
+          "zMin": -3464,
+          "zMax": -3114
+        },
+        {
+          "x": -105568,
+          "y": 216804,
+          "zMin": -3464,
+          "zMax": -3114
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_009",
+      "coordinates": [
+        {
+          "x": -102428,
+          "y": 212248,
+          "zMin": -3488,
+          "zMax": -2988
+        },
+        {
+          "x": -100860,
+          "y": 212264,
+          "zMin": -3488,
+          "zMax": -2988
+        },
+        {
+          "x": -99620,
+          "y": 213188,
+          "zMin": -3488,
+          "zMax": -2988
+        },
+        {
+          "x": -99236,
+          "y": 214828,
+          "zMin": -3488,
+          "zMax": -2988
+        },
+        {
+          "x": -100800,
+          "y": 217772,
+          "zMin": -3488,
+          "zMax": -2988
+        },
+        {
+          "x": -104800,
+          "y": 213716,
+          "zMin": -3488,
+          "zMax": -2988
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "poker",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "blader",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_010",
+      "coordinates": [
+        {
+          "x": -100256,
+          "y": 214112,
+          "zMin": -3440,
+          "zMax": -3090
+        },
+        {
+          "x": -99628,
+          "y": 214900,
+          "zMin": -3440,
+          "zMax": -3090
+        },
+        {
+          "x": -100884,
+          "y": 216844,
+          "zMin": -3440,
+          "zMax": -3090
+        },
+        {
+          "x": -102340,
+          "y": 214784,
+          "zMin": -3440,
+          "zMax": -3090
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        },
+        {
+          "name": "poker",
+          "pos": "anywhere",
+          "total": 1,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_012",
+      "coordinates": [
+        {
+          "x": -109796,
+          "y": 213896,
+          "zMin": -3508,
+          "zMax": -2908
+        },
+        {
+          "x": -106480,
+          "y": 214296,
+          "zMin": -3508,
+          "zMax": -2908
+        },
+        {
+          "x": -106236,
+          "y": 217196,
+          "zMin": -3508,
+          "zMax": -2908
+        },
+        {
+          "x": -112784,
+          "y": 218960,
+          "zMin": -3508,
+          "zMax": -2908
+        },
+        {
+          "x": -113628,
+          "y": 217552,
+          "zMin": -3508,
+          "zMax": -2908
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 8,
+          "respawn": "15sec"
+        },
+        {
+          "name": "poker",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "blader",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_013",
+      "coordinates": [
+        {
+          "x": -110232,
+          "y": 214692,
+          "zMin": -3452,
+          "zMax": -3102
+        },
+        {
+          "x": -108680,
+          "y": 214840,
+          "zMin": -3452,
+          "zMax": -3102
+        },
+        {
+          "x": -109216,
+          "y": 217164,
+          "zMin": -3452,
+          "zMax": -3102
+        },
+        {
+          "x": -111308,
+          "y": 216148,
+          "zMin": -3452,
+          "zMax": -3102
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "blader",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_014",
+      "coordinates": [
+        {
+          "x": -115920,
+          "y": 218912,
+          "zMin": -3208,
+          "zMax": -2708
+        },
+        {
+          "x": -113768,
+          "y": 217540,
+          "zMin": -3208,
+          "zMax": -2708
+        },
+        {
+          "x": -112596,
+          "y": 219548,
+          "zMin": -3208,
+          "zMax": -2708
+        },
+        {
+          "x": -114320,
+          "y": 221792,
+          "zMin": -3208,
+          "zMax": -2708
+        },
+        {
+          "x": -117064,
+          "y": 222288,
+          "zMin": -3208,
+          "zMax": -2708
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "giant_spider",
+          "pos": "anywhere",
+          "total": 3,
+          "respawn": "15sec"
+        },
+        {
+          "name": "poker",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_015",
+      "coordinates": [
+        {
+          "x": -116904,
+          "y": 222640,
+          "zMin": -3104,
+          "zMax": -2554
+        },
+        {
+          "x": -115156,
+          "y": 223856,
+          "zMin": -3104,
+          "zMax": -2554
+        },
+        {
+          "x": -115600,
+          "y": 228980,
+          "zMin": -3104,
+          "zMax": -2554
+        },
+        {
+          "x": -119216,
+          "y": 229000,
+          "zMin": -3104,
+          "zMax": -2554
+        },
+        {
+          "x": -118888,
+          "y": 226512,
+          "zMin": -3104,
+          "zMax": -2554
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "stone_golem",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        },
+        {
+          "name": "crasher",
+          "pos": "anywhere",
+          "total": 5,
+          "respawn": "15sec"
+        },
+        {
+          "name": "poker",
+          "pos": "anywhere",
+          "total": 4,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "t16_24_016",
+      "coordinates": [
+        {
+          "x": -118588,
+          "y": 226428,
+          "zMin": -2996,
+          "zMax": -2796
+        },
+        {
+          "x": -117844,
+          "y": 225164,
+          "zMin": -2996,
+          "zMax": -2796
+        },
+        {
+          "x": -117068,
+          "y": 226464,
+          "zMin": -2996,
+          "zMax": -2796
+        },
+        {
+          "x": -118288,
+          "y": 228140,
+          "zMin": -2996,
+          "zMax": -2796
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "giant_spider",
+          "pos": "anywhere",
+          "total": 2,
+          "respawn": "15sec"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "quest_030919_16_24_001",
+      "coordinates": [
+        {
+          "x": -119608,
+          "y": 222624,
+          "zMin": -3812,
+          "zMax": -3412
+        },
+        {
+          "x": -118932,
+          "y": 222764,
+          "zMin": -3812,
+          "zMax": -3412
+        },
+        {
+          "x": -118972,
+          "y": 223952,
+          "zMin": -3812,
+          "zMax": -3412
+        },
+        {
+          "x": -119448,
+          "y": 223848,
+          "zMin": -3812,
+          "zMax": -3412
+        },
+        {
+          "x": -119768,
+          "y": 223184,
+          "zMin": -3812,
+          "zMax": -3412
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "ol_mahum_betrayer",
+          "pos": "anywhere",
+          "total": 1,
+          "respawn": "3min"
+        }
+      ]
+    }
+  },
+  {
+    "territory": {
+      "id": "quest_030919_16_24_003",
+      "coordinates": [
+        {
+          "x": -118719,
+          "y": 233139,
+          "zMin": -3029,
+          "zMax": -2829
+        },
+        {
+          "x": -118519,
+          "y": 233139,
+          "zMin": -3029,
+          "zMax": -2829
+        },
+        {
+          "x": -118519,
+          "y": 233339,
+          "zMin": -3029,
+          "zMax": -2829
+        },
+        {
+          "x": -118719,
+          "y": 233339,
+          "zMin": -3029,
+          "zMax": -2829
+        }
+      ]
+    },
+    "npcMakers": {
+      "npcs": [
+        {
+          "name": "pako_the_cat",
+          "pos": "anywhere",
+          "total": 1,
+          "respawn": "3min"
+        }
+      ]
+    }
   }
 ]
