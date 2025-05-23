@@ -38,19 +38,19 @@ class Client {
     const packet = (Buffer.from(blowfish.decrypt(cropped)));
     const opcode = packet[0];
 
-    console.log("opcode: ", opcode);
-
+    console.log(`opcode: [0x${opcode.toString(16).toUpperCase().padStart(2, '0')}]`);
+    
     switch(opcode) {
-      case 0:
-        new clientPackets.RequestAuthLogin(packet, this);
+      case 0x00:
+        new clientPackets.RequestAuthLogin(this, packet);
 
         break;
-      case 2:
-        new clientPackets.RequestServerLogin(packet, this);
+      case 0x02:
+        new clientPackets.RequestServerLogin(this, packet);
 
         break;
-      case 5:
-        new clientPackets.RequestServerList(packet, this);
+      case 0x05:
+        new clientPackets.RequestServerList(this, packet);
 
         break;
       }

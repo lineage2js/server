@@ -3,7 +3,7 @@ const ClientPacket = require("./ClientPacket");
 const database = require('./../../Database');
 
 class RequestServerList {
-  constructor(packet, client) {
+  constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
     this._data.readC()
