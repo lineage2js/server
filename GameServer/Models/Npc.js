@@ -5,9 +5,6 @@ const movingManager = require('./../Managers/MovingManager');
 const entitiesManager = require('./../Managers/EntitiesManager'); // fix?
 
 //
-const database = require('./../../Database');
-
-//
 function moveCloser(x1, y1, x2, y2, distance) {
   // Вычисляем разницу между координатами
   let dx = x2 - x1;
@@ -167,8 +164,6 @@ class Npc extends Character {
 
   updateState(state, payload) {
     this.state = state;
-
-    //console.log(` --- npc ${this.name} state`, state);
 
     switch(state) {
       case 'move':

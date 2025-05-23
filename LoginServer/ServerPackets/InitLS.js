@@ -3,7 +3,7 @@ const config = require('../../config')
 
 class InitLS {
   constructor(sessionID) {
-    this._packet = new ServerPacket(9);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x00)
       .writeD(sessionID)
       .writeD(config.main.SERVER_PROTOCOL_VERSION);

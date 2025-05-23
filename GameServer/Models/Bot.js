@@ -378,24 +378,6 @@ class Bot extends Character {
         y: parseFloat((this.y + (Math.sin(angle) * distance)).toFixed(1)),
         z: this.z
       });
-
-      //
-      // this._client.sendPacket(new serverPackets.DropItem(this, {
-      //   objectId: objectId,
-      //   itemId: 118,
-      //   x: this.x,
-      //   y: this.y,
-      //   z: this.z
-      // }));
-  
-      // setTimeout((function(client, objId) {
-      //   return function() {
-      //     client.sendPacket(new serverPackets.DeleteObject(objId));
-      //   }
-      // })(this._client, objectId), 5000);
-  
-      // objectId++;
-      //
   
       this.positionUpdateTimestamp = tick;
 
@@ -412,24 +394,6 @@ class Bot extends Character {
       y: parseFloat((this.y + (Math.sin(angle) * step)).toFixed(1)),
       z: this.z
     });
-
-    //
-    // this._client.sendPacket(new serverPackets.DropItem(this, {
-    //   objectId: objectId,
-    //   itemId: 57,
-    //   x: this.x,
-    //   y: this.y,
-    //   z: this.z
-    // }));
-
-    // setTimeout((function(client, objId) {
-    //   return function() {
-    //     client.sendPacket(new serverPackets.DeleteObject(objId));
-    //   }
-    // })(this._client, objectId), 5000);
-
-    // objectId++;
-    //
 
     this.positionUpdateTimestamp = tick;
   }

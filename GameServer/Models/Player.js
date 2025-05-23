@@ -4,13 +4,12 @@ const characterStatusEnums = require('./../../enums/characterStatusEnums');
 const levelExpTable = require('./../data/exp.json');
 
 //
-const database = require('./../../Database');
 const movingManager = require('./../Managers/MovingManager');
 const npcManager = require('./../Managers/NpcManager');
 const aiManager = require('./../Managers/AiManager');
 //
 
-function findLevel(exp) { // оптимизировать
+function findLevel(exp) { // оптимизировать get level by exp
   let level = 1;
   
   // Перебираем уровни, пока не найдем нужный
@@ -61,13 +60,7 @@ class Player extends Character {
     this.lastTalkedNpcId = null;
     this.pickupItem = null; // хранить objectId? как target?
     //
-
-    //this._init();
   }
-
-  // async _init() {
-  //   objectId = await database.getNextObjectId();
-  // }
 
   getClient() {
     return this._client;
@@ -271,7 +264,7 @@ class Player extends Character {
   }
 
   stop() {
-    movingManager.unregisterMovingObject(this);
+    movingManager.unregisterMovingObject(this); // fix надо дожидаться
     
     this.isMoving = false;
 
@@ -347,24 +340,6 @@ class Player extends Character {
         y: parseFloat((this.y + (Math.sin(angle) * distance)).toFixed(1)),
         z: this.z
       });
-
-      //
-      // this._client.sendPacket(new serverPackets.DropItem(this, {
-      //   objectId: objectId,
-      //   itemId: 118,
-      //   x: this.x,
-      //   y: this.y,
-      //   z: this.z
-      // }));
-  
-      // setTimeout((function(client, objId) {
-      //   return function() {
-      //     client.sendPacket(new serverPackets.DeleteObject(objId));
-      //   }
-      // })(this._client, objectId), 5000);
-  
-      // objectId++;
-      //
   
       this.positionUpdateTimestamp = tick;
 
@@ -381,24 +356,6 @@ class Player extends Character {
       y: parseFloat((this.y + (Math.sin(angle) * step)).toFixed(1)),
       z: this.z
     });
-
-    //
-    // this._client.sendPacket(new serverPackets.DropItem(this, {
-    //   objectId: objectId,
-    //   itemId: 57,
-    //   x: this.x,
-    //   y: this.y,
-    //   z: this.z
-    // }));
-
-    // setTimeout((function(client, objId) {
-    //   return function() {
-    //     client.sendPacket(new serverPackets.DeleteObject(objId));
-    //   }
-    // })(this._client, objectId), 5000);
-
-    // objectId++;
-    //
 
     this.positionUpdateTimestamp = tick;
 
