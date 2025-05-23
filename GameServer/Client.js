@@ -5,7 +5,7 @@ const clientPackets = require('./ClientPackets/clientPackets');
 class Client {
   constructor(socket) {
     this._socket = socket;
-    this._protocolVersion = 0;
+    this._protocolVersion = null;
     
     this._init();
   }
@@ -45,7 +45,7 @@ class Client {
     const packet = Buffer.from(cropped);
     const opcode = packet[0];
 
-    console.log("opcode: ", opcode);
+    console.log(`opcode: [0x${opcode.toString(16).toUpperCase().padStart(2, '0')}]`);
 
     switch(opcode) {
       case 0x00:
