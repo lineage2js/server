@@ -48,71 +48,71 @@ class Client {
     console.log("opcode: ", opcode);
 
     switch(opcode) {
-      case 0:
+      case 0x00:
         new clientPackets.ProtocolVersion(packet, this);
 
         break;
-      case 4:
+      case 0x04:
         new clientPackets.Action(packet, this);
 
         break;
-      case 8:
+      case 0x08:
         new clientPackets.RequestAuthLogin(packet, this);
 
         break;
-      case 13:
+      case 0x0D:
         new clientPackets.CharacterSelected(packet, this);
 
         break;
-      case 99:
+      case 0x63:
         new clientPackets.RequestQuestList(packet, this);
 
         break;
-      case 3:
+      case 0x03:
         new clientPackets.EnterWorld(packet, this);
   
         break;
-      case 14:
+      case 0x0E:
         new clientPackets.NewCharacter(packet, this);
 
         break;
-      case 11:
+      case 0x0B:
         new clientPackets.CharacterCreate(packet, this);
 
         break;
-      case 12:
+      case 0x0C:
         new clientPackets.CharacterDelete(packet, this);
 
         break;
-      case 1:
+      case 0x01:
         new clientPackets.MoveBackwardToLocation(packet, this);
   
         break;
-      case 10:
+      case 0x0A:
         new clientPackets.RequestAttack(packet, this);
 
         break;
-      case 9:
+      case 0x09:
         new clientPackets.Logout(packet, this);
   
         break;
-      case 70:
+      case 0x46:
         new clientPackets.RequestRestart(packet, this);
 
         break;
-      case 55:
+      case 0x37:
         new clientPackets.RequestTargetCancel(packet, this);
 
         break;
-      case 15:
+      case 0x0F:
         new clientPackets.RequestItemList(packet, this);
 
         break;
-      case 51:
+      case 0x33:
         new clientPackets.RequestShortCutReg(packet, this);
 
         break;
-      case 33:
+      case 0x21:
         new clientPackets.RequestBypassToServer(this, packet);
 
         break;
