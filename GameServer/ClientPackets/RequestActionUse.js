@@ -40,7 +40,7 @@ class RequestActionUse {
     if (this.actionId === 1) {
       this._client.sendPacket(new serverPackets.ChangeMoveType(player.objectId, 0));
 
-      return
+      return;
     }
   }
 }

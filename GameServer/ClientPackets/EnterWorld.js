@@ -15,7 +15,6 @@ class EnterWorld {
 
   async _init() {
     const player = playersManager.getPlayerByClient(this._client);
-    const spawnedNpcs = npcManager.getSpawnedNpcs();
 
     this._client.sendPacket(new serverPackets.UserInfo(player));
     this._client.sendPacket(new serverPackets.SunRise()); // TimeManager?
