@@ -33,24 +33,47 @@ class Client {
     return length;
   }
 
+  _getCroppedPacket(data) {
+    const buffer = Buffer.from(data, 'binary');
+    const croppedPacket = buffer.subarray(2);
+    
+    return croppedPacket;
+  }
+
+  _getDecryptedPacket(packet) {
+    const decryptedPacket = blowfish.decrypt(packet);
+    const buffer = Buffer.from(decryptedPacket);
+
+    return buffer;
+  }
+
+  _getOpcode(packet) {
+    return packet[0];
+  }
+
+  _getPayloadPacket(packet) {
+    return packet.subarray(1);
+  }
+
   _onData(data) {
-    const cropped = (Buffer.from(data, 'binary')).slice(2);
-    const packet = (Buffer.from(blowfish.decrypt(cropped)));
-    const opcode = packet[0];
+    const croppedPacket = this._getCroppedPacket(data);
+    const decryptedPacket = this._getDecryptedPacket(croppedPacket);
+    const opcode = this._getOpcode(decryptedPacket);
+    const payloadPacket = this._getPayloadPacket(decryptedPacket);
 
     console.log(`opcode: [0x${opcode.toString(16).toUpperCase().padStart(2, '0')}]`);
     
     switch(opcode) {
       case 0x00:
-        new clientPackets.RequestAuthLogin(this, packet);
+        new clientPackets.RequestAuthLogin(this, payloadPacket);
 
         break;
       case 0x02:
-        new clientPackets.RequestServerLogin(this, packet);
+        new clientPackets.RequestServerLogin(this, payloadPacket);
 
         break;
       case 0x05:
-        new clientPackets.RequestServerList(this, packet);
+        new clientPackets.RequestServerList(this, payloadPacket);
 
         break;
       }
