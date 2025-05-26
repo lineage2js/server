@@ -144,6 +144,10 @@ class Client {
         new clientPackets.Say2(this, packet);
 
         break;
+      case 0x5B:
+        new clientPackets.SendBypassBuildCmd(this, packet);
+
+        break;
     }
   }
 

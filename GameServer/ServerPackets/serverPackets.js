@@ -44,6 +44,7 @@ const ChangeWaitType = require('./ChangeWaitType');
 const CreateSay = require('./CreateSay');
 const VehicleInfo = require('./VehicleInfo');
 const PlaySound = require('./PlaySound');
+const TeleportToLocation = require('./TeleportToLocation');
 
 module.exports = {
   CryptInit,
@@ -92,4 +93,5 @@ module.exports = {
   CreateSay,
   VehicleInfo,
   PlaySound,
+  TeleportToLocation,
 }

@@ -21,6 +21,26 @@ class RequestBypassToServer {
 
 
   async _init() {
+    if (this.command === 'admin_show_teleports') {
+      //
+      const fs = require('fs');
+      const path = require('path');
+      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/teleports.htm'), 'utf8');
+      //
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
+
+      return;
+    }
+
+    if (this.command.includes('admin_teleport')) {
+      const player = playersManager.getPlayerByClient(this._client);
+      const [x, y, z] = this.command.split(' ').slice(1).map(i => Number(i)); // fix
+      
+      this._client.sendPacket(new serverPackets.TeleportToLocation(player.objectId, x, y, z));
+
+      return;
+    }
+    
     const player = playersManager.getPlayerByClient(this._client);
     const npc = npcManager.getNpcById(player.lastTalkedNpcId);
 
