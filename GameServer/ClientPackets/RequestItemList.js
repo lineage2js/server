@@ -15,7 +15,7 @@ class RequestItemList {
 
   async _init() {
     const player = playersManager.getPlayerByClient(this._client);
-    const items = itemsManager._items;
+    const items = [];
     
     this._client.sendPacket(new serverPackets.ItemList(items, true));
   }

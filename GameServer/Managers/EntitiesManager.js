@@ -63,19 +63,17 @@ class EntitiesManager {
       ]));
       playersManager.emit('notify', new serverPackets.Die(npc.objectId));
 
-      itemsManager.once('createdItem', item => { // fix создается на died, drop привязан к npc
-        this._entities.push(item);
+      const item = await itemsManager.createItem(57, npc.x, npc.y, npc.z + 200);
 
-        playersManager.emit('notify', new serverPackets.DropItem(npc, {
-          objectId: item.objectId,
-          itemId: item.itemId,
-          x: item.x,
-          y: item.y,
-          z: item.z
-        }));
-      });
+      this._entities.push(item);
 
-      itemsManager.emit('createItem', npc.x, npc.y, npc.z + 100); // fix event name, emit change to method
+      playersManager.emit('notify', new serverPackets.DropItem(npc, {
+        objectId: item.objectId,
+        itemId: item.itemId,
+        x: item.x,
+        y: item.y,
+        z: item.z
+      }));
 
       setTimeout(() => {
         playersManager.emit('notify', new serverPackets.DeleteObject(npc.objectId));
