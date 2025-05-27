@@ -21,11 +21,22 @@ class RequestBypassToServer {
 
 
   async _init() {
+    if (this.command === 'admin_show_panel') {
+      //
+      const fs = require('fs');
+      const path = require('path');
+      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/admin/panel.htm'), 'utf8');
+      //
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
+
+      return;
+    }
+    
     if (this.command === 'admin_show_teleports') {
       //
       const fs = require('fs');
       const path = require('path');
-      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/teleports.htm'), 'utf8');
+      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/admin/teleports.htm'), 'utf8');
       //
       this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
 

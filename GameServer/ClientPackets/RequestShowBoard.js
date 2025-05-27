@@ -17,7 +17,7 @@ class RequestShowBoard {
     //
     const fs = require('fs');
     const path = require('path');
-    const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/board.htm'), 'utf8');
+    const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/board/main.htm'), 'utf8');
     //
     this._client.sendPacket(new serverPackets.ShowBoard(html));
   }

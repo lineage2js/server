@@ -23,7 +23,7 @@ class SendBypassBuildCmd {
       //
       const fs = require('fs');
       const path = require('path');
-      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/admin.htm'), 'utf8');
+      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/admin/panel.htm'), 'utf8');
       //
       this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
     }
