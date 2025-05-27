@@ -148,6 +148,10 @@ class Client {
         new clientPackets.SendBypassBuildCmd(this, packet);
 
         break;
+      case 0x20:
+        new clientPackets.RequestLinkHtml(this, packet);
+  
+        break;
     }
   }
 
