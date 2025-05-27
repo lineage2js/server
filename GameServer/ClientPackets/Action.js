@@ -2,6 +2,7 @@ const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const entitiesManager = require('./../Managers/EntitiesManager');
 const playersManager = require('./../Managers/PlayersManager');
+const npcHtmlMessagesManager = require('./../Managers/NpcHtmlMessagesManager');
 const Npc = require('./../Models/Npc');
 const Item = require('./../Models/Item');
 const characterStatusEnums = require('./../../enums/characterStatusEnums');
@@ -54,13 +55,10 @@ class Action {
       }
 
       if (entity.type === 'citizen' && player.target !== null) {
-        //
-        const fs = require('fs');
-        const path = require('path');
-        const html = fs.readFileSync(path.resolve(__dirname, `./../../Data/html/${entity.npcAi.fnHi}`), 'utf16le'); // fix
+        const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName(entity.npcAi.fnHi);
 
         //
-        this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
+        this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
         this._client.sendPacket(new serverPackets.ActionFailed()); // fix?
 
         //

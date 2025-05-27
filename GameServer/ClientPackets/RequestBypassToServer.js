@@ -4,6 +4,8 @@ const database = require('./../../Database');
 const playersManager = require('./../Managers/PlayersManager');
 const npcManager = require('./../Managers/NpcManager');
 const aiManager = require('./../Managers/AiManager');
+const npcHtmlMessagesManager = require('./../Managers/NpcHtmlMessagesManager');
+const adminPanelManager = require('./../Managers/AdminPanelManager');
 
 class RequestBypassToServer {
   constructor(client, packet) {
@@ -22,23 +24,17 @@ class RequestBypassToServer {
 
   async _init() {
     if (this.command === 'admin_show_panel') {
-      //
-      const fs = require('fs');
-      const path = require('path');
-      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/admin/panel.htm'), 'utf8');
-      //
-      this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
+      const htmlMessage = adminPanelManager.getHtmlMessageByFileName('panel');
+
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
 
       return;
     }
     
     if (this.command === 'admin_show_teleports') {
-      //
-      const fs = require('fs');
-      const path = require('path');
-      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/admin/teleports.htm'), 'utf8');
-      //
-      this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
+      const htmlMessage = adminPanelManager.getHtmlMessageByFileName('teleports');
+
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
 
       return;
     }
@@ -64,12 +60,9 @@ class RequestBypassToServer {
       return;
     }
     //
+    const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName('noquest.htm');
     
-    const fs = require('fs');
-    const path = require('path');
-    const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/noquest.htm'), 'utf8');
-    
-    this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
+    this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
     this._client.sendPacket(new serverPackets.ActionFailed()); // fix?
   }
 }

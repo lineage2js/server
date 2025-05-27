@@ -2,6 +2,7 @@ const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const database = require('./../../Database');
 const playersManager = require('./../Managers/PlayersManager');
+const adminPanelManager = require('./../Managers/AdminPanelManager');
 const config = require('./../../config');
 
 class SendBypassBuildCmd {
@@ -20,12 +21,9 @@ class SendBypassBuildCmd {
 
   async _init() {
     if (this.command === 'admin') {
-      //
-      const fs = require('fs');
-      const path = require('path');
-      const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/admin/panel.htm'), 'utf8');
-      //
-      this._client.sendPacket(new serverPackets.NpcHtmlMessage(html));
+      const htmlMessage = adminPanelManager.getHtmlMessageByFileName('panel');
+
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
     }
   }
 }

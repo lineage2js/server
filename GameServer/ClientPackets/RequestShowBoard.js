@@ -1,7 +1,6 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
-const database = require('./../../Database');
-const playersManager = require('./../Managers/PlayersManager');
+const communityBoardManager = require('./../Managers/CommunityBoardManager');
 
 class RequestShowBoard {
   constructor(client, packet) {
@@ -14,12 +13,9 @@ class RequestShowBoard {
   }
 
   async _init() {
-    //
-    const fs = require('fs');
-    const path = require('path');
-    const html = fs.readFileSync(path.resolve(__dirname, './../../Data/html/board/main.htm'), 'utf8');
-    //
-    this._client.sendPacket(new serverPackets.ShowBoard(html));
+    const htmlMessage = communityBoardManager.getHtmlMessageByFileName('main');
+
+    this._client.sendPacket(new serverPackets.ShowBoard(htmlMessage));
   }
 }
 
