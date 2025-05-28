@@ -16,6 +16,7 @@ class EntitiesManager {
     const botsManager = require('./BotsManager');
     const visibilityManager = require('./VisibilityManager');
     const aiManager = require('./AiManager');
+    const dropItemsManager = require('./DropItemsManager');
     const serverPackets = require('./../ServerPackets/serverPackets');
 
     npcManager.on('spawn', npc => {
@@ -63,21 +64,26 @@ class EntitiesManager {
       ]));
       playersManager.emit('notify', new serverPackets.Die(npc.objectId));
 
-      const item = await itemsManager.createItem(57, npc.x, npc.y, npc.z + 200);
-
-      this._entities.push(item);
-
-      playersManager.emit('notify', new serverPackets.DropItem(npc, {
-        objectId: item.objectId,
-        itemId: item.itemId,
-        x: item.x,
-        y: item.y,
-        z: item.z
-      }));
-
       setTimeout(() => {
         playersManager.emit('notify', new serverPackets.DeleteObject(npc.objectId));
       }, 3000);
+    });
+
+    npcManager.on('dropItems', async (npc, item) => {
+      console.log(npc.id, item);
+
+      const createdItem = await itemsManager.createItem(57);
+      const droppedItem = dropItemsManager.createDropItem(createdItem, npc.x, npc.y, npc.z + 300);
+
+      this._entities.push(droppedItem);
+
+      playersManager.emit('notify', new serverPackets.DropItem(npc, {
+        objectId: droppedItem.item.objectId,
+        itemId: createdItem.item.itemId,
+        x: droppedItem.x,
+        y: droppedItem.y,
+        z: droppedItem.z
+      }));
     });
 
     playersManager.on('spawn', player => {

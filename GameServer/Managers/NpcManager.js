@@ -61,6 +61,12 @@ class NpcManager extends EventEmitter {
             }, 2000);
           });
 
+          npc.on('dropItems', () => {
+            if (npc.additionalMakeMultiList.length > 0) {
+              this.emit('dropItems', npc, npc.additionalMakeMultiList[0].group[0]) // fix
+            }
+          });
+
           npc.update(npcData);
           
           npc.objectId = await database.getNextObjectId();

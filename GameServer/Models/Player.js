@@ -210,6 +210,7 @@ class Player extends Character {
           npc.job = 'dead';
           npc.updateState('stop');
           npc.emit('died');
+          npc.emit('dropItems');
 
           this.exp += 100;
           this.emit('updateExp');
