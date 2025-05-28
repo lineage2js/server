@@ -54,11 +54,17 @@ class Action {
         return;
       }
 
-      if (entity.canBeAttacked === 0 && player.target !== null) {
+      if (entity.canBeAttacked === 0 && player.target !== entity.objectId) {
+        this._client.sendPacket(new serverPackets.TargetSelected(entity.objectId));
+
+        player.target = this.objectId;
+        
+        return;
+      }
+
+      if (entity.canBeAttacked === 0 && player.target === entity.objectId) {
         const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName(entity.npcAi.fnHi);
-
-        //
-
+        
         if (htmlMessage) {
           this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
         } else {
