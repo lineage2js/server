@@ -54,11 +54,17 @@ class Action {
         return;
       }
 
-      if (entity.type === 'citizen' && player.target !== null) {
+      if (entity.canBeAttacked === 0 && player.target !== null) {
         const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName(entity.npcAi.fnHi);
 
         //
-        this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
+
+        if (htmlMessage) {
+          this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
+        } else {
+          this._client.sendPacket(new serverPackets.NpcHtmlMessage(npcHtmlMessagesManager.getHtmlMessageByFileName("noquest.htm")));
+        }
+
         this._client.sendPacket(new serverPackets.ActionFailed()); // fix?
 
         //
