@@ -2,6 +2,7 @@ const Character = require('./Character');
 const serverPackets = require('./../ServerPackets/serverPackets');
 const characterStatusEnums = require('./../../enums/characterStatusEnums');
 const levelExpTable = require('./../data/exp.json');
+const Inventory = require('./../Components/Inventory');
 
 //
 const movingManager = require('./../Managers/MovingManager');
@@ -56,6 +57,7 @@ class Player extends Character {
     this.isAttacking = false;
 
     //
+    this.inventory = new Inventory();
     this.quests = [];
     this.lastTalkedNpcId = null;
     this.pickupItem = null; // хранить objectId? как target?

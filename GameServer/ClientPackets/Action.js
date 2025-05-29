@@ -4,7 +4,7 @@ const entitiesManager = require('./../Managers/EntitiesManager');
 const playersManager = require('./../Managers/PlayersManager');
 const npcHtmlMessagesManager = require('./../Managers/NpcHtmlMessagesManager');
 const Npc = require('./../Models/Npc');
-const Item = require('./../Models/Item');
+const DropItem = require('./../Models/DropItem');
 const characterStatusEnums = require('./../../enums/characterStatusEnums');
 
 class Action {
@@ -102,7 +102,7 @@ class Action {
       player.target = this.objectId;
     }
 
-    if (entity instanceof Item) {
+    if (entity instanceof DropItem) {
       player.updateJob('pickup', entity);
     }
   }

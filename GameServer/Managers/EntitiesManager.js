@@ -73,13 +73,13 @@ class EntitiesManager {
       console.log(npc.id, item);
 
       const createdItem = await itemsManager.createItem(57);
-      const droppedItem = dropItemsManager.createDropItem(createdItem, npc.x, npc.y, npc.z + 300);
+      const droppedItem = await dropItemsManager.createDropItem(createdItem, npc.x, npc.y, npc.z + 300);
 
       this._entities.push(droppedItem);
 
       playersManager.emit('notify', new serverPackets.DropItem(npc, {
-        objectId: droppedItem.item.objectId,
-        itemId: createdItem.item.itemId,
+        objectId: droppedItem.objectId,
+        itemId: droppedItem.itemId,
         x: droppedItem.x,
         y: droppedItem.y,
         z: droppedItem.z
@@ -134,6 +134,10 @@ class EntitiesManager {
         const packet = new serverPackets.GetItem(player, item); // fix Может подписатся на event окончание доставки пактеа?
       
         playersManager.emit('notify', packet);
+
+        player.inventory.addItem(item.getItem());
+
+        console.log(player.inventory)
       }
 
       {

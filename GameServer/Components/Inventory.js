@@ -1,20 +1,15 @@
 class Inventory {
   constructor() {
-    this._items = [
-      {
-        location: 'bag',
-        item: {},
-      }
-    ];
+    this._items = [];
   }
 
-  addItem() {
-
+  addItem(item) {
+    this._items.push(item);
   }
 
-  getItem() {
-
+  getItems() {
+    return this._items;
   }
 }
 
-module.exports = new Inventory;
+module.exports = Inventory;

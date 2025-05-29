@@ -1,10 +1,7 @@
 class Item {
-  constructor(objectId, itemId, x, y, z) {
+  constructor(objectId, itemId) {
     this.objectId = objectId;
     this.itemId = itemId;
-    this.x = x;
-    this.y = y;
-    this.z = z;
   }
 }
 

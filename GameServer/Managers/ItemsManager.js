@@ -2,9 +2,9 @@ const database = require('./../../Database');
 const Item = require('./../Models/Item');
 
 class ItemsManager {
-  async createItem(itemId, x, y, z) {
+  async createItem(itemId) {
     const objectId = await database.getNextObjectId();
-    const item = new Item(objectId, itemId, x, y, z);
+    const item = new Item(objectId, itemId);
 
     return item;
   }
