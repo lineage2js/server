@@ -1,7 +1,6 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const playersManager = require('./../Managers/PlayersManager');
-const itemsManager = require('./../Managers/ItemsManager');
 
 class RequestItemList {
   constructor(packet, client) {
@@ -15,8 +14,8 @@ class RequestItemList {
 
   async _init() {
     const player = playersManager.getPlayerByClient(this._client);
-    const items = [];
-    
+    const items = player.inventory.getItems();
+
     this._client.sendPacket(new serverPackets.ItemList(items, true));
   }
 }

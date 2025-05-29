@@ -211,6 +211,17 @@ class EntitiesManager {
       
       playersManager.emit('notify', packet);
     });
+
+    aiManager.on('giveItem', async (talker, itemId) => {
+      const item = await itemsManager.createItem(itemId); // createItemById
+
+      talker.inventory.addItem(item);
+      
+      const items = talker.inventory.getItems();
+      const packet = new serverPackets.ItemList(items);
+
+      playersManager.emit('notify', packet);
+    });
   }
 }
 
