@@ -4,6 +4,18 @@ class Inventory {
   }
 
   addItem(item) {
+    if (item.isStackable) {
+      const foundItem = this._items.find(i => i.itemId === item.itemId);
+
+      if (foundItem) {
+        foundItem.updateCount(foundItem.getCount() + 1);
+      } else {
+        this._items.push(item);
+      }
+
+      return;
+    }
+  
     this._items.push(item);
   }
 

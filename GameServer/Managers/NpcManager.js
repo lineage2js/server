@@ -63,7 +63,13 @@ class NpcManager extends EventEmitter {
 
           npc.on('dropItems', () => {
             if (npc.additionalMakeMultiList.length > 0) {
-              this.emit('dropItems', npc, npc.additionalMakeMultiList[0].group[0]) // fix
+              //
+              const listLength = npc.additionalMakeMultiList.length;
+              const randomListIndex = Math.floor(Math.random() * listLength);
+              const groupLength = npc.additionalMakeMultiList[randomListIndex].group.length;
+              const randomGroupIndex = Math.floor(Math.random() * groupLength);
+
+              this.emit('dropItems', npc, npc.additionalMakeMultiList[randomListIndex].group[randomGroupIndex]) // fix
             }
           });
 
