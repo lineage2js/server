@@ -57,7 +57,7 @@ class Player extends Character {
     this.isAttacking = false;
 
     //
-    this.inventory = new Inventory();
+    this._inventory = new Inventory();
     this.quests = [];
     this.lastTalkedNpcId = null;
     this.pickupItem = null; // хранить objectId? как target?
@@ -67,6 +67,24 @@ class Player extends Character {
   getClient() {
     return this._client;
   }
+
+  addItemToInventory(item) {
+    this._inventory.addItem(item);
+  }
+
+  getItemsFromInventory() {
+    return this._inventory.getItems();
+  }
+
+  // hasItemInInventoryById(itemId) {
+  //   const items = this._inventory.getItems();
+    
+  //   if (items.find(i => i.itemId === itemId)) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   updateJob(job, payload) {
     this.job = job;

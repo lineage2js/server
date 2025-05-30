@@ -2,7 +2,7 @@ const EventEmitter = require('events');
 
 class Carl extends EventEmitter {
   onTalkSelected(talker) {
-    const items = talker.inventory.getItems();
+    const items = talker.getItemsFromInventory();
 
     if (items.filter(item => item.itemId === 1857).length === 4) {
       //this.giveItem(talker, 1067); // rec

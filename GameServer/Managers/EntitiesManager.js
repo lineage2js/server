@@ -69,10 +69,10 @@ class EntitiesManager {
       }, 3000);
     });
 
-    npcManager.on('dropItems', async (npc, item) => {
-      console.log(npc.id, item);
+    npcManager.on('dropItems', async (npc, drop) => {
+      console.log(npc.id, drop); // fix drop name var?
 
-      const createdItem = await itemsManager.createItem(57);
+      const createdItem = await itemsManager.createItem(drop.itemName);
       const droppedItem = await dropItemsManager.createDropItem(createdItem, npc.x, npc.y, npc.z + 300);
 
       this._entities.push(droppedItem);
@@ -129,19 +129,19 @@ class EntitiesManager {
       playersManager.emit('notify', new serverPackets.SocialAction(player.objectId, 15)); // fix
     });
 
-    playersManager.on('pickup', (player, item) => {
+    playersManager.on('pickup', (player, dropItem) => {
       {
-        const packet = new serverPackets.GetItem(player, item); // fix Может подписатся на event окончание доставки пактеа?
+        const packet = new serverPackets.GetItem(player, dropItem); // fix Может подписатся на event окончание доставки пактеа?
       
         playersManager.emit('notify', packet);
 
-        player.inventory.addItem(item.getItem());
+        player.addItemToInventory(dropItem.getItem());
 
-        console.log(player.inventory)
+        console.log(player.getItemsFromInventory())
       }
 
       {
-        const packet = new serverPackets.DeleteObject(item.objectId);
+        const packet = new serverPackets.DeleteObject(dropItem.objectId);
       
         playersManager.emit('notify', packet);
       }
@@ -215,9 +215,9 @@ class EntitiesManager {
     aiManager.on('giveItem', async (talker, itemId) => {
       const item = await itemsManager.createItem(itemId); // createItemById
 
-      talker.inventory.addItem(item);
+      talker.addItemToInventory(item);
       
-      const items = talker.inventory.getItems();
+      const items = talker.getItemsFromInventory();
       const packet = new serverPackets.ItemList(items);
 
       playersManager.emit('notify', packet);
