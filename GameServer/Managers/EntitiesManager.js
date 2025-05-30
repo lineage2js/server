@@ -212,8 +212,8 @@ class EntitiesManager {
       playersManager.emit('notify', packet);
     });
 
-    aiManager.on('giveItem', async (talker, itemId) => {
-      const item = await itemsManager.createItem(itemId); // createItemById
+    aiManager.on('giveItem', async (talker, itemName) => {
+      const item = await itemsManager.createItem(itemName); // createItemByName
 
       talker.addItemToInventory(item);
       

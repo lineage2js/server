@@ -18,16 +18,16 @@ class AiManager extends EventEmitter {
       this.emit('soundEffect', talker, soundName);
     });
 
-    ai.carl.once('giveItem', (talker, itemId) => {
-      this.emit('giveItem', talker, itemId);
+    ai.carl.once('giveItem', (talker, itemName) => {
+      this.emit('giveItem', talker, itemName);
     });
 
     ai.carl.onTalkSelected(talker);
   }
 
   onMyDying(aiName, talker) {
-    ai.tuto_keltir.once('giveItem', (talker, itemId) => {
-      this.emit('giveItem', talker, itemId);
+    ai.tuto_keltir.once('giveItem', (talker, itemName) => {
+      this.emit('giveItem', talker, itemName);
     });
 
     ai.tuto_keltir.once('soundEffect', (talker, soundName) => {

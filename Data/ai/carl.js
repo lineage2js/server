@@ -3,10 +3,11 @@ const EventEmitter = require('events');
 class Carl extends EventEmitter {
   onTalkSelected(talker) {
     const items = talker.getItemsFromInventory();
+    const item = items.find(item => item.itemName === 'fox_fang1');
 
-    if (items.filter(item => item.itemId === 1857).length === 4) {
+    if (item && item.getCount() === 4) {
       //this.giveItem(talker, 1067); // rec
-      this.giveItem(talker, 1665); // map 
+      this.giveItem(talker, 'world_map');
       this.showPage(talker, "carl_q0201_02.htm");
 
       return;
@@ -29,8 +30,8 @@ class Carl extends EventEmitter {
     this.emit('soundEffect', talker, soundName);
   }
 
-  giveItem(talker, itemId) {
-    this.emit('giveItem', talker, itemId);
+  giveItem(talker, itemName) {
+    this.emit('giveItem', talker, itemName);
   }
 }
 

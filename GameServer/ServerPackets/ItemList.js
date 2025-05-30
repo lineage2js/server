@@ -20,8 +20,13 @@ class ItemList {
         this._packet.writeD(0x01);
       }
 
-      this._packet.writeH(0) // items[i].type2
-        .writeH(0xff)
+      if (item.isQuestItem) {
+        this._packet.writeH(0x03);
+      } else {
+        this._packet.writeH(0x00);
+      }
+      
+      this._packet.writeH(0xff)
         .writeH(0x00) // items[i].isEquipped ? 0x01 : 0x00 // вещь на персонаже или нет
         .writeD(0x00) // items[i].bodyPart
         .writeH(0x00) // getEnchantLevel

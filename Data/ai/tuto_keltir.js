@@ -5,7 +5,7 @@ class TutoKeltir extends EventEmitter {
     const quest = talker.quests.find(quest => quest.id === 201);
 
     if (quest) {
-      this.emit('giveItem', talker, 1857, 1);
+      this.emit('giveItem', talker, 'fox_fang1', 1);
       this.emit('soundEffect', talker, "ItemSound.quest_itemget");
     }
   }
