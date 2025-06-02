@@ -24,6 +24,10 @@ class AiManager extends EventEmitter {
     npcEventBus.on('giveItem', (talker, itemName) => {
       this.emit('giveItem', talker, itemName);
     });
+    
+    npcEventBus.on('deleteItem', (talker, itemName, itemCount) => {
+      this.emit('deleteItem', talker, itemName, itemCount);
+    });
   }
 
   onTalkSelect(aiName, talker) {  

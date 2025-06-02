@@ -20,6 +20,10 @@ class DefaultNpc {
   giveItem(talker, itemName) {
     this.npcEventBus.emit('giveItem', talker, itemName);
   }
+
+  deleteItem(talker, itemName, itemCount) {
+    this.npcEventBus.emit('deleteItem', talker, itemName, itemCount);
+  }
 }
 
 module.exports = DefaultNpc;

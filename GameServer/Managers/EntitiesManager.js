@@ -222,6 +222,15 @@ class EntitiesManager {
 
       playersManager.emit('notify', packet);
     });
+
+    aiManager.on('deleteItem', (talker, itemName, itemCount) => {
+      talker.deleteItemByName(itemName);
+      
+      const items = talker.getItems();
+      const packet = new serverPackets.ItemList(items);
+
+      playersManager.emit('notify', packet);
+    });
   }
 }
 

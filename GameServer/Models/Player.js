@@ -85,6 +85,17 @@ class Player extends Character {
     }
   }
 
+  deleteItemByName(itemName) {
+    const items = this._inventory.getItems();
+    const foundItem = items.find(item => item.itemName === itemName);
+
+    if (foundItem) {
+      const index = items.indexOf(foundItem);
+
+      items.splice(index, 1);
+    }
+  }
+
   updateJob(job, payload) {
     this.job = job;
 
