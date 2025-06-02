@@ -2,7 +2,7 @@ const Character = require('./Character');
 const serverPackets = require('./../ServerPackets/serverPackets');
 const characterStatusEnums = require('./../../enums/characterStatusEnums');
 const levelExpTable = require('./../data/exp.json');
-const Inventory = require('./../Components/Inventory');
+const Inventory = require('./../Systems/Inventory');
 
 //
 const movingManager = require('./../Managers/MovingManager');
