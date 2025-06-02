@@ -45,6 +45,7 @@ const CreateSay = require('./CreateSay');
 const VehicleInfo = require('./VehicleInfo');
 const PlaySound = require('./PlaySound');
 const TeleportToLocation = require('./TeleportToLocation');
+const ShowMiniMap = require('./ShowMiniMap');
 
 module.exports = {
   CryptInit,
@@ -94,4 +95,5 @@ module.exports = {
   VehicleInfo,
   PlaySound,
   TeleportToLocation,
+  ShowMiniMap,
 }

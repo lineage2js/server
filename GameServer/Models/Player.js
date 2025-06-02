@@ -68,23 +68,22 @@ class Player extends Character {
     return this._client;
   }
 
-  addItemToInventory(item) {
+  addItem(item) {
     this._inventory.addItem(item);
   }
 
-  getItemsFromInventory() {
+  getItems() {
     return this._inventory.getItems();
   }
 
-  // hasItemInInventoryById(itemId) {
-  //   const items = this._inventory.getItems();
-    
-  //   if (items.find(i => i.itemId === itemId)) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  getItemByObjectId(objectId) {
+    const items = this._inventory.getItems();
+    const foundItem = items.find(item => item.objectId === objectId);
+
+    if (foundItem) {
+      return foundItem;
+    }
+  }
 
   updateJob(job, payload) {
     this.job = job;

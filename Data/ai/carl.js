@@ -2,7 +2,7 @@ const DefaultNpc = require('./DefaultNpc');
 
 class Carl extends DefaultNpc {
   onTalkSelected(talker) {
-    const items = talker.getItemsFromInventory();
+    const items = talker.getItems();
     const item = items.find(item => item.itemName === 'fox_fang1');
 
     if (item && item.getCount() === 4) {

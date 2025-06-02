@@ -152,6 +152,10 @@ class Client {
         new clientPackets.RequestLinkHtml(this, packet);
   
         break;
+      case 0x14:
+        new clientPackets.RequestUseItem(this, packet);
+
+        break;
     }
   }
 

@@ -135,9 +135,9 @@ class EntitiesManager {
       
         playersManager.emit('notify', packet);
 
-        player.addItemToInventory(dropItem.getItem());
+        player.addItem(dropItem.getItem());
 
-        console.log(player.getItemsFromInventory())
+        console.log(player.getItems())
       }
 
       {
@@ -215,9 +215,9 @@ class EntitiesManager {
     aiManager.on('giveItem', async (talker, itemName) => {
       const item = await itemsManager.createItem(itemName); // createItemByName
 
-      talker.addItemToInventory(item);
+      talker.addItem(item);
       
-      const items = talker.getItemsFromInventory();
+      const items = talker.getItems();
       const packet = new serverPackets.ItemList(items);
 
       playersManager.emit('notify', packet);
