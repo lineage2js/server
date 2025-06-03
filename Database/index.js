@@ -172,6 +172,18 @@ class Database {
       }
     );
   }
+
+  async addInventory(document) {
+    await this._db.collection('inventories').insertOne(document);
+  }
+
+  async getInventoryByObjectId(objectId) {
+    return await this._db.collection('inventories').findOne({ objectId });
+  }
+
+  async deleteInventoryByObjectId(objectId) {
+    await this._db.collection('inventories').deleteOne({ objectId });
+  }
 }
 
 module.exports = new Database();

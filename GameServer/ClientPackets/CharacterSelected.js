@@ -21,8 +21,18 @@ class CharacterSelected {
     const player = playersManager.getPlayerByClient(this._client);
     const characters = await database.getCharactersByLogin(player.login);
     const character = characters[this.characterSlot];
+    const inventory = await database.getInventoryByObjectId(character.inventoryId); // fix ?
 
     player.update(character);
+    
+    // fix
+    for (let i = 0; i < inventory.items.length; i++) {
+      const item = inventory.items[i];
+
+      player.addItem(item);
+    }
+    //
+    
     this._client.sendPacket(new serverPackets.CharacterSelected(character));
   }
 }
