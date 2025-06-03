@@ -7,7 +7,7 @@ class ItemsManager {
     const itemData = itemsList.find(i => i.name === itemName);
 
     const objectId = await database.getNextObjectId();
-    const item = new Item(objectId, itemData.id, itemData.consume_type, itemData.item_type, itemData.name);
+    const item = new Item(objectId, itemData.id, itemData.consume_type, itemData.item_type, itemData.name, itemData.slot_bit_type);
 
     return item;
   }
@@ -16,7 +16,7 @@ class ItemsManager {
     const itemData = itemsList.find(i => i.id === itemId);
 
     const objectId = await database.getNextObjectId();
-    const item = new Item(objectId, itemData.id, itemData.consume_type, itemData.item_type, itemData.name);
+    const item = new Item(objectId, itemData.id, itemData.consume_type, itemData.item_type, itemData.name, itemData.slot_bit_type);
 
     return item;
   }

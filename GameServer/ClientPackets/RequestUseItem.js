@@ -25,6 +25,32 @@ class RequestUseItem {
 
       return;
     }
+    
+    if (item.isEquippable) {
+      if (item.equipSlot === 'chest') {
+        player.chest.objectId = item.objectId;
+        player.chest.itemId = item.itemId;
+        
+        item.toggleEquip();
+      }
+
+      if (item.equipSlot === 'legs') {
+        player.legs.objectId = item.objectId;
+        player.legs.itemId = item.itemId;
+        
+        item.toggleEquip();
+      }
+      
+      if (item.equipSlot === 'rhand') {
+        player.hand.right.objectId = item.objectId;
+        player.hand.right.itemId = item.itemId;
+        
+        item.toggleEquip();
+      }
+    }
+
+    this._client.sendPacket(new serverPackets.UserInfo(player));
+		this._client.sendPacket(new serverPackets.ItemList(player.getItems()));
   }
 }
 

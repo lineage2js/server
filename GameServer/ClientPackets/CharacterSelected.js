@@ -2,6 +2,7 @@ const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const database = require('./../../Database');
 const playersManager = require('./../Managers/PlayersManager');
+const Item = require('./../Models/Item');
 
 class CharacterSelected {
   constructor(packet, client) {
@@ -27,7 +28,14 @@ class CharacterSelected {
     
     // fix
     for (let i = 0; i < inventory.items.length; i++) {
-      const item = inventory.items[i];
+      const item = new Item( // fix
+        inventory.items[i].objectId,
+        inventory.items[i].itemId,
+        inventory.items[i].consume_type,
+        inventory.items[i].item_type,
+        inventory.items[i].itemName,
+        inventory.items[i].equipSlot,
+      );
 
       player.addItem(item);
     }
