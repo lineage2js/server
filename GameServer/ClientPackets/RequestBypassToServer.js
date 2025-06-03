@@ -5,6 +5,7 @@ const playersManager = require('./../Managers/PlayersManager');
 const npcManager = require('./../Managers/NpcManager');
 const aiManager = require('./../Managers/AiManager');
 const npcHtmlMessagesManager = require('./../Managers/NpcHtmlMessagesManager');
+const itemsManager = require('./../Managers/ItemsManager');
 const adminPanelManager = require('./../Managers/AdminPanelManager');
 
 class RequestBypassToServer {
@@ -44,6 +45,32 @@ class RequestBypassToServer {
       const [x, y, z] = this.command.split(' ').slice(1).map(i => Number(i)); // fix
       
       this._client.sendPacket(new serverPackets.TeleportToLocation(player.objectId, x, y, z));
+
+      return;
+    }
+
+    if (this.command === 'admin_show_items') {
+      const htmlMessage = adminPanelManager.getHtmlMessageByFileName('items');
+
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
+
+      return;
+    }
+
+    if (this.command.includes('admin_create_item')) {
+      const player = playersManager.getPlayerByClient(this._client);
+      const params = this.command.split("?")[1];
+      const [key, value] = params.split("=").map(i => i.trim());
+
+      if (key === 'id') {
+        const item = await itemsManager.createItemById(Number(value));
+
+        player.addItem(item);
+      }
+
+      const items = player.getItems();
+
+      this._client.sendPacket(new serverPackets.ItemList(items));
 
       return;
     }

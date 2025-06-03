@@ -72,7 +72,7 @@ class EntitiesManager {
     npcManager.on('dropItems', async (npc, drop) => {
       console.log(npc.id, drop); // fix drop name var?
 
-      const createdItem = await itemsManager.createItem(drop.itemName);
+      const createdItem = await itemsManager.createItemByName(drop.itemName);
       const droppedItem = await dropItemsManager.createDropItem(createdItem, npc.x, npc.y, npc.z + 300);
 
       this._entities.push(droppedItem);
@@ -213,7 +213,7 @@ class EntitiesManager {
     });
 
     aiManager.on('giveItem', async (talker, itemName) => {
-      const item = await itemsManager.createItem(itemName); // createItemByName
+      const item = await itemsManager.createItemByName(itemName);
 
       talker.addItem(item);
       

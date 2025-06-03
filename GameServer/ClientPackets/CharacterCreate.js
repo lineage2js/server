@@ -124,7 +124,7 @@ class CharacterCreate {
 
     for (let i = 0; i < initialEquipment['human_fighter'].length; i++) {
       const itemName = initialEquipment['human_fighter'][i];
-      const item = await itemsManager.createItem(itemName);
+      const item = await itemsManager.createItemByName(itemName);
 
       inventory.items.push(item);
     }

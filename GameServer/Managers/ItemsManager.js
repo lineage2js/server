@@ -3,8 +3,17 @@ const Item = require('./../Models/Item');
 const itemsList = require('./../../Data/itemsList.json');
 
 class ItemsManager {
-  async createItem(itemName) {
+  async createItemByName(itemName) {
     const itemData = itemsList.find(i => i.name === itemName);
+
+    const objectId = await database.getNextObjectId();
+    const item = new Item(objectId, itemData.id, itemData.consume_type, itemData.item_type, itemData.name);
+
+    return item;
+  }
+
+  async createItemById(itemId) {
+    const itemData = itemsList.find(i => i.id === itemId);
 
     const objectId = await database.getNextObjectId();
     const item = new Item(objectId, itemData.id, itemData.consume_type, itemData.item_type, itemData.name);
