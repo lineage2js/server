@@ -156,6 +156,10 @@ class Client {
         new clientPackets.RequestUseItem(this, packet);
 
         break;
+      case 0x11:
+        new clientPackets.RequestUnEquipItem(this, packet);
+
+        break;
     }
   }
 
