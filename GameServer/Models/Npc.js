@@ -60,7 +60,7 @@ class Npc extends Character {
 
     //
     this.additionalMakeMultiList = [];
-    this.npcAi = null;
+    this.ai = null;
     //
   }
 

@@ -63,7 +63,7 @@ class Action {
       }
 
       if (entity.canBeAttacked === 0 && player.target === entity.objectId) {
-        const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName(entity.npcAi.fnHi);
+        const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName(entity.ai.fnHi);
         
         if (htmlMessage) {
           this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));

@@ -52,14 +52,13 @@ class RequestBypassToServer {
     const npc = npcManager.getNpcById(player.lastTalkedNpcId);
 
     //
-    if (npc.npcAi.ai === 'carl') {
-      if (this.command === 'talk_select') {
-        aiManager.onTalkSelect('carl', player);
-      }
-      
+    if (this.command === 'talk_select') {
+      aiManager.onTalkSelect(npc.ai.script, player);
+
       return;
     }
     //
+    
     const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName('noquest.htm');
     
     this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));

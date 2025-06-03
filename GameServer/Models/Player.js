@@ -256,7 +256,7 @@ class Player extends Character {
           }
 
           { // fix test
-            aiManager.onMyDying('tuto_keltir', this);
+            aiManager.onMyDying(npc.ai.script, this);
           }
           
           this.target = null;
