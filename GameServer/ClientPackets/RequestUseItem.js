@@ -25,7 +25,7 @@ class RequestUseItem {
 
       return;
     }
-    
+
     if (item.isEquippable) {
       if (item.equipSlot === 'chest') {
         player.chest.objectId = item.objectId;
@@ -42,6 +42,12 @@ class RequestUseItem {
       }
       
       if (item.equipSlot === 'rhand') {
+        if (player.hand.right.objectId !== 0) {
+          const equippedItem = player.getItemByObjectId(player.hand.right.objectId);
+
+          equippedItem.toggleEquip();
+        }
+
         player.hand.right.objectId = item.objectId;
         player.hand.right.itemId = item.itemId;
         
