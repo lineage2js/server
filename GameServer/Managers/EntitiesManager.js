@@ -231,6 +231,12 @@ class EntitiesManager {
 
       playersManager.emit('notify', packet);
     });
+
+    aiManager.on('sell', (talker, sellList, shopName, fnBuy) => {
+      const packet = new serverPackets.BuyList(sellList);
+
+      playersManager.emit('notify', packet);
+    });
   }
 }
 

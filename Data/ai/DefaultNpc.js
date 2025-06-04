@@ -24,6 +24,10 @@ class DefaultNpc {
   deleteItem(talker, itemName, itemCount) {
     this.npcEventBus.emit('deleteItem', talker, itemName, itemCount);
   }
+
+  sell(talker, sellList, shopName, fnBuy) {
+    this.npcEventBus.emit('sell', talker, sellList, shopName, fnBuy);
+  }
 }
 
 module.exports = DefaultNpc;

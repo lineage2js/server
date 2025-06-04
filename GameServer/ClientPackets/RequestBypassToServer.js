@@ -85,6 +85,19 @@ class RequestBypassToServer {
       return;
     }
     //
+
+    if (this.command.includes('menu_select')) {
+      const queryParams = this.command.split('?')[1];
+      const params = queryParams.split('&').map(i => {
+        const [key, value] = i.split('=');
+    
+        return { [key]: Number(value) };
+      }).reduce((a, b) => { return {...a, ...b} });
+
+      aiManager.menuSelect(npc.ai.script, player, params.ask, params.reply);
+
+      return;
+    }
     
     const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName('noquest.htm');
     
