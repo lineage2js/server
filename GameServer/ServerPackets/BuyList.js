@@ -23,7 +23,6 @@ class BuyList {
         .writeH(0)
         .writeD(10)
     }
-
   }
 
   getBuffer() {

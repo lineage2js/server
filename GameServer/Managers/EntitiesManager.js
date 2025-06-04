@@ -241,7 +241,7 @@ class EntitiesManager {
 
         items.push(item);
       }
-      console.log(items)
+
       const packet = new serverPackets.BuyList(items);
 
       playersManager.emit('notify', packet);
