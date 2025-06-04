@@ -232,8 +232,17 @@ class EntitiesManager {
       playersManager.emit('notify', packet);
     });
 
-    aiManager.on('sell', (talker, sellList, shopName, fnBuy) => {
-      const packet = new serverPackets.BuyList(sellList);
+    aiManager.on('sell', async (talker, sellList, shopName, fnBuy) => {
+      const items = [];
+
+      for(let i = 0; i < sellList.length; i++) {
+        const [itemName] = Object.keys(sellList[i]);
+        const item = await itemsManager.createItemByName(itemName);
+
+        items.push(item);
+      }
+
+      const packet = new serverPackets.BuyList(items);
 
       playersManager.emit('notify', packet);
     });

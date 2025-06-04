@@ -10,8 +10,7 @@ class BuyList {
       .writeD(items.length) // items length
 
     for (let i = 0; i < items.length; i++) {
-      const [key] = Object.keys(items[i]);
-      const item = itemsManager.createItemByName(key);
+      const item = items[i]
 
       this._packet.writeH(1)
         .writeD(item.objectId)
