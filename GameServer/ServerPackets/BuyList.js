@@ -1,13 +1,12 @@
 const ServerPacket = require('./ServerPacket.js');
-const itemsManager = require('./../Managers/ItemsManager');
 
 class BuyList {
   constructor(items) {
-    this._packet = new ServerPacket(13 + (items.length * (22)));
+    this._packet = new ServerPacket(11 + (items.length * (32)));
     this._packet.writeC(0x1D)
       .writeD(1000) // money
-      .writeD(0) // buyListId ?
-      .writeD(items.length) // items length
+      .writeD(8) // buyListId ?
+      .writeH(items.length) // items length
 
     for (let i = 0; i < items.length; i++) {
       const item = items[i]
@@ -17,6 +16,10 @@ class BuyList {
         .writeD(item.itemId)
         .writeD(1)
         .writeH(1)
+        .writeH(0)
+        .writeD(0x0080)
+        .writeH(0)
+        .writeH(0)
         .writeH(0)
         .writeD(10)
     }
