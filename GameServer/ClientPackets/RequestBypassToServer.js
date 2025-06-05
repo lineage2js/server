@@ -78,13 +78,11 @@ class RequestBypassToServer {
     const player = playersManager.getPlayerByClient(this._client);
     const npc = npcManager.getNpcById(player.lastTalkedNpcId);
 
-    //
     if (this.command === 'talk_select') {
       aiManager.onTalkSelect(npc.ai.script, player);
 
       return;
     }
-    //
 
     if (this.command.includes('menu_select')) {
       const queryParams = this.command.split('?')[1];

@@ -106,7 +106,7 @@ class Player extends Character {
         
         break;
       case 'attack':
-        this.updateState('attack', payload);
+        this.updateState('attack', payload); // IPayloadAttack ? instanceof
 
         break;
       case 'pickup':
