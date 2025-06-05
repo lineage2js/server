@@ -48,6 +48,7 @@ const TeleportToLocation = require('./TeleportToLocation');
 const ShowMiniMap = require('./ShowMiniMap');
 const BuyList = require('./BuyList');
 const SetupGauge = require('./SetupGauge');
+const AbnormalStatusUpdate = require('./AbnormalStatusUpdate');
 
 module.exports = {
   CryptInit,
@@ -100,4 +101,5 @@ module.exports = {
   ShowMiniMap,
   BuyList,
   SetupGauge,
+  AbnormalStatusUpdate,
 }

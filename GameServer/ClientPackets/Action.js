@@ -45,6 +45,12 @@ class Action {
     const player = playersManager.getPlayerByClient(this._client);
     const entity = entitiesManager.getEntityByObjectId(this.objectId);
 
+    if (player.objectId === this.objectId) {
+      this._client.sendPacket(new serverPackets.TargetSelected(this.objectId));
+
+      player.target = this.objectId;
+    }
+
     if (entity instanceof Npc) {
       if (entity.type === 'citizen' && player.target == null) {
         this._client.sendPacket(new serverPackets.TargetSelected(entity.objectId));

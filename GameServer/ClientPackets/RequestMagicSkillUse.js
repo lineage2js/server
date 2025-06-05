@@ -51,6 +51,30 @@ class RequestMagicSkillUse {
   async _init() {
     const player = playersManager.getPlayerByClient(this._client);
 
+    if (this.skillId === 1068) {
+      this._client.sendPacket(new serverPackets.MagicSkillUse(player, {
+        id: this.skillId,
+        level: 1,
+        hitTime: 4000, //1.08,
+        reuseDelay: 4000 //13
+      }));
+
+      this._client.sendPacket(new serverPackets.MagicSkillLaunched(player, {
+        id: this.skillId,
+        level: 1
+      }));
+
+      this._client.sendPacket(new serverPackets.AbnormalStatusUpdate([
+        {
+          skillId: this.skillId,
+          level: 1,
+          duration: 10000
+        }
+      ]));
+
+      return;
+    }
+
     this._client.sendPacket(new serverPackets.MagicSkillUse(player, {
       id: this.skillId,
       level: 1,

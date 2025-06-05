@@ -29,6 +29,11 @@ class RequestSkillList {
         passive: false,
         level: 1,
         id: 1184
+      },
+      {
+        passive: false,
+        level: 1,
+        id: 1068
       }
     ]));
   }
