@@ -63,6 +63,8 @@ class RequestMagicSkillUse {
       level: 1
     }));
 
+    this._client.sendPacket(new serverPackets.SetupGauge(0, 4000));
+
     //
     const npc = npcManager.getNpcByObjectId(player.target);
 

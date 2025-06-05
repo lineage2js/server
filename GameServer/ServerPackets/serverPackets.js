@@ -47,6 +47,7 @@ const PlaySound = require('./PlaySound');
 const TeleportToLocation = require('./TeleportToLocation');
 const ShowMiniMap = require('./ShowMiniMap');
 const BuyList = require('./BuyList');
+const SetupGauge = require('./SetupGauge');
 
 module.exports = {
   CryptInit,
@@ -98,4 +99,5 @@ module.exports = {
   TeleportToLocation,
   ShowMiniMap,
   BuyList,
+  SetupGauge,
 }
