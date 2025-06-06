@@ -51,6 +51,7 @@ const SetupGauge = require('./SetupGauge');
 const AbnormalStatusUpdate = require('./AbnormalStatusUpdate');
 const AcquireSkillList = require('./AcquireSkillList');
 const StopMoveWithLocation = require('./StopMoveWithLocation');
+const AttackCanceled = require('./AttackCanceled');
 
 module.exports = {
   CryptInit,
@@ -106,4 +107,5 @@ module.exports = {
   AbnormalStatusUpdate,
   AcquireSkillList,
   StopMoveWithLocation,
+  AttackCanceled,
 }
