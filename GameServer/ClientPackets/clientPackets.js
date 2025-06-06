@@ -26,6 +26,7 @@ const SendBypassBuildCmd = require('./SendBypassBuildCmd');
 const RequestLinkHtml = require('./RequestLinkHtml');
 const RequestUseItem = require('./RequestUseItem');
 const RequestUnEquipItem = require('./RequestUnEquipItem');
+const CanNotMoveAnymore = require('./CanNotMoveAnymore');
 
 module.exports = {
   ProtocolVersion,
@@ -56,4 +57,5 @@ module.exports = {
   RequestLinkHtml,
   RequestUseItem,
   RequestUnEquipItem,
+  CanNotMoveAnymore,
 }

@@ -50,6 +50,7 @@ const BuyList = require('./BuyList');
 const SetupGauge = require('./SetupGauge');
 const AbnormalStatusUpdate = require('./AbnormalStatusUpdate');
 const AcquireSkillList = require('./AcquireSkillList');
+const StopMoveWithLocation = require('./StopMoveWithLocation');
 
 module.exports = {
   CryptInit,
@@ -104,4 +105,5 @@ module.exports = {
   SetupGauge,
   AbnormalStatusUpdate,
   AcquireSkillList,
+  StopMoveWithLocation,
 }

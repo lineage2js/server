@@ -160,6 +160,10 @@ class Client {
         new clientPackets.RequestUnEquipItem(this, packet);
 
         break;
+      case 0x36:
+        new clientPackets.CanNotMoveAnymore(this, packet);
+
+        break;
     }
   }
 
