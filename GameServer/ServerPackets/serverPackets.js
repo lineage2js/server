@@ -52,6 +52,7 @@ const AbnormalStatusUpdate = require('./AbnormalStatusUpdate');
 const AcquireSkillList = require('./AcquireSkillList');
 const StopMoveWithLocation = require('./StopMoveWithLocation');
 const AttackCanceled = require('./AttackCanceled');
+const AuthLoginFail = require('./AuthLoginFail');
 
 module.exports = {
   CryptInit,
@@ -108,4 +109,5 @@ module.exports = {
   AcquireSkillList,
   StopMoveWithLocation,
   AttackCanceled,
+  AuthLoginFail,
 }
