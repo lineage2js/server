@@ -69,7 +69,7 @@ class Action {
       }
 
       if (entity.canBeAttacked === 0 && player.target === entity.objectId) {
-        const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName(entity.ai.fnHi);
+        const htmlMessage = npcHtmlMessagesManager.getHtmlMessageByFileName(entity.ai.fnHi); // вызов через event TALKED shoPage(talker, fnHi) guard.ais
         
         if (htmlMessage) {
           this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
