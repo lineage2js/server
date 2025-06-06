@@ -53,6 +53,7 @@ const AcquireSkillList = require('./AcquireSkillList');
 const StopMoveWithLocation = require('./StopMoveWithLocation');
 const AttackCanceled = require('./AttackCanceled');
 const AuthLoginFail = require('./AuthLoginFail');
+const Ride = require('./Ride');
 
 module.exports = {
   CryptInit,
@@ -110,4 +111,5 @@ module.exports = {
   StopMoveWithLocation,
   AttackCanceled,
   AuthLoginFail,
+  Ride,
 }
