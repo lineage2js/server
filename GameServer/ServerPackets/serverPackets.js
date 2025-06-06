@@ -49,6 +49,7 @@ const ShowMiniMap = require('./ShowMiniMap');
 const BuyList = require('./BuyList');
 const SetupGauge = require('./SetupGauge');
 const AbnormalStatusUpdate = require('./AbnormalStatusUpdate');
+const AcquireSkillList = require('./AcquireSkillList');
 
 module.exports = {
   CryptInit,
@@ -102,4 +103,5 @@ module.exports = {
   BuyList,
   SetupGauge,
   AbnormalStatusUpdate,
+  AcquireSkillList,
 }
