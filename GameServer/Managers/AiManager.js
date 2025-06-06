@@ -38,12 +38,20 @@ class AiManager extends EventEmitter {
     ai.carl.onTalkSelected(talker);
   }
 
-  onMyDying(aiName, talker) {
+  onMyDying(aiName, talker) { // talker = attacker
     ai.tuto_keltir.onMyDying(talker);
   }
 
   menuSelect(aiName, talker, ask, reply) {
     ai.lector.onMenuSelected(talker, ask, reply);
+  }
+
+  onAttacked(npc, aiName, attacker) {
+    if (aiName === 'Elpy') {
+      const elpy = new ai.Elpy(npc);
+
+      elpy.onAttacked(attacker);
+    }
   }
 }
 

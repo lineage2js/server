@@ -228,6 +228,10 @@ class Player extends Character {
         npc.job = 'attack';
         npc.target = this.objectId;
         npc.updateState('stop'); // attack, if attack = stop > attack or follow
+
+        { // fix test
+          aiManager.onAttacked(npc, npc.ai.script, this);
+        }
       }, 500000 / 330 / 2);
     }
 
