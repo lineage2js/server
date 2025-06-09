@@ -1,4 +1,6 @@
-class DefaultBot {
+const EventEmitter = require('events');
+
+class DefaultBot extends EventEmitter {
 
 }
 

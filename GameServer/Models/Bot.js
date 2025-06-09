@@ -81,6 +81,30 @@ class Bot extends Character {
     // setTimeout(() => {
     //   this.updateJob('attack', this.target);
     // }, 10000)
+
+    //this.ai.script
+    const RunningBot = require('./../../Data/ai/bot/RunningBot');
+    const runningBot = new RunningBot();
+
+    runningBot.created();
+
+    runningBot.on('move', (x, y) => {
+      let path = {
+        target: {
+          x: x,
+          y: y,
+          z: -3115
+        },
+        origin: {
+          x: this.x,
+          y: this.y,
+          z: this.z
+        }
+      }
+
+      this.updateJob('move', path);
+      this.emit('move');
+    });
   }
 
   getClient() {

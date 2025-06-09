@@ -86,7 +86,9 @@ class BotsManager extends EventEmitter {
 
       //
       //bot.heading = Math.floor(Math.random() * 30000);
-      bot.waitType = Math.floor(Math.random() * 2);
+
+      bot.ai.script = 'RunningBot';
+      bot.waitType = 0;
       //
   
       bot.on('move', () => {
