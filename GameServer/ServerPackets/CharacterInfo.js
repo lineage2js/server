@@ -20,7 +20,7 @@ class CharacterInfo {
     .writeD(0)
     .writeD(0)
     .writeD(0)
-    .writeD(0)
+    .writeD(player.chest.itemId)
     .writeD(0)
     .writeD(0)
     .writeD(0)
@@ -71,7 +71,7 @@ class CharacterInfo {
       .writeD(0x00)	// getAllyId new in rev 417
       .writeD(0x00)	// new in rev 417   siege-flags
 
-      .writeC(1)
+      .writeC(player.waitType)
       .writeC(1)
 
       .writeC(0)
@@ -79,7 +79,7 @@ class CharacterInfo {
 
       .writeC(0x00)	// invisible = 1  visible =0
       .writeC(0x00)	// 1 on strider   2 on wyfern   0 no mount
-      .writeC(0x00)   // 1 - sellshop
+      .writeC(1)   // 1 - sellshop
       
       .writeH(0x00)  // cubic count
   	  //.writeH(0x00);  // cubic 

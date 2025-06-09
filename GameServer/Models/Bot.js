@@ -43,6 +43,9 @@ class Bot extends Character {
 
     //
     this.pickupItem = null; // хранить objectId? как target?
+    this.ai = {
+      script: 'DefaultBot'
+    };
     //
 
     this._init();
@@ -71,13 +74,13 @@ class Bot extends Character {
     // this.updateJob('move', path);
     // this.emit('move');
 
-    const spawnedNpcs = npcManager.getSpawnedNpcs();
+    // const spawnedNpcs = npcManager.getSpawnedNpcs();
 
-    this.target = spawnedNpcs[Math.floor(Math.random() * spawnedNpcs.length)].objectId;
+    // this.target = spawnedNpcs[Math.floor(Math.random() * spawnedNpcs.length)].objectId;
 
-    setTimeout(() => {
-      this.updateJob('attack', this.target);
-    }, 10000)
+    // setTimeout(() => {
+    //   this.updateJob('attack', this.target);
+    // }, 10000)
   }
 
   getClient() {
