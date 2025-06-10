@@ -4,9 +4,9 @@ class RunningBot extends DefaultBot {
   created() {
     setInterval(function move() {
       const positions = this._getRandomPos([{ x: -84999, y: 243217 }, { x: -84652, y: 242917 }, { x: -84382, y: 243289 }, { x: -84883, y: 243651 }]);
-
+      
       this.emit('move', positions[0], positions[1]);
-    }.bind(this), Math.floor(Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000));
+    }.bind(this), Math.floor(Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000));
   }
 
   _getRandomPos(coordinates) {

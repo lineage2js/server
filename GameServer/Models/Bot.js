@@ -315,25 +315,25 @@ class Bot extends Character {
         this.updateState('pickup');
       }
 
-      if (this.job === 'move') {
-        const positions = this._getRandomPos();
+      // if (this.job === 'move') {
+      //   const positions = this._getRandomPos();
 
-        let path = {
-          target: {
-            x: positions[0],
-            y: positions[1],
-            z: -3115
-          },
-          origin: {
-            x: this.x,
-            y: this.y,
-            z: this.z
-          }
-        }
+      //   let path = {
+      //     target: {
+      //       x: positions[0],
+      //       y: positions[1],
+      //       z: -3115
+      //     },
+      //     origin: {
+      //       x: this.x,
+      //       y: this.y,
+      //       z: this.z
+      //     }
+      //   }
 
-        this.updateState('move', path);
-        this.emit('move');
-      }
+      //   this.updateState('move', path);
+      //   this.emit('move');
+      // }
     }, 200);
   }
 
