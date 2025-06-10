@@ -10,7 +10,7 @@ class BotsManager extends EventEmitter {
   }
 
   async enable() {
-    for(let i = 0; i < 30; i++) {
+    for(let i = 0; i < 1; i++) {
       const bot = new Bot({
         sendPacket() {}
       });
