@@ -89,13 +89,6 @@ class EntitiesManager {
     playersManager.on('spawn', player => {
       this._entities.push(player);
 
-      //
-      for (let i = 0; i < botsManager._bots.length; i++) {
-        const packet = new serverPackets.CharacterInfo(botsManager._bots[i]);
-      
-        playersManager.emit('notify', packet); 
-      }
-
       visibilityManager.addPlayer(player);
     });
 

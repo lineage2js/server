@@ -14,6 +14,9 @@ class BotsManager extends EventEmitter {
       const bot = new Bot({
         sendPacket() {}
       });
+
+      const gender = Math.floor(Math.random() * 2)
+      const hairStyle = Math.floor(Math.random() * (gender === 0 ? 4 : 6));
       
       const positions = this._getRandomPos([{ x: -84999, y: 243217 }, { x: -84652, y: 242917 }, { x: -84382, y: 243289 }, { x: -84883, y: 243651 }]);
   
@@ -23,10 +26,10 @@ class BotsManager extends EventEmitter {
         characterName: "test" + i,
         title: "bot",
         level: 1,
-        gender: 0,
-        hairStyle: 0,
-        hairColor: 0,
-        face: 0,
+        gender: gender,
+        hairStyle: hairStyle, // 4
+        hairColor: Math.floor(Math.random() * 2), // 2
+        face: Math.floor(Math.random() * 2), // 2
         heading: 0,
         accessLevel: 0,
         onlineTime: 0,

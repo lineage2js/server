@@ -1,6 +1,6 @@
 const npcManager = require('./NpcManager');
 const serverPackets = require('./../ServerPackets/serverPackets');
-// const playersManager = require('./PlayersManager');
+const botsManager = require('./BotsManager');
 
 class VisibilityManager {
   constructor() {
@@ -37,7 +37,7 @@ class VisibilityManager {
                 target: {
                   x: npc.path.target.x,
                   y: npc.path.target.y,
-                  z: -3115
+                  z: npc.z
                 },
                 origin: {
                   x: npc.x,
@@ -55,6 +55,39 @@ class VisibilityManager {
           }
           //
         });
+
+        botsManager._bots.forEach(bot => {
+          const dx = bot.x - player.x;
+          const dy = bot.y - player.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 1500) {
+            const packet = new serverPackets.CharacterInfo(bot);
+
+            client.sendPacket(packet);
+
+            if (bot.state === 'move') {
+              const path = {
+                target: {
+                  x: bot.path.target.x,
+                  y: bot.path.target.y,
+                  z: bot.z
+                },
+                origin: {
+                  x: bot.x,
+                  y: bot.y,
+                  z: bot.z
+                }
+              }
+      
+              client.sendPacket(new serverPackets.MoveToLocation(path, bot.objectId));
+            }
+          } else {
+            const packet = new serverPackets.DeleteObject(bot.objectId);
+
+            client.sendPacket(packet);
+          }
+        })
       }
     }, 3000);
   }
