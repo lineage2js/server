@@ -8,6 +8,10 @@ const npcHtmlMessagesManager = require('./../Managers/NpcHtmlMessagesManager');
 const itemsManager = require('./../Managers/ItemsManager');
 const adminPanelManager = require('./../Managers/AdminPanelManager');
 
+// fix remove from global
+const waypoints = [];
+//
+
 class RequestBypassToServer {
   constructor(client, packet) {
     this._client = client;
@@ -24,6 +28,8 @@ class RequestBypassToServer {
 
 
   async _init() {
+    const player = playersManager.getPlayerByClient(this._client);
+
     if (this.command === 'admin_show_panel') {
       const htmlMessage = adminPanelManager.getHtmlMessageByFileName('panel');
 
@@ -41,7 +47,6 @@ class RequestBypassToServer {
     }
 
     if (this.command.includes('admin_teleport')) {
-      const player = playersManager.getPlayerByClient(this._client);
       const [x, y, z] = this.command.split(' ').slice(1).map(i => Number(i)); // fix
       
       this._client.sendPacket(new serverPackets.TeleportToLocation(player.objectId, x, y, z));
@@ -57,8 +62,42 @@ class RequestBypassToServer {
       return;
     }
 
+    if (this.command === 'admin_show_bots') {
+      const htmlMessage = adminPanelManager.getHtmlMessageByFileName('bots');
+
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
+
+      return;
+    }
+
+    if (this.command === 'admin_bots_create_waypoint') {
+      const waypoint = { x: player.x, y: player.y };
+
+      waypoints.push(waypoint);
+
+      console.log(waypoints);
+
+      const htmlMessage = adminPanelManager.getHtmlMessageByFileName('bots');
+
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
+
+      return;
+    }
+
+    if (this.command === 'admin_bots_delete_waypoint') {
+      waypoints.splice(0, waypoints.length);
+
+      console.log(waypoints);
+      
+      const htmlMessage = adminPanelManager.getHtmlMessageByFileName('bots');
+
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
+
+      return;
+    }
+
+
     if (this.command.includes('admin_create_item')) {
-      const player = playersManager.getPlayerByClient(this._client);
       const params = this.command.split("?")[1];
       const [key, value] = params.split("=").map(i => i.trim());
 
@@ -75,7 +114,6 @@ class RequestBypassToServer {
       return;
     }
     
-    const player = playersManager.getPlayerByClient(this._client);
     const npc = npcManager.getNpcById(player.lastTalkedNpcId);
 
     if (this.command === 'talk_select') {

@@ -134,7 +134,7 @@ class Bot extends Character {
   updateState(state, payload) {
     this.state = state;
 
-    console.log(` --- bot ${this.characterName} state`, state);
+    //console.log(` --- bot ${this.characterName} state`, state);
 
     switch(state) {
       case 'move':
