@@ -23,18 +23,23 @@ class RequestSkillList {
       {
         passive: false,
         level: 1,
+        id: 56
+      },
+      {
+        passive: false,
+        level: 1,
+        id: 16
+      },
+      {
+        passive: false,
+        level: 1,
         id: 1177
       },
       {
         passive: false,
         level: 1,
-        id: 1184
+        id: 1216
       },
-      {
-        passive: false,
-        level: 1,
-        id: 1068
-      }
     ]));
   }
 }

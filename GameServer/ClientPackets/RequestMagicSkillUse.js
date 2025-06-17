@@ -75,6 +75,24 @@ class RequestMagicSkillUse {
       return;
     }
 
+    if (this.skillId === 1216) {
+      this._client.sendPacket(new serverPackets.MagicSkillUse(player, {
+        id: this.skillId,
+        level: 1,
+        hitTime: 4000, //1.08,
+        reuseDelay: 4000 //13
+      }));
+  
+      this._client.sendPacket(new serverPackets.MagicSkillLaunched(player, {
+        id: this.skillId,
+        level: 1
+      }));
+
+      this._client.sendPacket(new serverPackets.SetupGauge(0, 4000));
+
+      return;
+    }
+
     this._client.sendPacket(new serverPackets.MagicSkillUse(player, {
       id: this.skillId,
       level: 1,
