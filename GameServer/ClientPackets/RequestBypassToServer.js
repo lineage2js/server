@@ -117,9 +117,11 @@ class RequestBypassToServer {
     const npc = npcManager.getNpcById(player.lastTalkedNpcId);
 
     if (this.command === 'talk_select') {
-      aiManager.onTalkSelect(npc.ai.script, player);
+      if (npc.ai.script === 'Carl') {
+        aiManager.onTalkSelect(npc.ai.script, player);
 
-      return;
+        return;
+      }
     }
 
     if (this.command.includes('menu_select')) {

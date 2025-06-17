@@ -34,7 +34,7 @@ class AiManager extends EventEmitter {
     });
   }
 
-  onTalkSelect(aiName, talker) {  
+  onTalkSelect(aiName, talker) {
     ai.carl.onTalkSelected(talker);
   }
 

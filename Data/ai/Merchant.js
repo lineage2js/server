@@ -55,13 +55,57 @@ const sellList0 = [
   {"leather_helmet": 15},
   {"wooden_arrow": 15},
   {"bone_arrow": 15},
-]
+];
+const sellList1 = [
+  {"apprentice's_rod": 15},
+  {"buffalo_horn": 15},
+  {"willow_staff": 15},
+  {"apprentice's_spellbook": 15},
+  {"cedar_staff": 15},
+  {"apprentice's_staff": 15},
+  {"relic_of_saints": 15},
+  {"hose": 15},
+  {"tunic": 15},
+  {"cotton_hose": 15},
+  {"cotton_tunic": 15},
+  {"feriotic_hose": 15},
+  {"feriotic_tunic": 15},
+  {"leather_hose": 15},
+  {"leather_tunic": 15},
+  {"hose_of_devotion": 15},
+  {"tunic_of_devotion": 15},
+  {"leather_shield": 15},
+  {"small_shield": 15},
+  {"buckler": 15},
+  {"round_shield": 15},
+  {"short_gloves": 15},
+  {"short_leather_gloves": 15},
+  {"gloves": 15},
+  {"leather_gloves": 15},
+  {"apprentice's_shoes": 15},
+  {"cloth_shoes": 15},
+  {"leather_sandals": 15},
+  {"crude_leather_shoes": 15},
+  {"cotton_shoes": 15},
+  {"leather_shoes": 15},
+  {"low_boots": 15},
+  {"cloth_cap": 15},
+  {"leather_cap": 15},
+  {"wooden_helmet": 15},
+  {"leather_helmet": 15},
+  {"wooden_arrow": 15},
+  {"bone_arrow": 15}
+];
 
 class Merchant extends DefaultNpc {
   onMenuSelected(talker, ask, reply) {
     if (ask === -1) {
       if (reply === 0) {
-        this.sell(talker, sellList0, "", "")
+        this.sell(talker, sellList0, "", "");
+      }
+
+      if (reply === 1) {
+        this.sell(talker, sellList1, "", "");
       }
     }
   }
