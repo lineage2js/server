@@ -27,6 +27,7 @@ const RequestLinkHtml = require('./RequestLinkHtml');
 const RequestUseItem = require('./RequestUseItem');
 const RequestUnEquipItem = require('./RequestUnEquipItem');
 const CanNotMoveAnymore = require('./CanNotMoveAnymore');
+const RequestBuyItem = require('./RequestBuyItem');
 
 module.exports = {
   ProtocolVersion,
@@ -58,4 +59,5 @@ module.exports = {
   RequestUseItem,
   RequestUnEquipItem,
   CanNotMoveAnymore,
+  RequestBuyItem,
 }

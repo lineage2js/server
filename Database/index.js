@@ -56,7 +56,7 @@ class Database {
     ); // fix?
   }
 
-  async getCharacterByLogin(login) {
+  async getCharacterByLogin(login) { // fix byUserLogin? PlayerLogin?
     return await this._db.collection('characters').findOne({ login });
   }
 

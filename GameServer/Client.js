@@ -164,6 +164,8 @@ class Client {
         new clientPackets.CanNotMoveAnymore(this, packet);
 
         break;
+      case 0x1F:
+        new clientPackets.RequestBuyItem(this, packet);
     }
   }
 

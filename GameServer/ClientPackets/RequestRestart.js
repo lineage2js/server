@@ -20,6 +20,8 @@ class RequestRestart {
     character.y = Math.floor(player.y);
     character.z = Math.floor(player.z);
 
+    // clear interval after restart?
+
     await database.updateCharacterByObjectId(character.objectId, character);
 
     const allowRestart = true; // fix
