@@ -1,6 +1,7 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const playersManager = require('./../Managers/PlayersManager');
+const itemsManager = require('./../Managers/ItemsManager');
 
 class RequestBuyItem {
   constructor(client, packet) {
@@ -8,7 +9,7 @@ class RequestBuyItem {
     this._data = new ClientPacket(packet);
     this._data.readC()
       .readD()
-      .readD() // for ()
+      .readD()
       .readD()
       .readD();
 
@@ -31,10 +32,11 @@ class RequestBuyItem {
     return this._data.getData()[4];
   }
 
-  _init() {
+  async _init() {
     const player = playersManager.getPlayerByClient(this._client);
+    const item = await itemsManager.createItemById(this.itemId);
 
-    console.log(this.itemId)
+    player.addItem(item);
   }
 }
 
