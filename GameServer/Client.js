@@ -166,6 +166,12 @@ class Client {
         break;
       case 0x1F:
         new clientPackets.RequestBuyItem(this, packet);
+
+        break;
+      case 0x6D:
+        new clientPackets.RequestRestartPoint(this, packet);
+
+        break;
     }
   }
 

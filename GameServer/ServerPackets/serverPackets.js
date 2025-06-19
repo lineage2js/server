@@ -55,6 +55,7 @@ const AttackCanceled = require('./AttackCanceled');
 const AuthLoginFail = require('./AuthLoginFail');
 const Ride = require('./Ride');
 const TutorialShowHtml = require('./TutorialShowHtml');
+const Revive = require('./Revive');
 
 module.exports = {
   CryptInit,
@@ -114,4 +115,5 @@ module.exports = {
   AuthLoginFail,
   Ride,
   TutorialShowHtml,
+  Revive,
 }
