@@ -6,9 +6,14 @@ class RequestRestartPoint {
   constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC();
+    this._data.readC()
+      .readD();
 
     this._init();
+  }
+
+  get requestedPointType() {
+    return this._data.getData()[1];
   }
 
   async _init() {
