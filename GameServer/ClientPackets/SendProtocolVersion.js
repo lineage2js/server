@@ -26,7 +26,7 @@ class ProtocolVersion {
     }
 
     this._client.setProtocolVersion(this.version);
-    this._client.sendPacket(new serverPackets.CryptInit(isCompliesProtocolVersion, config.main.encryptionKeys.XOR), false);
+    this._client.sendPacket(new serverPackets.VersionCheck(isCompliesProtocolVersion, config.main.encryptionKeys.XOR), false);
   }
 }
 

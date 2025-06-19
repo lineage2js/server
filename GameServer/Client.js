@@ -49,7 +49,7 @@ class Client {
 
     switch(opcode) {
       case 0x00:
-        new clientPackets.ProtocolVersion(packet, this);
+        new clientPackets.SendProtocolVersion(packet, this);
 
         break;
       case 0x04:

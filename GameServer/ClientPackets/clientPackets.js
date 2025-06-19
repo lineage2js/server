@@ -1,4 +1,4 @@
-const ProtocolVersion = require('./ProtocolVersion');
+const SendProtocolVersion = require('./SendProtocolVersion');
 const RequestAuthLogin = require('./RequestAuthLogin');
 const CharacterSelected = require('./CharacterSelected');
 const RequestQuestList = require('./RequestQuestList');
@@ -31,7 +31,7 @@ const RequestBuyItem = require('./RequestBuyItem');
 const RequestRestartPoint = require('./RequestRestartPoint');
 
 module.exports = {
-  ProtocolVersion,
+  SendProtocolVersion,
   RequestAuthLogin,
   CharacterSelected,
   RequestQuestList,

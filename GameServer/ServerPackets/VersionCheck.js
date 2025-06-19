@@ -1,6 +1,6 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
-class CryptInit {
+class VersionCheck {
   constructor(isCompliesProtocolVersion, key) {
     this._packet = new ServerPacket(10);
     this._packet.writeC(0x00)
@@ -20,4 +20,4 @@ class CryptInit {
   }
 }
 
-module.exports = CryptInit;
+module.exports = VersionCheck;

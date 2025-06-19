@@ -1,4 +1,4 @@
-const CryptInit = require('./CryptInit');
+const VersionCheck = require('./VersionCheck');
 const CharacterSelectInfo = require('./CharacterSelectInfo');
 const CharacterSelected = require('./CharacterSelected');
 const QuestList = require('./QuestList');
@@ -58,7 +58,7 @@ const TutorialShowHtml = require('./TutorialShowHtml');
 const Revive = require('./Revive');
 
 module.exports = {
-  CryptInit,
+  VersionCheck,
   CharacterSelectInfo,
   CharacterSelected,
   QuestList,
