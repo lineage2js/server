@@ -396,6 +396,14 @@ class Player extends Character {
 
     this.emit('move'); // ?
   }
+
+  regenerate() {
+    if (this.hp < this.maximumHp) {
+      this.hp += 1;
+
+      this.emit('regenerate');
+    }
+  }
 }
 
 module.exports = Player;

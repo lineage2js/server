@@ -17,6 +17,7 @@ class EntitiesManager {
     const visibilityManager = require('./VisibilityManager');
     const aiManager = require('./AiManager');
     const dropItemsManager = require('./DropItemsManager');
+    const regenerationManager = require('./RegenerationManager');
     const serverPackets = require('./../ServerPackets/serverPackets');
 
     npcManager.on('spawn', npc => {
@@ -33,10 +34,12 @@ class EntitiesManager {
       playersManager.emit('notify', packet);
     });
 
-    npcManager.on('attack', npc => {
+    npcManager.on('attack', (npc, objectId) => {
+      const entity = this.getEntityByObjectId(objectId);    
       const packet = new serverPackets.Attack(npc, npc.target);
       
       playersManager.emit('notify', packet);
+      playersManager.emit('damage', entity);
     });
 
     npcManager.on('changeMove', npc => {
@@ -90,6 +93,7 @@ class EntitiesManager {
       this._entities.push(player);
 
       visibilityManager.addPlayer(player);
+      regenerationManager.addCharacter(player);
     });
 
     playersManager.on('move', player => {
@@ -138,6 +142,50 @@ class EntitiesManager {
       
         playersManager.emit('notify', packet);
       }
+    });
+
+    playersManager.on('regenerate', (player) => {
+      const packet = new serverPackets.StatusUpdate(player.objectId, [
+        {
+          id: characterStatusEnums.CUR_HP,
+          value: player.hp,
+        },
+        {
+          id: characterStatusEnums.MAX_HP,
+          value: player.maximumHp,
+        }
+      ]);
+    
+      playersManager.emit('notify', packet);
+    });
+
+    playersManager.on('damaged', (player) => {
+      const packet = new serverPackets.StatusUpdate(player.objectId, [
+        {
+          id: characterStatusEnums.CUR_HP,
+          value: player.hp,
+        },
+        {
+          id: characterStatusEnums.MAX_HP,
+          value: player.maximumHp,
+        }
+      ]);
+    
+      playersManager.emit('notify', packet);
+    });
+
+    playersManager.on('died', (player) => {
+      playersManager.emit('notify', new serverPackets.StatusUpdate(player.objectId, [
+        {
+          id: characterStatusEnums.CUR_HP,
+          value: 0,
+        },
+        {
+          id: characterStatusEnums.MAX_HP,
+          value: player.maximumHp,
+        }
+      ]));
+      playersManager.emit('notify', new serverPackets.Die(player.objectId));
     });
 
     botsManager.on('spawn', bot => {

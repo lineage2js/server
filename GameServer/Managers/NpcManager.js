@@ -40,8 +40,8 @@ class NpcManager extends EventEmitter {
             this.emit('updatePosition', npc);
           });
 
-          npc.on('attack', () => {
-            this.emit('attack', npc);
+          npc.on('attack', (objectId) => {
+            this.emit('attack', npc, objectId);
           });
 
           npc.on('stop', () => {

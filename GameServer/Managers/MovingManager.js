@@ -40,6 +40,10 @@ class MovingManager {
 
         if (movingObject.isMovementEnabled) {
           movingObject.object.updatePosition(this._lastUpdateTime);
+
+          // two methods?
+          // updatePosition
+          // updateLastTimeUpdatePosition?
         }
       }
     }

@@ -12,6 +12,16 @@ class PlayersManager extends EventEmitter {
 
         client.sendPacket(packet);
       })
+    });
+
+    this.on('damage', player => {
+      player.hp -= 10;
+
+      if (player.hp > 0) {
+        this.emit('damaged', player);
+      } else {
+        this.emit('died', player);
+      }
     })
   }
 
@@ -32,6 +42,10 @@ class PlayersManager extends EventEmitter {
 
     player.on('updateLevel', () => {
       this.emit('updateLevel', player);
+    });
+
+    player.on('regenerate', () => {
+      this.emit('regenerate', player);
     });
   }
 

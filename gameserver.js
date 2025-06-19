@@ -5,6 +5,7 @@ const movingManager = require('./GameServer/Managers/MovingManager');
 const entitiesManager = require('./GameServer/Managers/EntitiesManager');
 const visibilityManager = require('./GameServer/Managers/VisibilityManager');
 const npcHtmlMessagesManager = require('./GameServer/Managers/NpcHtmlMessagesManager');
+const regenerationManager = require('./GameServer/Managers/RegenerationManager');
 const database = require('./Database');
 const config = require('./config');
 const serverStatus = require('./enums/serverStatus');
@@ -57,6 +58,7 @@ async function run() {
       movingManager.enable();
       visibilityManager.enable();
       npcHtmlMessagesManager.enable();
+      regenerationManager.enable();
     });
   } catch {
 
