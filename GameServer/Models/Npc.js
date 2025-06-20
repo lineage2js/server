@@ -221,7 +221,7 @@ class Npc extends Character {
 
       return;
     }
-    console.log(entity.hp)
+    
     // fix
     if (entity.hp <= 0) {
       this.job = 'patrol';

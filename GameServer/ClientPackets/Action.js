@@ -88,7 +88,7 @@ class Action {
 
       if (entity.canBeAttacked === 1 && player.target !== null && !player.isAttacking) {
         player.isAttacking = true;
-        
+
         player.updateJob('attack', this.objectId);
         return;
       }
