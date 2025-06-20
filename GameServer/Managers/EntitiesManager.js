@@ -133,8 +133,6 @@ class EntitiesManager {
         playersManager.emit('notify', packet);
 
         player.addItem(dropItem.getItem());
-
-        console.log(player.getItems())
       }
 
       {

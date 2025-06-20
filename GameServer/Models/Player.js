@@ -61,11 +61,16 @@ class Player extends Character {
     this.quests = [];
     this.lastTalkedNpcId = null;
     this.pickupItem = null; // хранить objectId? как target?
+    this._activeSoulShot = false;
     //
   }
 
   getClient() {
     return this._client;
+  }
+
+  setActiveSoulShot() {
+    this._activeSoulShot = true;
   }
 
   addItem(item) {
@@ -221,7 +226,9 @@ class Player extends Character {
       return;
     }
 
-    this._client.sendPacket(new serverPackets.Attack(this, npc.objectId));
+    this._client.sendPacket(new serverPackets.Attack(this, npc.objectId, this._activeSoulShot));
+
+    this._activeSoulShot = false;
 
     if (npc.job === 'patrol') {
       setTimeout(() => {

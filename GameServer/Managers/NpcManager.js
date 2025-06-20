@@ -80,7 +80,6 @@ class NpcManager extends EventEmitter {
           let positions;
 
           if (npcItem.pos === 'anywhere') {
-            //console.log(npcItem.name, spawnData['territory']['coordinates'])
             positions = this._getRandomPos(spawnData['territory']['coordinates']);
           }
 

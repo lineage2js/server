@@ -182,8 +182,6 @@ class RequestMagicSkillUse {
       }, 4000);
     }
     //
-
-    //console.log(this.skillId, this.data0, this.data1);
   }
 }
 

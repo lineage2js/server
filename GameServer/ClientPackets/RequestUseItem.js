@@ -19,6 +19,21 @@ class RequestUseItem {
   async _init() {
     const player = playersManager.getPlayerByClient(this._client);
     const item = player.getItemByObjectId(this.objectId);
+
+    if (item.itemName === 'soulshot_none') {
+      player.deleteItemByName(item.itemName);
+      player.target = player.objectId; // fix? вернуть обратно
+      player.setActiveSoulShot();
+      this._client.sendPacket(new serverPackets.MagicSkillUse(player, {
+        id: 2039,
+        level: 1,
+        hitTime: 0,
+        reuseDelay: 0,
+      }));
+      player.target = null;
+
+      return;
+    }
     
     if (item.itemName === 'world_map') {
       this._client.sendPacket(new serverPackets.ShowMiniMap(item.itemId));
