@@ -57,6 +57,7 @@ const Ride = require('./Ride');
 const TutorialShowHtml = require('./TutorialShowHtml');
 const Revive = require('./Revive');
 const SpecialCamera = require('./SpecialCamera');
+const EarthQuake = require('./EarthQuake');
 
 module.exports = {
   VersionCheck,
@@ -118,4 +119,5 @@ module.exports = {
   TutorialShowHtml,
   Revive,
   SpecialCamera,
+  EarthQuake,
 }

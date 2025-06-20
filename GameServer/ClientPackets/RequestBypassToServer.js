@@ -70,6 +70,14 @@ class RequestBypassToServer {
       return;
     }
 
+    if (this.command === 'admin_show_other') {
+      const htmlMessage = adminPanelManager.getHtmlMessageByFileName('other');
+
+      this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
+
+      return;
+    }
+
     if (this.command === 'admin_bots_create_waypoint') {
       const waypoint = { x: player.x, y: player.y };
 
@@ -81,6 +89,24 @@ class RequestBypassToServer {
 
       this._client.sendPacket(new serverPackets.NpcHtmlMessage(htmlMessage));
 
+      return;
+    }
+
+    if (this.command === 'admin_other_ride_strider') {
+      this._client.sendPacket(new serverPackets.Ride(player, 1));
+
+      return;
+    }
+
+    if (this.command === 'admin_other_ride_wyvern') {
+      this._client.sendPacket(new serverPackets.Ride(player, 2));
+
+      return;
+    }
+
+    if (this.command === 'admin_other_earthquake') {
+      this._client.sendPacket(new serverPackets.EarthQuake(player.x, player.y, player.z, 40, 10));
+      
       return;
     }
 
