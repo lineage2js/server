@@ -32,6 +32,10 @@ class AiManager extends EventEmitter {
     npcEventBus.on('sell', (talker, sellList, shopName, fnBuy) => {
       this.emit('sell', talker, sellList, shopName, fnBuy);
     });
+
+    npcEventBus.on('showSkillList', (talker) => {
+      this.emit('showSkillList', talker);
+    });
   }
 
   onTalkSelect(aiName, talker) {
@@ -52,6 +56,12 @@ class AiManager extends EventEmitter {
 
       elpy.onAttacked(attacker);
     }
+  }
+
+  onLearnSkill(aiName, talker) { // scriptName?
+    const minx = new ai.Minx();
+
+    minx.onLearnSkillRequested(talker);
   }
 }
 

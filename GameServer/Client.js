@@ -172,6 +172,10 @@ class Client {
         new clientPackets.RequestRestartPoint(this, packet);
 
         break;
+      case 0x6B:
+        new clientPackets.RequestAcquireSkillInfo(this, packet);
+
+        break;
     }
   }
 

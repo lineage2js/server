@@ -145,9 +145,17 @@ class RequestBypassToServer {
     if (this.command === 'talk_select') {
       if (npc.ai.script === 'Carl') {
         aiManager.onTalkSelect(npc.ai.script, player);
-
-        return;
       }
+
+      return;
+    }
+
+    if (this.command === 'learn_skill') {
+      if (npc.ai.script === 'Minx') {
+        aiManager.onLearnSkill(npc.ai.script, player);
+      }
+
+      return;
     }
 
     if (this.command.includes('menu_select')) {

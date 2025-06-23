@@ -53,6 +53,10 @@ class DefaultNpc {
     console.log(this._npc);
     //
   }
+
+  showSkillList(talker) {
+    this.npcEventBus.emit('showSkillList', talker);
+  }
 }
 
 module.exports = DefaultNpc;

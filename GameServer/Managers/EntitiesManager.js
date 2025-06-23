@@ -285,6 +285,20 @@ class EntitiesManager {
 
       playersManager.emit('notify', packet);
     });
+
+    aiManager.on('showSkillList', async (talker) => {
+      const packet = new serverPackets.AcquireSkillList([
+        {
+          id: 226,
+          nextLevel: 1,
+          maxLevel: 1,
+          spCost: 100,
+          requirements: 0
+        }
+      ]);
+
+      playersManager.emit('notify', packet);
+    });
   }
 }
 
