@@ -176,6 +176,10 @@ class Client {
         new clientPackets.RequestAcquireSkillInfo(this, packet);
 
         break;
+      case 0x6C:
+        new clientPackets.RequestAcquireSkill(this, packet);
+
+        break;
     }
   }
 

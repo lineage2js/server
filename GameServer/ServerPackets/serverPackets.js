@@ -58,6 +58,8 @@ const TutorialShowHtml = require('./TutorialShowHtml');
 const Revive = require('./Revive');
 const SpecialCamera = require('./SpecialCamera');
 const EarthQuake = require('./EarthQuake');
+const AcquireSkillInfo = require('./AcquireSkillInfo');
+const AcquireSkillDone = require('./AcquireSkillDone');
 
 module.exports = {
   VersionCheck,
@@ -120,4 +122,6 @@ module.exports = {
   Revive,
   SpecialCamera,
   EarthQuake,
+  AcquireSkillInfo,
+  AcquireSkillDone,
 }

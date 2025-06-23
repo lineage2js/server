@@ -1,7 +1,7 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 
-class RequestAcquireSkillInfo {
+class RequestAcquireSkill {
   constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
@@ -12,7 +12,7 @@ class RequestAcquireSkillInfo {
     this._init();
   }
 
-  get skillId() {
+   get skillId() {
     return this._data.getData()[1];
   }
 
@@ -21,8 +21,8 @@ class RequestAcquireSkillInfo {
   }
 
   async _init() {
-    this._client.sendPacket(new serverPackets.AcquireSkillInfo(this.skillId, this.skillLevel, 100, 0));
+    this._client.sendPacket(new serverPackets.AcquireSkillDone());
   }
 }
 
-module.exports = RequestAcquireSkillInfo;
+module.exports = RequestAcquireSkill;

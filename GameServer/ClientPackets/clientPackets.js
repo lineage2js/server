@@ -30,6 +30,7 @@ const CanNotMoveAnymore = require('./CanNotMoveAnymore');
 const RequestBuyItem = require('./RequestBuyItem');
 const RequestRestartPoint = require('./RequestRestartPoint');
 const RequestAcquireSkillInfo = require('./RequestAcquireSkillInfo');
+const RequestAcquireSkill = require('./RequestAcquireSkill');
 
 module.exports = {
   SendProtocolVersion,
@@ -64,4 +65,5 @@ module.exports = {
   RequestBuyItem,
   RequestRestartPoint,
   RequestAcquireSkillInfo,
+  RequestAcquireSkill,
 }
