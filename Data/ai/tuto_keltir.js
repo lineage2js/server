@@ -2,7 +2,8 @@ const DefaultNpc = require('./DefaultNpc');
 
 class TutoKeltir extends DefaultNpc {
   onMyDying(talker) {
-    const quest = talker.quests.find(quest => quest.id === 201);
+    const quests = talker.getQuests();
+    const quest = quests.find(quest => quest.id === 201);
 
     if (quest) {
       this.giveItem(talker, 'fox_fang1', 1);

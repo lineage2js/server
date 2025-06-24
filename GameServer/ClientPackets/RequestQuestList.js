@@ -1,5 +1,6 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
+const playersManager = require('./../Managers/PlayersManager');
 
 class RequestQuestList {
   constructor(client, packet) {
@@ -10,7 +11,9 @@ class RequestQuestList {
   }
 
   _init() {
-    this._client.sendPacket(new serverPackets.QuestList());
+    const player = playersManager.getPlayerByClient(this._client);
+
+    this._client.sendPacket(new serverPackets.QuestList(player.getQuests()));
   }
 }
 

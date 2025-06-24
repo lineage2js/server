@@ -3,6 +3,7 @@ const serverPackets = require('./../ServerPackets/serverPackets');
 const characterStatusEnums = require('./../../enums/characterStatusEnums');
 const levelExpTable = require('./../data/exp.json');
 const Inventory = require('./../Systems/Inventory');
+const Quests = require('./../Systems/Quests');
 
 //
 const movingManager = require('./../Managers/MovingManager');
@@ -58,7 +59,7 @@ class Player extends Character {
 
     //
     this._inventory = new Inventory();
-    this.quests = [];
+    this._quests = new Quests();
     this.lastTalkedNpcId = null;
     this.pickupItem = null; // хранить objectId? как target?
     this._activeSoulShot = false;
@@ -99,6 +100,14 @@ class Player extends Character {
 
       items.splice(index, 1);
     }
+  }
+
+  addQuest(id) {
+    this._quests.addQuest(id);
+  }
+
+  getQuests() {
+    return this._quests.getQuests();
   }
 
   updateJob(job, payload) {

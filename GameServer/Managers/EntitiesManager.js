@@ -231,16 +231,9 @@ class EntitiesManager {
     });
 
     aiManager.on('setMemo', (talker, memo) => {
-      //
-      talker.quests.push({ id: memo, state: 0 });
-      //
+      talker.addQuest(memo); // memo - questId
 
-      const packet = new serverPackets.QuestList([
-        {
-          id: memo,
-          numberState: 1
-        }
-      ]);
+      const packet = new serverPackets.QuestList(talker.getQuests());
     
       playersManager.emit('notify', packet);
     });
