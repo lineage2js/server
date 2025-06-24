@@ -2,8 +2,8 @@ const ServerPacket = require('./ServerPacket.js');
 
 class Die {
   constructor(objectId) {
-    this._packet = new ServerPacket(29);
-    this._packet.writeC(0x0b)
+    this._packet = new ServerPacket();
+    this._packet.writeC(0x0B)
       .writeD(objectId)
       .writeD(1)
       .writeD(1)

@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class CharacterCreateFail {
   constructor(reason) {
-    this._packet = new ServerPacket(5);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x26)
       .writeD(reason);
   }

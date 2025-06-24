@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class VersionCheck {
   constructor(isCompliesProtocolVersion, key) {
-    this._packet = new ServerPacket(10);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x00)
       .writeC(isCompliesProtocolVersion ? 0x01 : 0x00)
       .writeC(key[0])

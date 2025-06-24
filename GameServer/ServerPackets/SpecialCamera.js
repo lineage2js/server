@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class SpecialCamera {
   constructor(objectId) {
-    this._packet = new ServerPacket(45);
+    this._packet = new ServerPacket();
     this._packet.writeC(0xE0)
       .writeD(objectId)
       .writeD(50)

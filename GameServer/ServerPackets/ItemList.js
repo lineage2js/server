@@ -24,7 +24,7 @@ const slot = {
 
 class ItemList {
   constructor(items, showWindow = false) {
-    this._packet = new ServerPacket(5 + (28 * items.length));
+    this._packet = new ServerPacket();
     this._packet.writeC(0x27)
       .writeH(showWindow ? 0x01 : 0x00)
       .writeH(items.length)

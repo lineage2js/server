@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class Ride {
   constructor(character, typePet) {
-    this._packet = new ServerPacket(17);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x9F)
       .writeD(character.objectId)
       .writeD(1) // 1 for mount ; 2 for dismount

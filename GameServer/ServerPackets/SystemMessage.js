@@ -12,8 +12,8 @@ const SYSTEM_MESSAGES_ENUMS = {
 
 class SystemMessage {
   constructor(messageId, messages = []) {
-    this._packet = new ServerPacket(9);
-    this._packet.writeC(0x7a)
+    this._packet = new ServerPacket();
+    this._packet.writeC(0x7A)
       .writeD(messageId)
       .writeD(messages.length);
     

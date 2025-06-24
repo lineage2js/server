@@ -2,8 +2,8 @@ const ServerPacket = require('./ServerPacket.js');
 
 class CharacterSelectInfo {
   constructor(login, characters) {
-    this._packet = new ServerPacket(characters ? characters.length * 400 : 10); // fix
-    this._packet.writeC(0x1f)
+    this._packet = new ServerPacket();
+    this._packet.writeC(0x1F)
 
     if(characters && characters.length > 0) {
       this._packet.writeD(characters.length);

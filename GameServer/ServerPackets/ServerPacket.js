@@ -5,12 +5,13 @@
 // writeS - string
 
 class ServerPacket {
-  constructor(size) {
-    this._buffer = Buffer.alloc(size + 4 + (size + 4) % 8); // (size + 4) % 8 - checksum. the packet is a multiple of 8.
+  constructor() {
+    this._buffer = Buffer.alloc(0);
     this._offset = 0;
   }
 
   writeC(value) {
+    this._expandBuffer(1);
     this._buffer.writeUInt8(value, this._offset);
     this._offset++;
 
@@ -18,6 +19,7 @@ class ServerPacket {
   }
 
   writeH(value) {
+    this._expandBuffer(2);
     this._buffer.writeUInt16LE(value, this._offset);
     this._offset += 2;
 
@@ -25,6 +27,7 @@ class ServerPacket {
   }
 
   writeD(value) {
+    this._expandBuffer(4);
     this._buffer.writeInt32LE(value, this._offset);
     this._offset += 4;
 
@@ -32,6 +35,7 @@ class ServerPacket {
   }
 
   writeF(value) {
+    this._expandBuffer(8);
     this._buffer.writeDoubleLE(value, this._offset);
     this._offset += 8;
       
@@ -39,19 +43,42 @@ class ServerPacket {
   }
 
   writeS(string) {
+    const byteLength = Buffer.byteLength(string, 'ucs2') + 2;
+  
+    this._expandBuffer(byteLength);
     this._buffer.write(string, this._offset, 'ucs2');
-    this._offset += Buffer.byteLength(string, 'ucs2') + 2;
-    this._buffer.writeInt16LE(0, this._offset - 2);
+    this._offset += byteLength - 2;
+    this._buffer.writeInt16LE(0, this._offset);
+    this._offset += 2;
 
     return this;
   }
 
   getBuffer() {
-    return this._buffer;
+    // Вычисляем целевой размер: (текущий_размер + 4) должно быть кратно 8
+    const targetSize = Math.ceil((this._offset + 4) / 8) * 8;
+    const padding = targetSize - this._offset;
+
+    // Если нужно добавить байты для выравнивания
+    if (padding > 0) {
+      this._expandBuffer(padding); // Расширяем буфер
+      this._buffer.fill(0, this._offset, this._offset + padding); // Заполняем нулями
+      
+      this._offset += padding; // Увеличиваем смещение
+    }
+
+    return this._buffer.subarray(0, this._offset);
   }
 
-  static strlen(str) {
-    return Buffer.byteLength(str, 'ucs2') + 2;
+  _expandBuffer(requiredBytes) {
+    const newSize = this._offset + requiredBytes;
+      
+    if (newSize > this._buffer.length) {
+      const newBuffer = Buffer.alloc(newSize);
+        
+      this._buffer.copy(newBuffer, 0, 0, this._offset);
+      this._buffer = newBuffer;
+    }
   }
 }
 

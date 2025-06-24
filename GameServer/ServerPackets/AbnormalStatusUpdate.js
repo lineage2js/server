@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class AbnormalStatusUpdate {
   constructor(effects) {
-    this._packet = new ServerPacket(13);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x97)
       .writeH(effects.length);
 

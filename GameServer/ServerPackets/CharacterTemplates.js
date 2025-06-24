@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class CharacterTemplates {
   constructor(characters) {
-    this._packet = new ServerPacket(85 * characters.length);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x23)
       .writeD(characters.length);
 

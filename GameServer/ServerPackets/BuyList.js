@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class BuyList {
   constructor(items) {
-    this._packet = new ServerPacket(11 + (items.length * (32)));
+    this._packet = new ServerPacket();
     this._packet.writeC(0x1D)
       .writeD(1000) // money
       .writeD(8) // buyListId ?

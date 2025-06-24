@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class ShortCutRegister {
   constructor(slot, type, typeId, level, dat2) {
-    this._packet = new ServerPacket(16);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x56)
       .writeD(type)
       .writeD(slot)

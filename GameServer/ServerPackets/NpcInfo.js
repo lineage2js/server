@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class NpcInfo {
   constructor(npc) {
-    this._packet = new ServerPacket(600);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x22)
       .writeD(npc.objectId)
       .writeD(1000000 + npc.id)

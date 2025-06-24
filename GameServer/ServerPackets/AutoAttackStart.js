@@ -2,8 +2,8 @@ const ServerPacket = require('./ServerPacket.js');
 
 class AutoAttackStart {
   constructor(objectId) {
-    this._packet = new ServerPacket(5);
-    this._packet.writeC(0x3b)
+    this._packet = new ServerPacket();
+    this._packet.writeC(0x3B)
       .writeD(objectId);
   }
 

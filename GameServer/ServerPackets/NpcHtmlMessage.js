@@ -2,8 +2,8 @@ const ServerPacket = require('./ServerPacket.js');
 
 class NpcHtmlMessage {
   constructor(html) {
-    this._packet = new ServerPacket(5 + ServerPacket.strlen(html));
-    this._packet.writeC(0x1b)
+    this._packet = new ServerPacket();
+    this._packet.writeC(0x1B)
       .writeD(1) // messageId
       .writeS(html);
   }

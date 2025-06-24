@@ -1,9 +1,9 @@
 const ServerPacket = require('./ServerPacket.js'); 
 
 class StatusUpdate {
-  constructor(objectId, attributes) { // fix
-    this._packet = new ServerPacket(17);
-    this._packet.writeC(0x1a)
+  constructor(objectId, attributes) {
+    this._packet = new ServerPacket();
+    this._packet.writeC(0x1A)
       .writeD(objectId)
       .writeD(attributes.length)
 
@@ -11,7 +11,6 @@ class StatusUpdate {
       this._packet.writeD(attributes[i].id)
         .writeD(attributes[i].value);
     }
-      
   }
 
   getBuffer() {

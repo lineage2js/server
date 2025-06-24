@@ -2,8 +2,8 @@ const ServerPacket = require('./ServerPacket.js');
 
 class ChangeMoveType {
   constructor(objectId, moveType) {
-    this._packet = new ServerPacket(9);
-    this._packet.writeC(0x3e)
+    this._packet = new ServerPacket();
+    this._packet.writeC(0x3E)
       .writeD(objectId)
       .writeD(moveType);
   }

@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class ShowRadar {
   constructor(player) {
-    this._packet = new ServerPacket(13);
+    this._packet = new ServerPacket();
     this._packet.writeC(0xBD)
       .writeD(player.x)
       .writeD(player.y)

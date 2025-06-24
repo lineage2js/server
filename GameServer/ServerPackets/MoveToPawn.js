@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class MoveToPawn {
   constructor(player, target, distance) {
-    this._packet = new ServerPacket(37);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x75)
       .writeD(player.objectId)
       .writeD(target.objectId)

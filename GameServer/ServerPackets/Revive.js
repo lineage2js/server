@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class Revive {
   constructor(objectId) {
-    this._packet = new ServerPacket(5);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x0C)
       .writeD(objectId);
   }

@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class EarthQuake {
   constructor(x, y, z, intensity, duration) {
-    this._packet = new ServerPacket(25);
+    this._packet = new ServerPacket();
     this._packet.writeC(0xDD)
       .writeD(x)
       .writeD(y)

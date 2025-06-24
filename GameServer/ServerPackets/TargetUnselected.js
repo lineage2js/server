@@ -2,8 +2,8 @@ const ServerPacket = require('./ServerPacket');
 
 class TargetUnselected {
   constructor(player) {
-    this._packet = new ServerPacket(21);
-    this._packet.writeC(0x3a)
+    this._packet = new ServerPacket();
+    this._packet.writeC(0x3A)
       .writeD(player.objectId)
       .writeD(player.x)
       .writeD(player.y)

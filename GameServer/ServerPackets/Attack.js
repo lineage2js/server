@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class Attack {
   constructor(player, targetObjectId, soulshot = false) {
-    this._packet = new ServerPacket(23);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x06)
       .writeD(player.objectId)
       .writeD(targetObjectId)

@@ -2,7 +2,7 @@ const ServerPacket = require('./ServerPacket.js');
 
 class MoveToLocation {
   constructor(positions, objectId) {
-    this._packet = new ServerPacket(29);
+    this._packet = new ServerPacket();
     this._packet.writeC(0x01)
       .writeD(objectId)
       .writeD(positions.target.x)
