@@ -1,12 +1,11 @@
 const ClientPacket = require("./ClientPacket");
-const playersManager = require('./../Managers/PlayersManager');
 const serverPackets = require('./../ServerPackets/serverPackets');
 
 class RequestShortCutReg {
-  constructor(packet, client) {
+  constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readD()
       .readD()
       .readD()
@@ -16,19 +15,19 @@ class RequestShortCutReg {
   }
 
   get type() {
-    return this._data.getData()[1];
+    return this._data.getData()[0];
   }
 
   get slot() {
-    return this._data.getData()[2];
+    return this._data.getData()[1];
   }
 
   get id() {
-    return this._data.getData()[3];
+    return this._data.getData()[2];
   }
 
   get unk() { // characterType ? fix
-    return this._data.getData()[4];
+    return this._data.getData()[3];
   }
 
   _init() {

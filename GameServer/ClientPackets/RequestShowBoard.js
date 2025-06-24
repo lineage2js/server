@@ -6,7 +6,7 @@ class RequestShowBoard {
   constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readD();
 
     this._init();

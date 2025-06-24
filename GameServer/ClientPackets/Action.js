@@ -8,10 +8,10 @@ const DropItem = require('./../Models/DropItem');
 const characterStatusEnums = require('./../../enums/characterStatusEnums');
 
 class Action {
-  constructor(packet, client) {
+  constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readD()
       .readD()
       .readD()
@@ -22,23 +22,23 @@ class Action {
   }
 
   get objectId() {
-    return this._data.getData()[1];
+    return this._data.getData()[0];
   }
 
   get originX() {
-    return this._data.getData()[2];
+    return this._data.getData()[1];
   }
 
   get originY() {
-    return this._data.getData()[3];
+    return this._data.getData()[2];
   }
 
   get originZ() {
-    return this._data.getData()[4];
+    return this._data.getData()[3];
   }
 
   get actionId() {
-    return this._data.getData()[5]; // 0 - click, 1 - shift click
+    return this._data.getData()[4]; // 0 - click, 1 - shift click
   }
 
   _init() {

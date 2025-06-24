@@ -2,10 +2,9 @@ const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 
 class RequestQuestList {
-  constructor(packet, client) {
+  constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC();
 
     this._init();
   }

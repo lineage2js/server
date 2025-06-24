@@ -1,22 +1,19 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
-const database = require('./../../Database');
-const playersManager = require('./../Managers/PlayersManager');
 const adminPanelManager = require('./../Managers/AdminPanelManager');
-const config = require('./../../config');
 
 class SendBypassBuildCmd {
   constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readS();
 
     this._init();
   }
   
   get command() {
-    return this._data.getData()[1];
+    return this._data.getData()[0];
   }
 
   async _init() {

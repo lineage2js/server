@@ -3,10 +3,9 @@ const ClientPacket = require("./ClientPacket");
 const playersManager = require('./../Managers/PlayersManager');
 
 class RequestItemList {
-  constructor(packet, client) {
+  constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
 
     this._init();
   }

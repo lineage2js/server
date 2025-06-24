@@ -1,14 +1,12 @@
 const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
-const database = require('./../../Database');
 const playersManager = require('./../Managers/PlayersManager');
-const config = require('./../../config');
 
 class RequestActionUse {
   constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readD()
       .readD()
       .readC();
@@ -17,15 +15,15 @@ class RequestActionUse {
   }
 
   get actionId() {
-    return this._data.getData()[1];
+    return this._data.getData()[0];
   }
   
   get ctrlStatus() {
-    return this._data.getData()[2];
+    return this._data.getData()[1];
   }
   
   get shiftStatus() {
-    return this._data.getData()[3];
+    return this._data.getData()[2];
   }
 
   async _init() {

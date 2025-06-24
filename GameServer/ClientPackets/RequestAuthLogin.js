@@ -5,10 +5,10 @@ const playersManager = require('./../Managers/PlayersManager');
 const config = require('./../../config');
 
 class RequestAuthLogin {
-  constructor(packet, client) {
+  constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readS()
       .readD()
       .readD()
@@ -19,14 +19,14 @@ class RequestAuthLogin {
   }
 
   get login() {
-    return this._data.getData()[1];
+    return this._data.getData()[0];
   }
 
   get sessionKey1() {
     const sessionKey1 = [];
 
-    sessionKey1[0] = this._data.getData()[4].toString(16);
-    sessionKey1[1] = this._data.getData()[5].toString(16);
+    sessionKey1[0] = this._data.getData()[3].toString(16);
+    sessionKey1[1] = this._data.getData()[4].toString(16);
 
     return sessionKey1;
   }
@@ -34,8 +34,8 @@ class RequestAuthLogin {
   get sessionKey2() {
     const sessionKey2 = [];
 
-    sessionKey2[0] = this._data.getData()[3].toString(16);
-    sessionKey2[1] = this._data.getData()[2].toString(16);
+    sessionKey2[0] = this._data.getData()[2].toString(16);
+    sessionKey2[1] = this._data.getData()[1].toString(16);
 
     return sessionKey2;
   }

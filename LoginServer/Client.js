@@ -11,7 +11,7 @@ class Client {
     this._init();
   }
 
-  sendPacket(packetInstance , encoding = true) {
+  sendPacket(packetInstance, encoding = true) {
     const buffer = packetInstance.getBuffer();
     const packetLength = this._getPacketLength(buffer);
     let payload = buffer;

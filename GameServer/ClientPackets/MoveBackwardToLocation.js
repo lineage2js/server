@@ -2,10 +2,10 @@ const ClientPacket = require("./ClientPacket");
 const playersManager = require('./../Managers/PlayersManager');
 
 class MoveBackwardToLocation {
-  constructor(packet, client) {
+  constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readD()
       .readD()
       .readD()
@@ -17,22 +17,22 @@ class MoveBackwardToLocation {
   }
 
   get targetX() {
-    return this._data.getData()[1];
+    return this._data.getData()[0];
   }
   get targetY() {
-    return this._data.getData()[2];
+    return this._data.getData()[1];
   }
   get targetZ() {
-    return this._data.getData()[3];
+    return this._data.getData()[2];
   }
   get originX() {
-    return this._data.getData()[4];
+    return this._data.getData()[3];
   }
   get originY() {
-    return this._data.getData()[5];
+    return this._data.getData()[4];
   }
   get originZ() {
-    return this._data.getData()[6];
+    return this._data.getData()[5];
   }
 
   async _init() {

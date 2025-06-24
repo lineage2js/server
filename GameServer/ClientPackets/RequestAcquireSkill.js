@@ -5,7 +5,7 @@ class RequestAcquireSkill {
   constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readD()
       .readD();
 
@@ -13,11 +13,11 @@ class RequestAcquireSkill {
   }
 
    get skillId() {
-    return this._data.getData()[1];
+    return this._data.getData()[0];
   }
 
   get skillLevel() {
-    return this._data.getData()[2];
+    return this._data.getData()[1];
   }
 
   async _init() {

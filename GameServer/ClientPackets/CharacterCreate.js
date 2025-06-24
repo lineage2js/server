@@ -7,10 +7,10 @@ const playersManager = require('./../Managers/PlayersManager');
 const itemsManager = require('./../Managers/ItemsManager');
 
 class CharacterCreate {
-  constructor(packet, client) {
+  constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
-    this._data.readC()
+    this._data
       .readS()
       .readD()
       .readD()
@@ -29,31 +29,31 @@ class CharacterCreate {
   }
 
   get name() {
-    return this._data.getData()[1];
+    return this._data.getData()[0];
   }
 
   get race() {
-    return this._data.getData()[2];
+    return this._data.getData()[1];
   }
 
   get gender() {
-    return this._data.getData()[3];
+    return this._data.getData()[2];
   }
 
   get classId() {
-    return this._data.getData()[4];
+    return this._data.getData()[3];
   }
 
   get hairStyle() {
-    return this._data.getData()[11];
+    return this._data.getData()[10];
   }
 
   get hairColor() {
-    return this._data.getData()[12];
+    return this._data.getData()[11];
   }
 
   get face() {
-    return this._data.getData()[13];
+    return this._data.getData()[12];
   }
 
   _checkCharacterNameLetters(name) {
