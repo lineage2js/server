@@ -2,14 +2,11 @@ const serverPackets = require('./../ServerPackets/serverPackets');
 const ClientPacket = require("./ClientPacket");
 const playersManager = require('./../Managers/PlayersManager');
 
-class RequestDropItem {
+class RequestDestroyItem {
   constructor(client, packet) {
     this._client = client;
     this._data = new ClientPacket(packet);
     this._data
-      .readD()
-      .readD()
-      .readD()
       .readD()
       .readD();
 
@@ -24,23 +21,14 @@ class RequestDropItem {
     return this._data.getData()[1];
   }
 
-  get x() {
-    return this._data.getData()[2];
-  }
-
-  get y() {
-    return this._data.getData()[3];
-  }
-
-  get z() {
-    return this._data.getData()[4];
-  }
-
   async _init() {
     const player = playersManager.getPlayerByClient(this._client);
+    const item = player.getItemByObjectId(this.objectId);
 
-    player.emit('dropItem', this.objectId, this.x, this.y, this.z);
+    player.deleteItemByObjectId(item.objectId);
+
+    this._client.sendPacket(new serverPackets.ItemList(player.getItems()));
   }
 }
 
-module.exports = RequestDropItem;
+module.exports = RequestDestroyItem;

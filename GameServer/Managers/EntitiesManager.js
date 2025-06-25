@@ -193,7 +193,7 @@ class EntitiesManager {
     playersManager.on('dropItem', async (player, objectId, x, y, z) => {
       const item = player.getItemByObjectId(objectId);
 
-      player.deleteItemByObjectId(objectId);
+      player.deleteItemByObjectId(item.objectId);
 
       const droppedItem = await dropItemsManager.createDropItem(item, x, y, z);
 

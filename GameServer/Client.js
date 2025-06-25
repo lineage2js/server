@@ -207,6 +207,10 @@ class Client {
         new clientPackets.RequestDropItem(this, payloadPacket);
 
         break;
+      case 0x59:
+        new clientPackets.RequestDestroyItem(this, payloadPacket);
+
+        break;
     }
   }
 
