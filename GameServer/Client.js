@@ -211,6 +211,10 @@ class Client {
         new clientPackets.RequestDestroyItem(this, payloadPacket);
 
         break;
+      case 0x64:
+        new clientPackets.RequestDestroyQuest(this, payloadPacket);
+
+        break;
     }
   }
 

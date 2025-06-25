@@ -33,6 +33,7 @@ const RequestAcquireSkillInfo = require('./RequestAcquireSkillInfo');
 const RequestAcquireSkill = require('./RequestAcquireSkill');
 const RequestDropItem = require('./RequestDropItem');
 const RequestDestroyItem = require('./RequestDestroyItem');
+const RequestDestroyQuest = require('./RequestDestroyQuest');
 
 module.exports = {
   SendProtocolVersion,
@@ -70,4 +71,5 @@ module.exports = {
   RequestAcquireSkill,
   RequestDropItem,
   RequestDestroyItem,
+  RequestDestroyQuest,
 }

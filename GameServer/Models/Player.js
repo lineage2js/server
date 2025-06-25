@@ -117,6 +117,17 @@ class Player extends Character {
     this._quests.addQuest(id);
   }
 
+  deleteQuestById(questId) {
+    const quests = this._quests.getQuests();
+    const foundItem = quests.find(quest => quest.id === questId);
+
+    if (foundItem) {
+      const index = quests.indexOf(foundItem);
+
+      quests.splice(index, 1);
+    }
+  }
+
   getQuests() {
     return this._quests.getQuests();
   }
