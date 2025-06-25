@@ -47,6 +47,10 @@ class PlayersManager extends EventEmitter {
     player.on('regenerate', () => {
       this.emit('regenerate', player);
     });
+
+    player.on('dropItem', (objectId, x, y, z) => {
+      this.emit('dropItem', player, objectId, x, y, z);
+    });
   }
 
   getPlayerByClient(client) {

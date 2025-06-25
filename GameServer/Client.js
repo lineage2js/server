@@ -203,6 +203,10 @@ class Client {
         new clientPackets.RequestAcquireSkill(this, payloadPacket);
 
         break;
+      case 0x12:
+        new clientPackets.RequestDropItem(this, payloadPacket);
+
+        break;
     }
   }
 

@@ -136,6 +136,10 @@ class EntitiesManager {
       }
 
       {
+        playersManager.emit('notify', new serverPackets.ItemList(player.getItems()));
+      }
+
+      {
         const packet = new serverPackets.DeleteObject(dropItem.objectId);
       
         playersManager.emit('notify', packet);
@@ -184,6 +188,25 @@ class EntitiesManager {
         }
       ]));
       playersManager.emit('notify', new serverPackets.Die(player.objectId));
+    });
+
+    playersManager.on('dropItem', async (player, objectId, x, y, z) => {
+      const item = player.getItemByObjectId(objectId);
+
+      player.deleteItemByObjectId(objectId);
+
+      const droppedItem = await dropItemsManager.createDropItem(item, x, y, z);
+
+      this._entities.push(droppedItem);
+
+      playersManager.emit('notify', new serverPackets.ItemList(player.getItems()));
+      playersManager.emit('notify', new serverPackets.DropItem(player, {
+        objectId: droppedItem.objectId,
+        itemId: droppedItem.itemId,
+        x: droppedItem.x,
+        y: droppedItem.y,
+        z: droppedItem.z
+      }));
     });
 
     botsManager.on('spawn', bot => {

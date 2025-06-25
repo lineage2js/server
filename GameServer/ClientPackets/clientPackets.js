@@ -31,6 +31,7 @@ const RequestBuyItem = require('./RequestBuyItem');
 const RequestRestartPoint = require('./RequestRestartPoint');
 const RequestAcquireSkillInfo = require('./RequestAcquireSkillInfo');
 const RequestAcquireSkill = require('./RequestAcquireSkill');
+const RequestDropItem = require('./RequestDropItem');
 
 module.exports = {
   SendProtocolVersion,
@@ -66,4 +67,5 @@ module.exports = {
   RequestRestartPoint,
   RequestAcquireSkillInfo,
   RequestAcquireSkill,
+  RequestDropItem,
 }

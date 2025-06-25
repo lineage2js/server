@@ -102,6 +102,17 @@ class Player extends Character {
     }
   }
 
+  deleteItemByObjectId(objectId) {
+    const items = this._inventory.getItems();
+    const foundItem = items.find(item => item.objectId === objectId);
+
+    if (foundItem) {
+      const index = items.indexOf(foundItem);
+
+      items.splice(index, 1);
+    }
+  }
+
   addQuest(id) {
     this._quests.addQuest(id);
   }
