@@ -62,6 +62,7 @@ const AcquireSkillInfo = require('./AcquireSkillInfo');
 const AcquireSkillDone = require('./AcquireSkillDone');
 const ShowTutorialMark = require('./ShowTutorialMark');
 const TutorialCloseHtml = require('./TutorialCloseHtml');
+const NetPing = require('./NetPing');
 
 module.exports = {
   VersionCheck,
@@ -128,4 +129,5 @@ module.exports = {
   AcquireSkillDone,
   ShowTutorialMark,
   TutorialCloseHtml,
+  NetPing,
 }

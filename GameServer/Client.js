@@ -223,6 +223,10 @@ class Client {
         new clientPackets.RequestTutorialLinkHtml(this, payloadPacket);
 
         break;
+      case 0xA8:
+        new clientPackets.NetPing(this, payloadPacket);
+
+        break;
     }
   }
 
