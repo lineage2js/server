@@ -60,6 +60,8 @@ const SpecialCamera = require('./SpecialCamera');
 const EarthQuake = require('./EarthQuake');
 const AcquireSkillInfo = require('./AcquireSkillInfo');
 const AcquireSkillDone = require('./AcquireSkillDone');
+const ShowTutorialMark = require('./ShowTutorialMark');
+const TutorialCloseHtml = require('./TutorialCloseHtml');
 
 module.exports = {
   VersionCheck,
@@ -124,4 +126,6 @@ module.exports = {
   EarthQuake,
   AcquireSkillInfo,
   AcquireSkillDone,
+  ShowTutorialMark,
+  TutorialCloseHtml,
 }

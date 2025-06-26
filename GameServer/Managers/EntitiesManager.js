@@ -256,6 +256,12 @@ class EntitiesManager {
     aiManager.on('setMemo', (talker, memo) => {
       talker.addQuest(memo); // memo - questId
 
+      if (memo === 201) {
+        const packet = new serverPackets.ShowTutorialMark(12);
+    
+        playersManager.emit('notify', packet);
+      }
+
       const packet = new serverPackets.QuestList(talker.getQuests());
     
       playersManager.emit('notify', packet);

@@ -215,6 +215,14 @@ class Client {
         new clientPackets.RequestDestroyQuest(this, payloadPacket);
 
         break;
+      case 0x7D:
+        new clientPackets.RequestTutorialQuestionMarkPressed(this, payloadPacket);
+
+        break;
+      case 0x7B:
+        new clientPackets.RequestTutorialLinkHtml(this, payloadPacket);
+
+        break;
     }
   }
 
