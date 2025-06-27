@@ -9,7 +9,8 @@ class CommunityBoardManager {
   }
 
   _getFileContentByFileName(fileName) {
-    const content = fs.readFileSync(path.resolve(__dirname, `./../../Data/html/community/${fileName}.htm`), 'utf8');
+    const dir = path.join(process.cwd(), 'Data/html/community');
+    const content = fs.readFileSync(path.join(dir, `${fileName}.htm`), 'utf8');
 
     return content;
   }
