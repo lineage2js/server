@@ -15,11 +15,13 @@ class Logout {
     const player = playersManager.getPlayerByClient(this._client);
     const character = await database.getCharacterByObjectId(player.objectId);
 
-    character.x = Math.floor(player.x); // fix, update all doc?
-    character.y = Math.floor(player.y);
-    character.z = Math.floor(player.z);
+    if (character) { // сохранять точно не тут. В каком-нибудь менеджере.
+      character.x = Math.floor(player.x); // fix, update all doc?
+      character.y = Math.floor(player.y);
+      character.z = Math.floor(player.z);
 
-    await database.updateCharacterByObjectId(character.objectId, character);
+      await database.updateCharacterByObjectId(character.objectId, character);
+    }
 
     this._client.sendPacket(new serverPackets.LeaveWorld());
   }
