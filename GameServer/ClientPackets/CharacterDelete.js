@@ -22,8 +22,8 @@ class CharacterDelete {
     const characters = await database.getCharactersByLogin(player.login);
     const character = characters[this.characterSlot];
 
-    await database.deleteCharacterByObjectId(character.objectId);
-    await database.deleteInventoryByObjectId(character.inventoryId);
+    await database.deleteCharacter(character.objectId);
+    await database.deleteCharacterInventory(character.objectId);
     
     this._client.sendPacket(new serverPackets.CharacterDeleteOk());
     this._client.sendPacket(new serverPackets.CharacterSelectInfo(player.login, await database.getCharactersByLogin(player.login))); // fix?

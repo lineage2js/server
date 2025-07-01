@@ -114,24 +114,6 @@ class CharacterCreate {
       }
     });
 
-    //fix
-    // create inventory
-    const initialEquipment = require('./../../Data/initialEquipment.json');
-    const inventory = {
-      objectId: await database.getNextObjectId(), // fix
-      items: []
-    };
-
-    for (let i = 0; i < initialEquipment['human_fighter'].length; i++) {
-      const itemName = initialEquipment['human_fighter'][i];
-      const item = await itemsManager.createItemByName(itemName);
-
-      inventory.items.push(item);
-    }
-
-    await database.addInventory(inventory);
-    //
-
     // create character
     const character = Character.create(characterTemplate);
 
@@ -144,10 +126,35 @@ class CharacterCreate {
     character.hairStyle = this.hairStyle;
     character.hairColor = this.hairColor;
     character.face = this.face;
-    character.inventoryId = inventory.objectId;
 
     // add character to database
-    await database.addCharacter(character);
+    const createdCharacter = await database.createCharacter(character);
+
+    //fix
+    //create inventory
+    const initialEquipment = require('./../../Data/initialEquipment.json');
+    const inventoryItems = [];
+
+    for (let i = 0; i < initialEquipment['human_fighter'].length; i++) {
+      const itemName = initialEquipment['human_fighter'][i];
+      const item = await itemsManager.createItemByName(itemName);
+      const inventoryItem = {
+        itemObjectId: item.objectId,
+        itemId: item.itemId,
+        itemType: item.itemType,
+        itemName: item.itemName,
+        itemCount: item.getCount(),
+        itemEquipSlot: item.equipSlot,
+        isEquipped: item.isEquipped,
+        consumeType: item.consumeType,
+        characterObjectId: createdCharacter.object_id, // extra fix
+      }
+
+      inventoryItems.push(inventoryItem);
+    }
+
+    await database.createInventory(inventoryItems);
+    //
 
     // get all characters on user account
     const characters = await database.getCharactersByLogin(player.login);

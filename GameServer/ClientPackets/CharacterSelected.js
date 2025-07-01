@@ -22,19 +22,20 @@ class CharacterSelected {
     const player = playersManager.getPlayerByClient(this._client);
     const characters = await database.getCharactersByLogin(player.login);
     const character = characters[this.characterSlot];
-    const inventory = await database.getInventoryByObjectId(character.inventoryId); // fix ?
+    const inventoryItems = await database.getCharacterInventoryItems(character.objectId);
 
     player.update(character);
-    
+
     // fix
-    for (let i = 0; i < inventory.items.length; i++) {
+    for (let i = 0; i < inventoryItems.length; i++) {
+      const inventoryItem = inventoryItems[i];
       const item = new Item( // fix
-        inventory.items[i].objectId,
-        inventory.items[i].itemId,
-        inventory.items[i].consume_type,
-        inventory.items[i].item_type,
-        inventory.items[i].itemName,
-        inventory.items[i].equipSlot,
+        inventoryItem.objectId,
+        inventoryItem.itemId,
+        inventoryItem.consumeType,
+        inventoryItem.itemType,
+        inventoryItem.itemName,
+        inventoryItem.equipSlot,
       );
 
       player.addItem(item);

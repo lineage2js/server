@@ -1,4 +1,7 @@
 module.exports = {
-  host: "127.0.0.1:27017",
-  dbname: "l2db",
+  username: 'postgres',
+  password: 'root',
+  host: '127.0.0.1',
+  port: 5432,
+  dbname: 'l2db',
 }
