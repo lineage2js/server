@@ -51,6 +51,14 @@ class PlayersManager extends EventEmitter {
     player.on('dropItem', (objectId, x, y, z) => {
       this.emit('dropItem', player, objectId, x, y, z);
     });
+
+    player.on('startedMoving', () => {
+      this.emit('startedMoving', player);
+    });
+
+    player.on('endMoving', () => {
+      this.emit('endMoving', player);
+    });
   }
 
   getPlayerByClient(client) {

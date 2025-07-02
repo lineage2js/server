@@ -18,6 +18,7 @@ class EntitiesManager {
     const aiManager = require('./AiManager');
     const dropItemsManager = require('./DropItemsManager');
     const regenerationManager = require('./RegenerationManager');
+    const movingManager = require('./MovingManager');
     const serverPackets = require('./../ServerPackets/serverPackets');
 
     npcManager.on('spawn', npc => {
@@ -207,6 +208,14 @@ class EntitiesManager {
         y: droppedItem.y,
         z: droppedItem.z
       }));
+    });
+
+    playersManager.on('startedMoving', async (player) => {
+      movingManager.registerMovingObject(player);
+    });
+
+    playersManager.on('endMoving', async (player) => {
+      movingManager.unregisterMovingObject(player);
     });
 
     botsManager.on('spawn', bot => {

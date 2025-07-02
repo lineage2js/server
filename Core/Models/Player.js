@@ -6,7 +6,6 @@ const Inventory = require('./../Systems/Inventory');
 const Quests = require('./../Systems/Quests');
 
 //
-const movingManager = require('./../Managers/MovingManager');
 const npcManager = require('./../Managers/NpcManager');
 const aiManager = require('./../Managers/AiManager');
 //
@@ -184,7 +183,7 @@ class Player extends Character {
     this.path = path;
 
     if (!this.isMoving) {
-      movingManager.registerMovingObject(this);
+      this.emit('startedMoving');
 
       this.positionUpdateTimestamp = Date.now();
       this.isMoving = true;
@@ -337,7 +336,8 @@ class Player extends Character {
   }
 
   stop() {
-    movingManager.unregisterMovingObject(this); // fix надо дожидаться
+    //movingManager.unregisterMovingObject(this); // fix надо дожидаться
+    this.emit('endMoving');
     
     this.isMoving = false;
 
