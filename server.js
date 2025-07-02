@@ -58,7 +58,7 @@ async function run() {
 
       const gameserver = await database.getGameServerById(config.gameserver.id);
       
-      await database.updateGameServerById(gameserver.id, "status", serverStatus.STATUS_UP);
+      await database.updateGameServer(gameserver.id, "status", serverStatus.STATUS_UP);
 
       entitiesManager.enable();
       await npcManager.enable();
@@ -77,7 +77,7 @@ process.stdin.resume();
 process.on('SIGINT', async () => {
   const gameserver = await database.getGameServerById(config.gameserver.id);
 
-  await database.updateGameServerById(gameserver.id, "status", serverStatus.STATUS_DOWN);
+  await database.updateGameServer(gameserver.id, "status", serverStatus.STATUS_DOWN);
 
   process.exit(0);
 });

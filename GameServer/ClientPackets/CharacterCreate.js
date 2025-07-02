@@ -96,10 +96,10 @@ class CharacterCreate {
       return;
     }
 
-    const isUsedCharacterName = await database.checkCharacterNameExists(this.name);
+    const isCharacterNameTaken = await database.isCharacterNameTaken(this.name);
 
     // check character name for availability
-    if (isUsedCharacterName) {
+    if (isCharacterNameTaken) {
       this._client.sendPacket(new serverPackets.CharacterCreateFail(serverPackets.CharacterCreateFail.reason.REASON_NAME_ALREADY_EXISTS))
       
       return;

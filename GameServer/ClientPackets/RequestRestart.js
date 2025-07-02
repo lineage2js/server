@@ -13,7 +13,7 @@ class RequestRestart {
 
   async _init() {
     const player = playersManager.getPlayerByClient(this._client);
-    const character = await database.getCharacterByObjectId(player.objectId);
+    const character = await database.getCharacter(player.objectId);
 
     character.x = Math.floor(player.x); // fix, update all doc?
     character.y = Math.floor(player.y);
@@ -21,7 +21,7 @@ class RequestRestart {
 
     // clear interval after restart?
 
-    await database.updateCharacterByObjectId(character.objectId, character);
+    await database.updateCharacter(character.objectId, character);
 
     const allowRestart = true; // fix
     const characters = await database.getCharactersByLogin(player.login);

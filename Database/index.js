@@ -75,7 +75,7 @@ class Database {
     return characterData;
   }
 
-  async updateCharacterByObjectId(objectId, character) {
+  async updateCharacter(objectId, character) {
     await this._client.query(`
       UPDATE characters
       SET
@@ -84,17 +84,6 @@ class Database {
         z = $4
       WHERE object_id = $1 
     `, [objectId, character.x, character.y, character.z]);
-  }
-
-  async getCharacterByLogin(userLogin) { // fix byUserLogin? PlayerLogin?
-    // const result = await this._client.query(`
-    //   SELECT *
-    //   FROM characters
-    //   WHERE user_login = $1
-    // `, [userLogin]);
-
-    // const characters
-    //
   }
 
   async getCharactersByLogin(userLogin) { // fix delete
@@ -148,7 +137,7 @@ class Database {
     return characters;
   }
 
-  async getCharacterByObjectId(objectId) {
+  async getCharacter(objectId) {
     const result = await this._client.query(`
       SELECT
       object_id AS "objectId",
@@ -199,7 +188,7 @@ class Database {
     return character;
   }
 
-  async checkCharacterNameExists(characterName) {
+  async isCharacterNameTaken(characterName) {
     const result = await this._client.query(`
       SELECT EXISTS(
         SELECT 1
@@ -208,9 +197,9 @@ class Database {
         LIMIT 1
       )
     `, [characterName]);
-    const isCharacterNameExisting = result.rows[0].exists;
+    const isNameTaken = result.rows[0].exists;
 
-    return isCharacterNameExisting;
+    return isNameTaken;
   }
 
   async deleteCharacter(objectId) {
@@ -282,7 +271,7 @@ class Database {
     return isGameServerExisting;
   }
 
-  async updateGameServerById(id, field, value) {
+  async updateGameServer(id, field, value) {
     await this._client.query(`
       UPDATE gameservers
       SET server_status = $1
